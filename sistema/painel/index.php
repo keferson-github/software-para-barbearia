@@ -104,9 +104,13 @@ $dataMesInicial = $partesInicial[1];
 	</style>
 	<!--pie-chart --><!-- index page sales reviews visitors pie chart -->
 	<script src="js/pie-chart.js" type="text/javascript"></script>
+	<!-- Chart.js para gráficos modernos -->
+	<script src="js/Chart.js" type="text/javascript"></script>
+	<script src="js/modern-charts.js" type="text/javascript"></script>
 	<script type="text/javascript">
 
 		$(document).ready(function () {
+			// Gráficos antigos (mantidos como fallback)
 			$('#demo-pie-1').pieChart({
 				barColor: '#2dde98',
 				trackColor: '#eee',
@@ -136,6 +140,11 @@ $dataMesInicial = $partesInicial[1];
 					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
 				}
 			});
+
+			// Inicializar gráficos modernos
+			if (typeof ModernCharts !== 'undefined') {
+				ModernCharts.init();
+			}
 
 
 		});

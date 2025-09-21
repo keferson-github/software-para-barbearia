@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Migração - SimpleChart.js → Chart.js v1.0.2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .chart-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .chart-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        #Linegraph {
+            width: 100%;
+            height: 400px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover { background-color: #0056b3; }
+        .btn-danger { background-color: #dc3545; }
+        .btn-danger:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste de Migração: Demonstrativo Financeiro</h1>
+        <p>Esta página testa a migração do SimpleChart.js para Chart.js v1.0.2 mantendo os mesmos dados PHP.</p>
+        
+        <div id="status-container">
+            <div class="status info">
+                <strong>Status:</strong> Aguardando teste...
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title">📊 Demonstrativo Financeiro - Gráfico Migrado</div>
+            <canvas id="Linegraph" width="800" height="400"></canvas>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button class="btn" onclick="testMigration()">🚀 Testar Migração</button>
+            <button class="btn btn-danger" onclick="clearChart()">🗑️ Limpar Gráfico</button>
+        </div>
+
+        <div id="data-info" style="margin-top: 20px;">
+            <h3>📋 Dados de Teste (Simulando PHP)</h3>
+            <p><strong>Despesas:</strong> <span id="despesas-data"></span></p>
+            <p><strong>Vendas:</strong> <span id="vendas-data"></span></p>
+            <p><strong>Serviços:</strong> <span id="servicos-data"></span></p>
+        </div>
+    </div>
+
+    <!-- Chart.js v1.0.2 -->
+    <script src="js/Chart.js"></script>
+    
+    <script>
+        // Simular dados PHP (mesma estrutura do sistema real)
+        var saldo_mes = [1200.50, 1450.75, 980.25, 1650.00, 1320.80, 1100.45, 1580.90, 1750.30, 1420.60, 1680.15, 1950.25, 2100.80];
+        var saldo_mes_venda = [3500.00, 4200.50, 3800.75, 4500.25, 4100.80, 3900.45, 4800.90, 5200.30, 4600.60, 4900.15, 5500.25, 6000.80];
+        var saldo_mes_servico = [2800.00, 3200.50, 2900.75, 3400.25, 3100.80, 2950.45, 3600.90, 3900.30, 3300.60, 3700.15, 4100.25, 4500.80];
+
+        var currentChart = null;
+
+        function updateDataInfo() {
+            document.getElementById('despesas-data').textContent = saldo_mes.map(v => 'R$ ' + v.toFixed(2)).join(', ');
+            document.getElementById('vendas-data').textContent = saldo_mes_venda.map(v => 'R$ ' + v.toFixed(2)).join(', ');
+            document.getElementById('servicos-data').textContent = saldo_mes_servico.map(v => 'R$ ' + v.toFixed(2)).join(', ');
+        }
+
+        function updateStatus(message, type = 'info') {
+            const statusContainer = document.getElementById('status-container');
+            statusContainer.innerHTML = `<div class="status ${type}"><strong>Status:</strong> ${message}</div>`;
+        }
+
+        function createFinancialChart() {
+            try {
+                // Labels dos meses
+                var labels = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+                              "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                
+                // Datasets com os mesmos dados PHP
+                var datasets = [
+                    {
+                        label: "Serviços",
+                        fillColor: "rgba(14,36,138,0.2)",
+                        strokeColor: "#0e248a",
+                        pointColor: "#0e248a",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "#0e248a",
+                        data: saldo_mes_servico.map(v => parseFloat(v))
+                    },
+                    {
+                        label: "Vendas",
+                        fillColor: "rgba(16,148,71,0.2)",
+                        strokeColor: "#109447",
+                        pointColor: "#109447",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "#109447",
+                        data: saldo_mes_venda.map(v => parseFloat(v))
+                    },
+                    {
+                        label: "Despesas",
+                        fillColor: "rgba(227,36,36,0.2)",
+                        strokeColor: "#e32424",
+                        pointColor: "#e32424",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "#e32424",
+                        data: saldo_mes.map(v => parseFloat(v))
+                    }
+                ];
+
+                // Opções do Chart.js v1.0.2
+                var options = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scaleShowGridLines: true,
+                    scaleGridLineColor: "#E6E6E6",
+                    scaleGridLineWidth: 1,
+                    scaleShowHorizontalLines: true,
+                    scaleShowVerticalLines: true,
+                    bezierCurve: true,
+                    bezierCurveTension: 0.4,
+                    pointDot: true,
+                    pointDotRadius: 4,
+                    pointDotStrokeWidth: 1,
+                    pointHitDetectionRadius: 20,
+                    datasetStroke: true,
+                    datasetStrokeWidth: 2,
+                    datasetFill: true,
+                    animation: true,
+                    animationSteps: 60,
+                    animationEasing: "easeOutQuart",
+                    showTooltips: true,
+                    tooltipTemplate: "<%if (label){%><%=label%>: <%}%>R$ <%= value.toLocaleString('pt-BR', {minimumFractionDigits: 2}) %>",
+                    multiTooltipTemplate: "<%= datasetLabel %>: R$ <%= value.toLocaleString('pt-BR', {minimumFractionDigits: 2}) %>"
+                };
+
+                // Criar o gráfico
+                var ctx = document.getElementById("Linegraph").getContext("2d");
+                var chart = new Chart(ctx).Line({
+                    labels: labels,
+                    datasets: datasets
+                }, options);
+
+                return chart;
+
+            } catch (error) {
+                console.error('Erro ao criar gráfico:', error);
+                throw error;
+            }
+        }
+
+        function testMigration() {
+            updateStatus('Iniciando teste de migração...', 'info');
+            
+            try {
+                // Verificar se Chart.js está disponível
+                if (typeof Chart === 'undefined') {
+                    throw new Error('Chart.js v1.0.2 não está carregado');
+                }
+
+                // Limpar gráfico anterior
+                if (currentChart) {
+                    currentChart.destroy();
+                }
+
+                // Criar novo gráfico
+                updateStatus('Criando gráfico com Chart.js v1.0.2...', 'info');
+                currentChart = createFinancialChart();
+                
+                updateStatus('✅ Migração concluída com sucesso! O gráfico foi criado usando Chart.js v1.0.2 com os mesmos dados PHP.', 'success');
+                
+            } catch (error) {
+                updateStatus('❌ Erro na migração: ' + error.message, 'error');
+                console.error('Erro detalhado:', error);
+            }
+        }
+
+        function clearChart() {
+            if (currentChart) {
+                currentChart.destroy();
+                currentChart = null;
+                updateStatus('Gráfico removido.', 'info');
+            }
+        }
+
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDataInfo();
+            updateStatus('Página carregada. Clique em "Testar Migração" para iniciar.', 'info');
+        });
+    </script>
+</body>
+</html>

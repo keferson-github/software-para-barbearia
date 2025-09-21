@@ -351,7 +351,12 @@ $dados_meses_vendas =  '';
                     <label><?php echo $total_agendamentos_hoje  ?>+</label>
                 </div>
                 <div class="col-md-5 top-content1">    
-                    <div id="demo-pie-1" class="pie-title-center" data-percent="<?php echo $porcentagemAgendamentos ?>"> <span class="pie-value"></span> </div>
+                    <!-- Gráfico moderno -->
+                    <div class="modern-chart-container">
+                        <canvas id="modern-pie-1" class="modern-chart" data-percent="<?php echo $porcentagemAgendamentos ?>"></canvas>
+                    </div>
+                    <!-- Gráfico antigo (oculto como fallback) -->
+                    <div id="demo-pie-1" class="pie-title-center" data-percent="<?php echo $porcentagemAgendamentos ?>" style="display: none;"> <span class="pie-value"></span> </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -364,7 +369,12 @@ $dados_meses_vendas =  '';
                     <label><?php echo $total_servicos_hoje ?>+</label>
                 </div>
                 <div class="col-md-5 top-content1">    
-                    <div id="demo-pie-2" class="pie-title-center" data-percent="<?php echo $porcentagemServicos ?>"> <span class="pie-value"></span> </div>
+                    <!-- Gráfico moderno -->
+                    <div class="modern-chart-container">
+                        <canvas id="modern-pie-2" class="modern-chart" data-percent="<?php echo $porcentagemServicos ?>"></canvas>
+                    </div>
+                    <!-- Gráfico antigo (oculto como fallback) -->
+                    <div id="demo-pie-2" class="pie-title-center" data-percent="<?php echo $porcentagemServicos ?>" style="display: none;"> <span class="pie-value"></span> </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -377,7 +387,12 @@ $dados_meses_vendas =  '';
                     <label><?php echo $total_comissoes_mes ?>+</label>
                 </div>
                 <div class="col-md-5 top-content1">    
-                    <div id="demo-pie-3" class="pie-title-center" data-percent="<?php echo $porcentagemComissoes ?>"> <span class="pie-value"></span> </div>
+                    <!-- Gráfico moderno -->
+                    <div class="modern-chart-container">
+                        <canvas id="modern-pie-3" class="modern-chart" data-percent="<?php echo $porcentagemComissoes ?>"></canvas>
+                    </div>
+                    <!-- Gráfico antigo (oculto como fallback) -->
+                    <div id="demo-pie-3" class="pie-title-center" data-percent="<?php echo $porcentagemComissoes ?>" style="display: none;"> <span class="pie-value"></span> </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -394,8 +409,8 @@ $dados_meses_vendas =  '';
                         <h3>Demonstrativo Financeiro</h3>
                     </div>
 					
-						<div id="Linegraph" style="width: 98%; height: 350px">
-						</div>
+						<canvas id="Linegraph" width="800" height="350" style="width: 98%; height: 350px;">
+						</canvas>
 						
 				</div>
 
@@ -436,109 +451,111 @@ $dados_meses_vendas =  '';
 
 
 <!-- for index page weekly sales java script -->
-	<script src="js/SimpleChart.js"></script>
+	<script src="js/Chart.js"></script>
     <script>
+        // Preparar dados PHP para o gráfico
         $('#dados_grafico_despesa').val('<?=$dados_meses_despesas?>'); 
         var dados = $('#dados_grafico_despesa').val();
         saldo_mes = dados.split('-'); 
 
-
-         $('#dados_grafico_venda').val('<?=$dados_meses_vendas?>'); 
+        $('#dados_grafico_venda').val('<?=$dados_meses_vendas?>'); 
         var dados_venda = $('#dados_grafico_venda').val();
         saldo_mes_venda = dados_venda.split('-'); 
 
-
-         $('#dados_grafico_servico').val('<?=$dados_meses_servicos?>'); 
+        $('#dados_grafico_servico').val('<?=$dados_meses_servicos?>'); 
         var dados_servico = $('#dados_grafico_servico').val();
         saldo_mes_servico = dados_servico.split('-'); 
 
-
-
-        var graphdata1 = {
-            linecolor: "#e32424",
-            title: "Despesas",
-            values: [
-            { X: "Janeiro", Y: parseFloat(saldo_mes[0]) },
-            { X: "Fevereiro", Y: parseFloat(saldo_mes[1]) },
-            { X: "Março", Y: parseFloat(saldo_mes[2]) },
-            { X: "Abril", Y: parseFloat(saldo_mes[3]) },
-            { X: "Maio", Y: parseFloat(saldo_mes[4]) },
-            { X: "Junho", Y: parseFloat(saldo_mes[5]) },
-            { X: "Julho", Y: parseFloat(saldo_mes[6]) },
-            { X: "Agosto", Y: parseFloat(saldo_mes[7]) },
-            { X: "Setembro", Y: parseFloat(saldo_mes[8]) },
-            { X: "Outubro", Y: parseFloat(saldo_mes[9]) },
-            { X: "Novembro", Y: parseFloat(saldo_mes[10]) },
-            { X: "Dezembro", Y: parseFloat(saldo_mes[11]) },
+        // Função para criar gráfico com Chart.js v1.0.2
+        function createFinancialChart() {
+            // Labels dos meses
+            var labels = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+                          "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
             
-            ]
-        };
+            // Datasets com os mesmos dados PHP
+            var datasets = [
+                {
+                    label: "Serviços",
+                    fillColor: "rgba(14,36,138,0.2)",
+                    strokeColor: "#0e248a",
+                    pointColor: "#0e248a",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "#0e248a",
+                    data: saldo_mes_servico.map(function(v) { return parseFloat(v) || 0; })
+                },
+                {
+                    label: "Vendas",
+                    fillColor: "rgba(16,148,71,0.2)",
+                    strokeColor: "#109447",
+                    pointColor: "#109447",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "#109447",
+                    data: saldo_mes_venda.map(function(v) { return parseFloat(v) || 0; })
+                },
+                {
+                    label: "Despesas",
+                    fillColor: "rgba(227,36,36,0.2)",
+                    strokeColor: "#e32424",
+                    pointColor: "#e32424",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "#e32424",
+                    data: saldo_mes.map(function(v) { return parseFloat(v) || 0; })
+                }
+            ];
 
-        var graphdata2 = {
-            linecolor: "#109447",
-            title: "Vendas",
-            values: [
-            { X: "Janeiro", Y: parseFloat(saldo_mes_venda[0]) },
-            { X: "Fevereiro", Y: parseFloat(saldo_mes_venda[1]) },
-            { X: "Março", Y: parseFloat(saldo_mes_venda[2]) },
-            { X: "Abril", Y: parseFloat(saldo_mes_venda[3]) },
-            { X: "Maio", Y: parseFloat(saldo_mes_venda[4]) },
-            { X: "Junho", Y: parseFloat(saldo_mes_venda[5]) },
-            { X: "Julho", Y: parseFloat(saldo_mes_venda[6]) },
-            { X: "Agosto", Y: parseFloat(saldo_mes_venda[7]) },
-            { X: "Setembro", Y: parseFloat(saldo_mes_venda[8]) },
-            { X: "Outubro", Y: parseFloat(saldo_mes_venda[9]) },
-            { X: "Novembro", Y: parseFloat(saldo_mes_venda[10]) },
-            { X: "Dezembro", Y: parseFloat(saldo_mes_venda[11]) },
-            
-            ]
-        };
+            // Opções do Chart.js v1.0.2
+            var options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scaleShowGridLines: true,
+                scaleGridLineColor: "#E6E6E6",
+                scaleGridLineWidth: 1,
+                scaleShowHorizontalLines: true,
+                scaleShowVerticalLines: true,
+                bezierCurve: true,
+                bezierCurveTension: 0.4,
+                pointDot: true,
+                pointDotRadius: 4,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 2,
+                datasetFill: true,
+                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                animation: true,
+                animationSteps: 60,
+                animationEasing: "easeOutQuart",
+                showTooltips: true,
+                tooltipTemplate: "<%if (label){%><%=label%>: <%}%>R$ <%= value.toLocaleString ? value.toLocaleString('pt-BR', {minimumFractionDigits: 2}) : value.toFixed(2) %>",
+                multiTooltipTemplate: "<%= datasetLabel %>: R$ <%= value.toLocaleString ? value.toLocaleString('pt-BR', {minimumFractionDigits: 2}) : value.toFixed(2) %>"
+            };
 
+            // Criar o gráfico
+            var ctx = document.getElementById("Linegraph").getContext("2d");
+            var financialChart = new Chart(ctx).Line({
+                labels: labels,
+                datasets: datasets
+            }, options);
 
-          var graphdata3 = {
-            linecolor: "#0e248a",
-            title: "Serviços",
-            values: [
-            { X: "Janeiro", Y: parseFloat(saldo_mes_servico[0]) },
-            { X: "Fevereiro", Y: parseFloat(saldo_mes_servico[1]) },
-            { X: "Março", Y: parseFloat(saldo_mes_servico[2]) },
-            { X: "Abril", Y: parseFloat(saldo_mes_servico[3]) },
-            { X: "Maio", Y: parseFloat(saldo_mes_servico[4]) },
-            { X: "Junho", Y: parseFloat(saldo_mes_servico[5]) },
-            { X: "Julho", Y: parseFloat(saldo_mes_servico[6]) },
-            { X: "Agosto", Y: parseFloat(saldo_mes_servico[7]) },
-            { X: "Setembro", Y: parseFloat(saldo_mes_servico[8]) },
-            { X: "Outubro", Y: parseFloat(saldo_mes_servico[9]) },
-            { X: "Novembro", Y: parseFloat(saldo_mes_servico[10]) },
-            { X: "Dezembro", Y: parseFloat(saldo_mes_servico[11]) },
-            
-            ]
-        };
-       
+            return financialChart;
+        }
 
-      
-       
-        $(function () {          
-           
-           
-            $("#Linegraph").SimpleChart({
-                ChartType: "Line",
-                toolwidth: "50",
-                toolheight: "25",
-                axiscolor: "#E6E6E6",
-                textcolor: "#fafafa",
-                showlegends: true,
-                data: [graphdata3, graphdata2, graphdata1],
-                legendsize: "30",
-                legendposition: 'bottom',
-                xaxislabel: 'Meses',
-                title: '',
-                yaxislabel: 'Totais R$',
-
-            });
-           
+        // Inicializar gráfico quando documento estiver pronto
+        $(function () {
+            try {
+                createFinancialChart();
+            } catch (error) {
+                console.error('Erro ao criar gráfico financeiro:', error);
+                // Fallback: mostrar mensagem de erro
+                document.getElementById('Linegraph').style.display = 'none';
+                var errorDiv = document.createElement('div');
+                errorDiv.innerHTML = '<p style="text-align: center; color: #e32424; padding: 20px;">Erro ao carregar gráfico. Verifique os dados.</p>';
+                document.getElementById('Linegraph').parentNode.appendChild(errorDiv);
+            }
         });
-
     </script>
 	<!-- //for index page weekly sales java script -->
 	

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Migração Chart.js</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Teste de Migração - Chart.js v1.0.2</h1>
+        
+        <div id="status-container">
+            <div class="status info">
+                <strong>Status:</strong> Carregando Chart.js...
+            </div>
+        </div>
+
+        <h2>📊 Gráfico Demonstrativo Financeiro</h2>
+        <div class="chart-container">
+            <canvas id="Linegraph" width="800" height="400"></canvas>
+        </div>
+
+        <div id="chart-info">
+            <h3>📋 Informações do Teste</h3>
+            <ul>
+                <li><strong>Biblioteca:</strong> Chart.js v1.0.2</li>
+                <li><strong>Tipo:</strong> Line Chart</li>
+                <li><strong>Dados:</strong> Simulados (Serviços, Vendas, Despesas)</li>
+                <li><strong>Responsivo:</strong> Sim</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Inputs ocultos para simular dados PHP -->
+    <input type="hidden" id="dados_grafico_despesa" value="1200.50-1350.75-980.25-1100.00-1450.30-1600.80-1200.90-1350.40-1180.60-1320.70-1250.85-1400.95">
+    <input type="hidden" id="dados_grafico_venda" value="2500.00-2800.50-2200.75-2650.30-3100.80-3450.20-2900.60-3200.40-2750.90-3050.70-2850.30-3300.85">
+    <input type="hidden" id="dados_grafico_servico" value="1800.30-2100.80-1650.40-1950.70-2300.50-2650.90-2200.30-2450.80-2050.60-2350.40-2150.70-2500.30">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Chart.js v1.0.2 -->
+    <script src="js/Chart.js"></script>
+
+    <script>
+        function updateStatus(message, type = 'info') {
+            const statusContainer = document.getElementById('status-container');
+            statusContainer.innerHTML = `<div class="status ${type}"><strong>Status:</strong> ${message}</div>`;
+        }
+
+        function testChartMigration() {
+            try {
+                updateStatus('Verificando Chart.js...', 'info');
+                
+                // Verificar se Chart.js foi carregado
+                if (typeof Chart === 'undefined') {
+                    throw new Error('Chart.js não foi carregado corretamente');
+                }
+
+                updateStatus('Chart.js carregado! Preparando dados...', 'info');
+
+                // Preparar dados PHP simulados (mesmo código do home.php)
+                $('#dados_grafico_despesa').val($('#dados_grafico_despesa').val()); 
+                var dados = $('#dados_grafico_despesa').val();
+                saldo_mes = dados.split('-'); 
+
+                $('#dados_grafico_venda').val($('#dados_grafico_venda').val()); 
+                var dados_venda = $('#dados_grafico_venda').val();
+                saldo_mes_venda = dados_venda.split('-'); 
+
+                $('#dados_grafico_servico').val($('#dados_grafico_servico').val()); 
+                var dados_servico = $('#dados_grafico_servico').val();
+                saldo_mes_servico = dados_servico.split('-'); 
+
+                updateStatus('Dados preparados! Criando gráfico...', 'info');
+
+                // Função para criar gráfico com Chart.js v1.0.2 (mesmo código do home.php)
+                function createFinancialChart() {
+                    // Labels dos meses
+                    var labels = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+                                  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                    
+                    // Datasets com os mesmos dados PHP
+                    var datasets = [
+                        {
+                            label: "Serviços",
+                            fillColor: "rgba(14,36,138,0.2)",
+                            strokeColor: "#0e248a",
+                            pointColor: "#0e248a",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "#0e248a",
+                            data: saldo_mes_servico.map(function(v) { return parseFloat(v) || 0; })
+                        },
+                        {
+                            label: "Vendas",
+                            fillColor: "rgba(16,148,71,0.2)",
+                            strokeColor: "#109447",
+                            pointColor: "#109447",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "#109447",
+                            data: saldo_mes_venda.map(function(v) { return parseFloat(v) || 0; })
+                        },
+                        {
+                            label: "Despesas",
+                            fillColor: "rgba(227,36,36,0.2)",
+                            strokeColor: "#e32424",
+                            pointColor: "#e32424",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "#e32424",
+                            data: saldo_mes.map(function(v) { return parseFloat(v) || 0; })
+                        }
+                    ];
+
+                    // Opções do Chart.js v1.0.2
+                    var options = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scaleShowGridLines: true,
+                        scaleGridLineColor: "#E6E6E6",
+                        scaleGridLineWidth: 1,
+                        scaleShowHorizontalLines: true,
+                        scaleShowVerticalLines: true,
+                        bezierCurve: true,
+                        bezierCurveTension: 0.4,
+                        pointDot: true,
+                        pointDotRadius: 4,
+                        pointDotStrokeWidth: 1,
+                        pointHitDetectionRadius: 20,
+                        datasetStroke: true,
+                        datasetStrokeWidth: 2,
+                        datasetFill: true,
+                        legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+                        animation: true,
+                        animationSteps: 60,
+                        animationEasing: "easeOutQuart",
+                        showTooltips: true,
+                        tooltipTemplate: "<%if (label){%><%=label%>: <%}%>R$ <%= value.toLocaleString ? value.toLocaleString('pt-BR', {minimumFractionDigits: 2}) : value.toFixed(2) %>",
+                        multiTooltipTemplate: "<%= datasetLabel %>: R$ <%= value.toLocaleString ? value.toLocaleString('pt-BR', {minimumFractionDigits: 2}) : value.toFixed(2) %>"
+                    };
+
+                    // Criar o gráfico
+                    var ctx = document.getElementById("Linegraph").getContext("2d");
+                    var financialChart = new Chart(ctx).Line({
+                        labels: labels,
+                        datasets: datasets
+                    }, options);
+
+                    return financialChart;
+                }
+
+                // Criar o gráfico
+                var chart = createFinancialChart();
+                
+                updateStatus('✅ Gráfico criado com sucesso! Migração concluída.', 'success');
+                
+                // Adicionar informações sobre o gráfico criado
+                setTimeout(function() {
+                    const chartInfo = document.getElementById('chart-info');
+                    chartInfo.innerHTML += `
+                        <div class="status success" style="margin-top: 15px;">
+                            <strong>✅ Teste Concluído:</strong><br>
+                            • Chart.js v1.0.2 carregado corretamente<br>
+                            • Dados PHP processados: ${saldo_mes.length} meses<br>
+                            • 3 datasets criados (Serviços, Vendas, Despesas)<br>
+                            • Gráfico renderizado com animações e tooltips<br>
+                            • Responsividade ativada
+                        </div>
+                    `;
+                }, 1000);
+
+            } catch (error) {
+                console.error('Erro na migração:', error);
+                updateStatus(`❌ Erro: ${error.message}`, 'error');
+                
+                // Mostrar detalhes do erro
+                const chartInfo = document.getElementById('chart-info');
+                chartInfo.innerHTML += `
+                    <div class="status error" style="margin-top: 15px;">
+                        <strong>❌ Erro na Migração:</strong><br>
+                        ${error.message}<br>
+                        <small>Verifique o console do navegador para mais detalhes.</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Executar teste quando documento estiver pronto
+        $(document).ready(function() {
+            setTimeout(testChartMigration, 500);
+        });
+    </script>
+</body>
+</html>

@@ -102,3 +102,69 @@
         margin-left: auto;
     }
 }
+
+/* ===== DROPDOWN PERFIL - DESIGN MINIMALISTA ===== */
+
+/* Container principal - clean e simples */
+.profile_details .dropdown-menu.drp-mnu {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 4px 0;
+    min-width: 160px;
+    margin-top: 4px;
+}
+
+/* Itens do dropdown - layout limpo */
+.profile_details .dropdown-menu.drp-mnu li {
+    margin: 0;
+    border-bottom: none;
+}
+
+.profile_details .dropdown-menu.drp-mnu li a {
+    color: #555555 !important;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.15s ease;
+    border: none;
+    margin: 0;
+}
+
+/* Hover minimalista */
+.profile_details .dropdown-menu.drp-mnu li a:hover {
+    background: #f8f9fa !important;
+    color: #333333 !important;
+}
+
+/* Ícones simples */
+.profile_details .dropdown-menu.drp-mnu li a i {
+    margin-right: 8px;
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
+    color: #777777;
+}
+
+/* Hover nos ícones */
+.profile_details .dropdown-menu.drp-mnu li a:hover i {
+    color: #555555;
+}
+
+/* Separador sutil */
+.profile_details .dropdown-menu.drp-mnu li:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Botão de perfil minimalista */
+.profile_details .profile_details_drop > a {
+    transition: opacity 0.15s ease;
+}
+
+.profile_details .profile_details_drop > a:hover {
+    opacity: 0.8;
+}

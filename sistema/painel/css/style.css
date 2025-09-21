@@ -1151,6 +1151,64 @@ ul.dropdown-menu.drp-mnu li {
   font-weight: normal;
   margin-top: 0.3em;
 }
+/*---Modern Charts---*/
+.modern-chart-container {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modern-chart {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 90px;
+    max-height: 90px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.modern-chart:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Responsividade para charts modernos */
+@media (max-width: 768px) {
+    .modern-chart-container {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .modern-chart {
+        max-width: 70px;
+        max-height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-chart-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .modern-chart {
+        max-width: 60px;
+        max-height: 60px;
+    }
+}
+
 /*---footer---*/
 .footer {
   background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.05) 100%);
@@ -5712,69 +5770,10 @@ figure.icons,
 }
 /*--//statistics--*/
 
-/* simple chart */
-.SimpleChart {
-  position: relative;
-}
-
-.SimpleChart #tip {
-  background-color: #f0f0f0;
-  border: 1px solid #d0d0d0;
-  position: absolute;
-  left: -200px;
-  top: 30px;
-}
-
-.down-triangle {
-  width: 0;
-  height: 0;
-  border-top: 10px solid #d0d0d0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  position: absolute;
-  left: -200px;
-}
-
-.SimpleChart #highlighter {
-  position: absolute;
-  left: -200px;
-}
-
-.-simple-chart-holder {
-  float: left;
-  position: relative;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid #cecece;
-  /*padding: 6px;*/
-}
-
-.SimpleChart .legendsli {
-  list-style: none;
-}
-
-.SimpleChart .legendsli span {
-  float: left;
-  vertical-align: middle;
-}
-
-.SimpleChart .legendsli span.legendindicator {
-  position: relative;
-  top: 5px;
-}
-
-.SimpleChart .legendsli span.legendindicator .line {
-  width: 30px;
-  height: 3px;
-}
-
-.SimpleChart .legendsli span.legendindicator .circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 20px;
-  position: relative;
-  top: -5px;
-  right: 20px;
+/* Chart.js styles - migrated from SimpleChart */
+#Linegraph {
+  max-width: 100%;
+  height: auto;
 }
 
 /******Starts::Horizontal Alignment of Legends******/
