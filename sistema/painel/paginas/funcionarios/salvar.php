@@ -18,7 +18,7 @@ $intervalo = $_POST['intervalo'];
 $comissao = $_POST['comissao'];
 
 if($cargo == "0"){
-	echo 'Cadastre um Cargo para o Usuáriox';
+	echo 'Cadastre um Cargo para o Usuário';
 	exit();
 }
 
