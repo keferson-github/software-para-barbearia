@@ -59,9 +59,9 @@ if($total_reg > 0){
 </head>
 <body>
 
-<div class="container ">
+<div class="container">
     <div class="row vertical-offset-100">
-    	<div class="col-md-4 col-md-offset-4">
+    	<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
     		<div class="panel panel-default form-login" style="opacity:0.9; border-radius: 20px">
 			  	<div class="panel-heading" align="center" style="border-top-right-radius: 20px; border-top-left-radius: 20px">
 			    	<img src="img/logo.png" width="250px">

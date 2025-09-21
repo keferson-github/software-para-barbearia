@@ -31,16 +31,30 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-/* Centralização vertical */
+/* Centralização vertical e horizontal */
 .vertical-offset-100 {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  width: 100%;
   padding: 0;
+  margin: 0;
+}
+
+/* Centralização da coluna */
+.vertical-offset-100 .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
+  float: none;
 }
 
 /* Card principal - design exato Supabase */
@@ -59,6 +73,9 @@ body {
   width: 100%;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .form-login::before {
@@ -268,15 +285,26 @@ body {
   font-weight: 500;
 }
 
-/* Responsividade */
+/* Responsividade aprimorada */
 @media (max-width: 768px) {
   .container {
-    padding: 16px;
+    padding: 15px;
+  }
+  
+  .vertical-offset-100 {
+    padding: 20px 0;
+  }
+  
+  .vertical-offset-100 .col-md-4 {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 15px;
   }
   
   .form-login {
-    max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
   }
   
   .panel-heading {
