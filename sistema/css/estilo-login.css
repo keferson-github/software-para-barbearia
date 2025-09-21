@@ -1,31 +1,362 @@
+/* ===== INTERFACE IDÊNTICA AO SUPABASE LOGIN ===== */
+
+/* Reset global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body com design exato do Supabase */
 body {
-  background: url(../img/fundo6.jpg);
-  background-color: #757575;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background: #0f172a;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15), transparent 50%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: #f8fafc;
+  overflow-x: hidden;
 }
 
-@media only screen and (max-width: 700px) {
-  body {
-    background: url(../img/fundo6.jpg);
-    background-color: #757575;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-
-  .form-login {
-    padding-bottom: 50px;
-  }
+/* Container principal */
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+/* Centralização vertical */
 .vertical-offset-100 {
-  padding-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0 auto;
 }
 
-.recuperar {
-  margin-top: 25px;
-  font-size: 12px;
+/* Card principal - design exato Supabase */
+.form-login {
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.form-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
+}
+
+/* Header do painel - estilo Supabase */
+.panel-heading {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.15) !important;
+  padding: 48px 32px 32px 32px !important;
   text-align: center;
+  position: relative;
+}
+
+.panel-heading img {
+  max-width: 120px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+}
+
+/* Título adicional estilo Supabase */
+.panel-heading::after {
+  content: 'Entrar na sua conta';
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-top: 24px;
+  letter-spacing: -0.025em;
+}
+
+/* Corpo do painel */
+.panel-body {
+  padding: 0 32px 48px 32px !important;
+  background: transparent;
+}
+
+/* Labels dos campos - estilo Supabase */
+.form-group {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.form-group::before {
+  content: attr(data-label);
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+  letter-spacing: -0.025em;
+}
+
+.form-group:first-child::before {
+  content: 'Email';
+}
+
+.form-group:nth-child(2)::before {
+  content: 'Senha';
+}
+
+/* Campos de input - design exato Supabase */
+.form-control {
+  height: 44px !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 6px !important;
+  padding: 0 12px !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  background: rgba(15, 23, 42, 0.5) !important;
+  color: #f8fafc !important;
+  transition: all 0.2s ease !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+.form-control:focus {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 
+    0 0 0 3px rgba(16, 185, 129, 0.15),
+    0 0 0 1px rgba(16, 185, 129, 0.4) !important;
+  outline: none !important;
+  transform: translateY(-1px);
+}
+
+.form-control::placeholder {
+  color: #64748b !important;
+  font-weight: 400;
+}
+
+/* Botão de login - estilo exato Supabase */
+.btn-primary {
+  height: 44px !important;
+  background: #10b981 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  width: 100% !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer;
+  margin-top: 8px;
+  letter-spacing: -0.025em;
+}
+
+.btn-primary:hover {
+  background: #059669 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  background: #047857 !important;
+}
+
+/* Link de recuperação - estilo Supabase */
+.recuperar {
+  text-align: center;
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.recuperar a {
+  color: #10b981 !important;
+  text-decoration: none !important;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  letter-spacing: -0.025em;
+}
+
+.recuperar a:hover {
+  color: #059669 !important;
+  text-decoration: underline !important;
+}
+
+/* Modal de recuperação - estilo Supabase */
+.modal-content {
+  background: rgba(15, 23, 42, 0.95) !important;
+  border: 1px solid rgba(148, 163, 184, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(16px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+.modal-header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1) !important;
+  padding: 24px 24px 16px 24px !important;
+}
+
+.modal-title {
+  color: #f8fafc !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.025em;
+}
+
+.modal-body {
+  padding: 24px !important;
+  background: transparent;
+}
+
+.modal-body .form-control {
+  margin-bottom: 16px;
+}
+
+.modal-footer {
+  background: transparent !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.1) !important;
+  padding: 16px 24px 24px 24px !important;
+}
+
+.close {
+  color: #94a3b8 !important;
+  opacity: 0.7 !important;
+  font-size: 24px !important;
+  font-weight: 300 !important;
+  transition: all 0.2s ease;
+}
+
+.close:hover {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+}
+
+/* Mensagens de feedback */
+#mensagem-recuperar {
+  color: #10b981;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .form-login {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .panel-heading {
+    padding: 32px 24px 24px 24px !important;
+  }
+  
+  .panel-body {
+    padding: 0 24px 32px 24px !important;
+  }
+  
+  .modal-content {
+    margin: 16px;
+    width: calc(100% - 32px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel-heading {
+    padding: 24px 20px 20px 20px !important;
+  }
+  
+  .panel-body {
+    padding: 0 20px 24px 20px !important;
+  }
+  
+  .panel-heading::after {
+    font-size: 20px;
+    margin-top: 16px;
+  }
+}
+
+/* Animações sutis */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-login {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Estados de foco melhorados */
+.form-control:focus,
+.btn-primary:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Compatibilidade com Bootstrap 3 */
+.panel {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.panel-default {
+  border-color: transparent !important;
 }
