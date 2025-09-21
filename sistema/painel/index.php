@@ -161,7 +161,7 @@ $dataMesInicial = $partesInicial[1];
 
 	
 </head> 
-<body class="cbp-spmenu-push">
+<body class="cbp-spmenu-push <?php echo $pag; ?>">
 	<div class="main-content">
 		<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 			<!--left-fixed -navigation-->

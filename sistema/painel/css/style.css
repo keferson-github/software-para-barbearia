@@ -2621,7 +2621,7 @@ p.creating {
   padding: 2em 1em;
 }
 .modal .row {
-  margin: 10px;
+  margin: -16px;
 }
 h4.modal-title {
   margin: 0;
