@@ -2908,7 +2908,7 @@ li.head i.fa {
 .card-header h3 {
   font-size: 19px;
   margin: 0;
-  color: #000;
+  color: #fafafa;
 }
 header.widget-header h4 {
   font-size: 19px;
@@ -3098,7 +3098,7 @@ hr {
 .agileinfo-cdr .lg-item-heading {
   font-weight: 600;
   font-size: 15px;
-  color: #5a5a5a;
+  color: #fafafa;
 }
 .agileinfo-cdr small.lg-item-text {
   font-size: 13px;

@@ -526,7 +526,7 @@ $dados_meses_vendas =  '';
                 toolwidth: "50",
                 toolheight: "25",
                 axiscolor: "#E6E6E6",
-                textcolor: "#6E6E6E",
+                textcolor: "#fafafa",
                 showlegends: true,
                 data: [graphdata3, graphdata2, graphdata1],
                 legendsize: "30",
