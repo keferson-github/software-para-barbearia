@@ -1153,28 +1153,47 @@ ul.dropdown-menu.drp-mnu li {
 }
 /*---footer---*/
 .footer {
-  background: #fff;
-  padding: 1em;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(79, 70, 229, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5em;
   width: 100%;
   text-align: center;
-  box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.21);
-  -webkit-box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.21);
-  -moz-box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.21);
-  -ms-box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.21);
-  -o-box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.21);
+  position: relative;
 }
 .footer p {
-  color: #7a7676;
-  font-size: 1em;
+  color: #333333;
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   line-height: 1.6em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  margin: 0;
 }
 .footer p a {
-  color: #222d32;
-  font-weight: bold;
+  color: #4f46e5;
+  font-weight: 600;
+  font-size: 1.05em;
   text-decoration: none;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
 }
 .footer p a:hover {
+  color: #3730a3;
   text-decoration: underline;
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(135deg, #3730a3, #6d28d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(79, 70, 229, 0.3));
 }
 /*---//footer---*/
 /*---main-content-start---*/
