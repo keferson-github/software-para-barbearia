@@ -982,11 +982,11 @@ ul.dropdown-menu.drp-mnu li {
 /*---main-content-start---*/
 .widget {
   width: 32%;
-  border: 1px solid #f5f1f1;
+  border: none;
   padding: 0px;
   -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 0px -2px rgba(0, 0, 0, 0.75);
 }
 .widget button {
   font-size: 13px;
@@ -2824,7 +2824,7 @@ li.head i.fa {
   margin-bottom: 20px;
   -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 0px -2px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
 }
 *,
@@ -5276,7 +5276,7 @@ ul.bt-list li a {
   background-color: #fff;
   padding: 1em;
   margin-bottom: 1em;
-  border: 1px solid #ebeff6;
+  border: none;
   border-radius: 10px !important;
   -webkit-border-radius: 0px;
   -o-border-radius: 0px;
@@ -5284,7 +5284,7 @@ ul.bt-list li a {
   -ms-border-radius: 0px;
   -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 0px -2px rgba(0, 0, 0, 0.75);
 }
 .top-content h5 {
   font-size: 1.1em;
@@ -9057,4 +9057,149 @@ h4.asd label {
   height: 32px;
   font-size: 13px;
   background-color: #f5f2f2;
+}
+
+/*-------GRADIENTE SUPABASE APLICADO NO PAINEL-------*/
+
+/*-------SIDEBAR COM GRADIENTE SUPABASE-------*/
+.sidebar-left {
+  background: #0f172a !important;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15), transparent 50%) !important;
+  backdrop-filter: blur(16px) !important;
+  border-right: 1px solid rgba(148, 163, 184, 0.2) !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+}
+
+.sidebar-left .navbar-brand {
+  color: #f8fafc !important;
+}
+
+.sidebar-left .sidebar-menu li a {
+  color: #e2e8f0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar-left .sidebar-menu li a:hover {
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.sidebar-left .sidebar-menu .header {
+  color: #94a3b8 !important;
+}
+
+/*-------CARDS DE ESTATÍSTICAS COM GRADIENTE-------*/
+.widget .r3_counter_box {
+  background: rgba(15, 23, 42, 0.8) !important;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1), transparent 50%) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+  color: #f8fafc !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.widget .r3_counter_box:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+}
+
+.widget .r3_counter_box h5 {
+  color: #f8fafc !important;
+  font-weight: 600 !important;
+}
+
+.widget .r3_counter_box span {
+  color: #e2e8f0 !important;
+}
+
+/*-------CARDS DE GRÁFICOS COM GRADIENTE-------*/
+.stat .content-top-1 {
+  background: rgba(15, 23, 42, 0.8) !important;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1), transparent 50%) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.stat .content-top-1:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+}
+
+.stat .content-top-1 h5 {
+  color: #e2e8f0 !important;
+}
+
+.stat .content-top-1 label {
+  color: #f8fafc !important;
+  font-weight: 600 !important;
+}
+
+/*-------CARD DEMONSTRATIVO FINANCEIRO COM GRADIENTE-------*/
+.widgettable .card {
+  background: rgba(15, 23, 42, 0.8) !important;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1), transparent 50%) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.widgettable .card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+}
+
+.widgettable .card .card-header h3 {
+  color: #f8fafc !important;
+  font-weight: 600 !important;
+}
+
+.widgettable .card-header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+  padding: 20px !important;
+}
+
+/*-------AJUSTES DE LEGIBILIDADE-------*/
+.widget a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.widget a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
 }
