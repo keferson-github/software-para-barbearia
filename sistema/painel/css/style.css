@@ -9008,14 +9008,61 @@ h4.asd label {
 }
 
 .cardTarefas {
-  margin-bottom: 10px;
-  margin-left: 9px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+  background-color: #2c3b41;
+  border: none;
+  border-radius: 0;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.cardTarefas:hover {
+  background-color: #1e282c;
+  border-left-color: #3c8dbc;
+}
+
+.cardTarefas .card-body {
+  padding: 12px 15px;
+  color: #b8c7ce;
+}
+
+.cardTarefas .card-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.cardTarefas .card-text {
+  color: #8aa4af;
+  font-size: 12px;
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 700px) {
   .cardTarefas {
-    margin-bottom: 10px;
-    margin-left: 5px;
+    margin-bottom: 6px;
+    margin-left: 3px;
+    background-color: #2c3b41;
+    border-left: 2px solid transparent;
+  }
+
+  .cardTarefas:hover {
+    background-color: #1e282c;
+    border-left-color: #3c8dbc;
+  }
+
+  .cardTarefas .card-body {
+    padding: 10px 12px;
+  }
+
+  .cardTarefas .card-title {
+    font-size: 13px;
+  }
+
+  .cardTarefas .card-text {
+    font-size: 11px;
   }
 
   .stat2 {
@@ -9063,7 +9110,8 @@ h4.asd label {
 /*-------GRADIENTE SUPABASE APLICADO NO PAINEL-------*/
 
 /*-------SIDEBAR COM GRADIENTE SUPABASE-------*/
-.sidebar-left {
+.sidebar-left,
+.sidebar-left.sidebar-left {
   background: #0f172a !important;
   background-image: 
     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
@@ -9081,14 +9129,56 @@ h4.asd label {
   color: #f8fafc !important;
 }
 
+.sidebar-left .sidebar-menu,
+.sidebar-left .sidebar-menu ul {
+  background: transparent !important;
+}
+
+.sidebar-left .sidebar-menu li,
+.sidebar-left .sidebar-menu > li {
+  background: transparent !important;
+}
+
 .sidebar-left .sidebar-menu li a {
   color: #e2e8f0 !important;
   transition: all 0.2s ease !important;
+  background: transparent !important;
 }
 
 .sidebar-left .sidebar-menu li a:hover {
   color: #10b981 !important;
   background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.sidebar-left .sidebar-menu li.active > a {
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-left-color: #10b981 !important;
+}
+
+.sidebar-left .sidebar-menu .treeview-menu {
+  background: transparent !important;
+}
+
+.sidebar-left .sidebar-menu .treeview-menu > li {
+  background: transparent !important;
+}
+
+.sidebar-left .sidebar-menu .treeview-menu > li > a {
+  background: transparent !important;
+  color: #cbd5e1 !important;
+}
+
+.sidebar-left .sidebar-menu .treeview-menu > li > a:hover,
+.sidebar-left .sidebar-menu .treeview-menu > li.active > a {
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #10b981 !important;
+}
+
+.sidebar-left .sidebar-menu li.header {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #94a3b8 !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1) !important;
 }
 
 .sidebar-left .sidebar-menu .header {
