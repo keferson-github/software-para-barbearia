@@ -263,7 +263,7 @@ $dados_meses_vendas =  '';
 	<div class="col_3">
 
         <a href="clientes">
-		<div class="col-md-3 widget widget1">
+		<div class="col-md-3 widget widget1 widget-clientes">
 			<div class="r3_counter_box">
 				<i class="pull-left fa fa-users icon-rounded"></i>
 				<div class="stats">
@@ -279,7 +279,7 @@ $dados_meses_vendas =  '';
 	
 
          <a href="pagar">
-        <div class="col-md-3 widget widget1">
+        <div class="col-md-3 widget widget1 widget-pagar">
             <div class="r3_counter_box">
                 <i class="pull-left fa fa-money user1 icon-rounded"></i>
                 <div class="stats">
@@ -294,7 +294,7 @@ $dados_meses_vendas =  '';
 
 
 		   <a href="receber">
-        <div class="col-md-3 widget widget1">
+        <div class="col-md-3 widget widget1 widget-receber">
             <div class="r3_counter_box">
                 <i class="pull-left fa fa-money dollar2 icon-rounded"></i>
                 <div class="stats">
@@ -308,7 +308,7 @@ $dados_meses_vendas =  '';
         </a>
 
          <a href="estoque">
-		<div class="col-md-3 widget widget1">
+		<div class="col-md-3 widget widget1 widget-estoque">
 			<div class="r3_counter_box">
 				<i class="pull-left fa fa-pie-chart dollar1 icon-rounded"></i>
 				<div class="stats">
@@ -323,7 +323,7 @@ $dados_meses_vendas =  '';
 
 
 
-		<div class="col-md-3 widget">
+		<div class="col-md-3 widget widget-saldo">
 			<div class="r3_counter_box">
 				<i class="pull-left fa fa-usd <?php echo $classe_saldo_dia ?> icon-rounded"></i>
 				<div class="stats">
@@ -343,7 +343,7 @@ $dados_meses_vendas =  '';
 
 
 
-        <div class="col-md-4 stat stat2">
+        <div class="col-md-4 stat stat2 stat-agendamentos">
 
             <div class="content-top-1">
                 <div class="col-md-7 top-content">
@@ -362,7 +362,7 @@ $dados_meses_vendas =  '';
             </div>
         </div>
 
-        <div class="col-md-4 stat">
+        <div class="col-md-4 stat stat-servicos">
             <div class="content-top-1">
                 <div class="col-md-7 top-content">
                     <h5>Serviços Pagos Hoje</h5>
@@ -380,7 +380,7 @@ $dados_meses_vendas =  '';
             </div>
         </div>
 
-        <div class="col-md-4 stat">
+        <div class="col-md-4 stat stat-comissoes">
             <div class="content-top-1">
                 <div class="col-md-7 top-content">
                     <h5>Comissões Pagas Mês</h5>

@@ -89,10 +89,16 @@ span.dashboard_text {
   z-index: 100;
 }
 .header-section {
-  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.05) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(147, 51, 234, 0.1) 50%,
+    rgba(236, 72, 153, 0.05) 100%
+  );
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .header-section::after {
   clear: both;
@@ -116,23 +122,31 @@ button#showLeftPush {
   float: left;
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgb(59 130 246 / 45%),
+    rgba(147, 51, 234, 0.8)
+  );
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 10px 15px;
+  padding: 8px;
   margin: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   -moz-transition: all 0.2s ease-out 0s;
   -webkit-transition: all 0.2s ease-out 0s;
   outline: none;
-  height: 50px;
-  width: 50px;
-  margin-top: 11px;
+  height: 45px;
+  width: 45px;
+  margin-top: 18px;
   margin-left: 5px;
 }
 button#showLeftPush:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 1), rgba(147, 51, 234, 1));
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 1),
+    rgba(147, 51, 234, 1)
+  );
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -144,7 +158,11 @@ button#showLeftPush:active {
 
 /* Ícones de Notificação - Estilo Moderno */
 .nofitications-dropdown li.dropdown.head-dpdn > a {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1)) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(147, 51, 234, 0.1)
+  ) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 50% !important;
   width: 45px !important;
@@ -159,13 +177,17 @@ button#showLeftPush:active {
 }
 
 .nofitications-dropdown li.dropdown.head-dpdn > a::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(147, 51, 234, 0.2)
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 50%;
@@ -178,6 +200,7 @@ button#showLeftPush:active {
 .nofitications-dropdown li.dropdown.head-dpdn > a:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+  border-radius: 6px !important;
 }
 
 .nofitications-dropdown li.dropdown.head-dpdn > a i {
@@ -220,7 +243,11 @@ button#showLeftPush:active {
 }
 
 .notification_header {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1)) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(147, 51, 234, 0.1)
+  ) !important;
   padding: 15px !important;
   border-radius: 12px 12px 0 0 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -269,7 +296,11 @@ button#showLeftPush:active {
 
 /* Avatar e Nome do Usuário - Estilo Moderno */
 .profile_details .profile_details_drop > a {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1)) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(147, 51, 234, 0.1)
+  ) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 12px !important;
   padding: 8px 15px !important;
@@ -281,7 +312,11 @@ button#showLeftPush:active {
 }
 
 .profile_details .profile_details_drop > a:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2)) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(147, 51, 234, 0.2)
+  ) !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
 }
@@ -1153,69 +1188,73 @@ ul.dropdown-menu.drp-mnu li {
 }
 /*---Modern Charts---*/
 .modern-chart-container {
-    position: relative;
-    width: 90px;
-    height: 90px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modern-chart {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 90px;
-    max-height: 90px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 90px;
+  max-height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
 .modern-chart:hover {
-    transform: scale(1.05);
-    box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 /* Responsividade para charts modernos */
 @media (max-width: 768px) {
-    .modern-chart-container {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .modern-chart {
-        max-width: 70px;
-        max-height: 70px;
-    }
+  .modern-chart-container {
+    width: 70px;
+    height: 70px;
+  }
+
+  .modern-chart {
+    max-width: 70px;
+    max-height: 70px;
+  }
 }
 
 @media (max-width: 480px) {
-    .modern-chart-container {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .modern-chart {
-        max-width: 60px;
-        max-height: 60px;
-    }
+  .modern-chart-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .modern-chart {
+    max-width: 60px;
+    max-height: 60px;
+  }
 }
 
 /*---footer---*/
 .footer {
-  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.05) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(147, 51, 234, 0.1) 50%,
+    rgba(236, 72, 153, 0.05) 100%
+  );
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 2px solid rgba(79, 70, 229, 0.3);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 0.8em;
   width: 100%;
   text-align: center;
@@ -9335,16 +9374,25 @@ h4.asd label {
 .sidebar-left,
 .sidebar-left.sidebar-left {
   background: #0f172a !important;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15), transparent 50%) !important;
+  background-image: radial-gradient(
+      circle at 20% 80%,
+      rgba(120, 119, 198, 0.3),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 119, 198, 0.15),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(120, 119, 198, 0.15),
+      transparent 50%
+    ) !important;
   backdrop-filter: blur(16px) !important;
   border-right: 1px solid rgba(148, 163, 184, 0.2) !important;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 0 2px rgba(16, 185, 129, 0.1) !important;
 }
 
 .sidebar-left .navbar-brand {
@@ -9408,104 +9456,32 @@ h4.asd label {
 }
 
 /*-------CARDS DE ESTATÍSTICAS COM GRADIENTE-------*/
-.widget .r3_counter_box {
-  background: #0f172a !important;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15), transparent 50%) !important;
-  backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(148, 163, 184, 0.2) !important;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
-  color: #f8fafc !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.widget .r3_counter_box:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 
-    0 32px 64px -12px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 0 0 2px rgba(16, 185, 129, 0.2) !important;
-}
-
-.widget .r3_counter_box h5 {
-  color: #f8fafc !important;
-  font-weight: 600 !important;
-}
-
-.widget .r3_counter_box span {
-  color: #e2e8f0 !important;
-}
+/* Estilos dos cards removidos - usando estilos minimalistas do custom.css */
 
 /*-------CARDS DE GRÁFICOS COM GRADIENTE-------*/
-.stat .content-top-1 {
-  background: #0f172a !important;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15), transparent 50%) !important;
-  backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(148, 163, 184, 0.2) !important;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.stat .content-top-1:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 
-    0 32px 64px -12px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 0 0 2px rgba(16, 185, 129, 0.2) !important;
-}
-
-.stat .content-top-1 h5 {
-  color: #e2e8f0 !important;
-}
-
-.stat .content-top-1 label {
-  color: #f8fafc !important;
-  font-weight: 600 !important;
-}
+/* Estilos removidos para usar os estilos minimalistas do custom.css */
 
 /*-------CARD DEMONSTRATIVO FINANCEIRO COM GRADIENTE-------*/
 .widgettable .card {
-  background: #0f172a !important;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15), transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15), transparent 50%) !important;
-  backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(148, 163, 184, 0.2) !important;
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 0 2px rgba(16, 185, 129, 0.1) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
 .widgettable .card:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 
-    0 32px 64px -12px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
 }
 
 .widgettable .card .card-header h3 {
-  color: #f8fafc !important;
+  color: #374151 !important;
   font-weight: 600 !important;
 }
 
 .widgettable .card-header {
   background: transparent !important;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-bottom: 1px solid #e5e7eb !important;
   padding: 20px !important;
 }
 
@@ -9523,5 +9499,5 @@ h4.asd label {
 /* Ocultar setas do dropdown do usuário */
 .profile_details_drop .fa-angle-down,
 .profile_details_drop .fa-angle-up {
-    display: none !important;
+  display: none !important;
 }
