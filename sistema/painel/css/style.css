@@ -5293,7 +5293,7 @@ ul.bt-list li a {
 }
 .top-content label {
   font-size: 1.7em;
-  color: #333;
+  color: #fafafa;
 }
 .pie-title-center {
   display: inline-block;
@@ -5310,6 +5310,7 @@ ul.bt-list li a {
   right: 0;
   margin-top: -20px;
   line-height: 40px;
+  color: #fafafa;
 }
 /*--- //index page ---*/
 
