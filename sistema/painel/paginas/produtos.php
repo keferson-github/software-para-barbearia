@@ -158,81 +158,102 @@ if(@$produtos == 'ocultar'){
 
 <!-- Modal Dados-->
 <div class="modal fade" id="modalDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalLabel"><span id="nome_dados"></span></h4>
-				<button id="btn-fechar-perfil" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
-					<span aria-hidden="true" >&times;</span>
+			<div class="modal-header bg-primary text-white">
+				<h4 class="modal-title" id="exampleModalLabel">
+					<i class="fa fa-eye mr-2"></i>
+					<span id="nome_dados"></span>
+				</h4>
+				<button id="btn-fechar-perfil" type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
+					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			
-			<div class="modal-body">
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-7">							
-						<span><b>Categoria: </b></span>
-						<span id="categoria_dados"></span>							
+			<div class="modal-body p-4">
+				<!-- Informações Principais -->
+				<div class="card">
+					<div class="card-header bg-light">
+						<h6 class="mb-0"><i class="fa fa-info-circle mr-2"></i>Informações do Produto</h6>
 					</div>
-					<div class="col-md-5">							
-						<span><b>Valor Compra: </b></span>
-						<span id="valor_compra_dados"></span>
-					</div>					
+					<div class="card-body">
+						<div class="row">
+							<!-- Coluna das Informações -->
+							<div class="col-md-8">
+								<div class="row mb-3">
+									<div class="col-md-6">
+										<div class="info-item">
+											<label class="font-weight-bold text-primary">Categoria:</label>
+											<span id="categoria_dados" class="ml-2"></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="info-item">
+											<label class="font-weight-bold text-success">Valor Compra:</label>
+											<span id="valor_compra_dados" class="ml-2 text-success"></span>
+										</div>
+									</div>
+								</div>
 
-				</div>
+								<div class="row mb-3">
+									<div class="col-md-6">
+										<div class="info-item">
+											<label class="font-weight-bold text-success">Valor Venda:</label>
+											<span id="valor_venda_dados" class="ml-2 text-success font-weight-bold"></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="info-item">
+											<label class="font-weight-bold text-info">Estoque:</label>
+											<span id="estoque_dados" class="ml-2 badge badge-info"></span>
+										</div>
+									</div>
+								</div>
 
+								<div class="row mb-3">
+									<div class="col-md-12">
+										<div class="info-item">
+											<label class="font-weight-bold text-warning">Alerta Nível Mínimo Estoque:</label>
+											<span id="nivel_estoque_dados" class="ml-2 badge badge-warning"></span>
+										</div>
+									</div>
+								</div>
 
-			
+								<div class="row">
+									<div class="col-md-12">
+										<div class="info-item">
+											<label class="font-weight-bold text-secondary">Descrição:</label>
+											<div class="mt-2 p-3 bg-light rounded">
+												<span id="descricao_dados" class="text-muted"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-7">							
-						<span><b>Valor Venda: </b></span>
-						<span id="valor_venda_dados"></span>
+							<!-- Coluna da Imagem -->
+							<div class="col-md-4">
+								<div class="product-image-section">
+									<div class="text-center mb-2">
+										<label class="font-weight-bold text-secondary">
+											<i class="fa fa-image mr-2"></i>Imagem do Produto
+										</label>
+									</div>
+									<div class="product-image-container text-center">
+										<img id="target_mostrar" class="img-fluid rounded shadow-sm border" style="max-width: 100%; max-height: 250px; object-fit: cover;">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-
-					<div class="col-md-5">							
-						<span><b>Estoque: </b></span>
-						<span id="estoque_dados"></span>							
-					</div>
-						
-
 				</div>
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					
-					<div class="col-md-8">							
-						<span><b>Alerta Nível Mínimo Estoque: </b></span>
-						<span id="nivel_estoque_dados"></span>							
-					</div>
-						
-
-				</div>
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-12">							
-						<span><b>Descrição: </b></span>
-						<span id="descricao_dados"></span>							
-					</div>
-
-				
-						
-
-				</div>
-
-			
-
-
-				<div class="row">
-					<div class="col-md-12" align="center">		
-						<img width="250px" id="target_mostrar">	
-					</div>					
-				</div>
-
-
 			</div>
 
-			
+			<div class="modal-footer bg-light">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					<i class="fa fa-times mr-2"></i>Fechar
+				</button>
+			</div>
 		</div>
 	</div>
 </div>

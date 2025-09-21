@@ -843,6 +843,220 @@ body.agendamentos .monthly {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* ===== CORREÇÃO MODAL VER DADOS - PRODUTOS ===== */
+#modalDados .modal-body {
+    padding: 1.5rem !important;
+}
+
+#modalDados .card-body {
+    padding: 1.5rem;
+}
+
+#modalDados .info-item {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+#modalDados .info-item:last-child {
+    border-bottom: none;
+}
+
+#modalDados .info-item label {
+    display: inline-block;
+    min-width: 120px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+#modalDados .info-item span {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+#modalDados .product-image-section {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#modalDados .product-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+#modalDados .product-image-container img {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+#modalDados .product-image-container img:hover {
+    transform: scale(1.05);
+    border-color: #007bff;
+}
+
+/* Responsividade para o modal */
+@media (max-width: 768px) {
+    #modalDados .col-md-8,
+    #modalDados .col-md-4 {
+        margin-bottom: 1rem;
+    }
+    
+    #modalDados .product-image-section {
+        margin-top: 1rem;
+    }
+    
+    #modalDados .info-item label {
+        min-width: auto;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* ===== FIM CORREÇÃO MODAL VER DADOS ===== */
+
+/* Card Comissões - Verde Escuro */
+.stat-comissoes .content-top-1 {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+    border-left: 4px solid #56ab2f;
+    box-shadow: 0 4px 15px rgba(86, 171, 47, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.stat-comissoes .content-top-1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(86, 171, 47, 0.4);
+}
+
+.stat-comissoes .content-top-1 h5,
+.stat-comissoes .content-top-1 label {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ESTILOS PARA CAMPO FORMA PGTO - MODAL VENDAS ===== */
+/* Aumentar altura do select Forma PGTO no modal Inserir Registro da página de vendas */
+#pgto {
+    height: 45px !important;
+    padding: 8px 12px !important;
+    line-height: 1.5 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    border: 1px solid #ddd !important;
+    transition: all 0.3s ease !important;
+}
+
+#pgto:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+    outline: none !important;
+}
+
+#pgto option {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+}
+
+/* Compatibilidade com Select2 caso seja aplicado */
+.select2-container--default .select2-selection--single#pgto {
+    height: 45px !important;
+    line-height: 43px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered#pgto {
+    line-height: 43px !important;
+    padding-left: 12px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow#pgto {
+    height: 43px !important;
+}
+
+/* ===== FIM ESTILOS FORMA PGTO ===== */
+
+/* Estilos específicos para campos do modal de funcionários */
+#tipo_chave,
+#foto {
+    height: 45px !important;
+    padding: 10px 12px !important;
+}
+
+/* Garantir que o input file tenha altura adequada */
+input[type="file"] {
+    height: 45px !important;
+    padding: 10px 12px !important;
+    line-height: 1.5 !important;
+}
+
+/* Media query para sobrescrever regras do Bootstrap em telas maiores */
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 850px !important;
+        max-width: 850px !important;
+    }
+}
+
+/* Ajuste de altura para os campos "Atendimento" e "Chave Pix" no modal de funcionários */
+#modalForm #atendimento,
+#modalForm #chave_pix {
+    height: 45px !important;
+    padding: 10px 12px !important;
+}
+
+/* Estilos específicos para campos no modal de planos */
+#item {
+    height: 45px !important;
+    padding: 10px 12px !important;
+    line-height: 1.4 !important;
+}
+
+/* Garantir que o select2 também tenha a altura correta */
+.select2-container--default .select2-selection--single {
+    height: 45px !important;
+    padding: 10px 12px !important;
+    line-height: 1.4 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 25px !important;
+    padding-left: 0 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 43px !important;
+}2f;
+    box-shadow: 0 4px 15px rgba(86, 171, 47, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.stat-comissoes .content-top-1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(86, 171, 47, 0.4);
+}
+
+.stat-comissoes .content-top-1 h5,
+.stat-comissoes .content-top-1 label {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 /* Estilos específicos para campos no modal de funcionários */
 #tipo_chave,
 #foto {
@@ -1256,3 +1470,344 @@ input[type="file"] {
     height: 45px !important;
     padding: 10px 12px !important;
 }
+
+/* Estilos específicos para campos no modal de planos */
+#item {
+    height: 45px !important;
+    padding: 10px 12px !important;
+    line-height: 1.4 !important;
+}
+
+/* Garantir que o select2 também tenha a altura correta */
+.select2-container--default .select2-selection--single {
+    height: 45px !important;
+    padding: 10px 12px !important;
+    line-height: 1.4 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 25px !important;
+    padding-left: 0 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 43px !important;
+}
+
+/* Modal "Inserir Registro" da página de agendamentos - largura reduzida */
+body.agendamentos #modalForm .modal-dialog {
+    max-width: 600px !important;
+    width: 600px !important;
+}
+
+/* Sobrescrever largura do Bootstrap para modais */
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 850px !important;
+        max-width: 850px !important;
+    }
+}
+
+/* Estilos personalizados para o calendário da página de agendamentos */
+body.agendamentos .agile-calendar {
+    margin-bottom: 20px;
+}
+
+/* Cabeçalho do calendário com gradiente moderno */
+body.agendamentos .monthly-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 15px;
+}
+
+body.agendamentos .monthly-header-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões de navegação do calendário */
+body.agendamentos .monthly-prev,
+body.agendamentos .monthly-next {
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+body.agendamentos .monthly-prev:hover,
+body.agendamentos .monthly-next:hover {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+/* Cabeçalho dos dias da semana */
+body.agendamentos .monthly-day-title-wrap {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-bottom: none;
+    padding: 15px 0;
+}
+
+body.agendamentos .monthly-day-title-wrap div {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Dias do calendário */
+body.agendamentos .monthly-day,
+body.agendamentos .monthly-day-blank {
+    background: #ffffff;
+    border: 1px solid #e8f4fd;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body.agendamentos .monthly-day:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+body.agendamentos .monthly-day:hover .monthly-day-number {
+    color: #ffffff !important;
+}
+
+/* Números dos dias */
+body.agendamentos .monthly-day-number {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* Dia atual destacado */
+body.agendamentos .monthly-today {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+body.agendamentos .monthly-today .monthly-day-number {
+    color: #ffffff !important;
+    background: transparent;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Dias em branco (mês anterior/próximo) */
+body.agendamentos .monthly-day-blank {
+    background: #f8f9fa;
+    color: #adb5bd;
+}
+
+/* Indicadores de eventos */
+body.agendamentos .monthly-event-indicator {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+    transition: all 0.3s ease;
+}
+
+body.agendamentos .monthly-event-indicator:hover {
+    transform: scale(1.2);
+    box-shadow: 0 3px 8px rgba(255, 107, 107, 0.5);
+}
+
+/* Container do calendário com bordas arredondadas */
+body.agendamentos .monthly {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    body.agendamentos .monthly-header {
+        padding: 15px 10px;
+    }
+    
+    body.agendamentos .monthly-header-title {
+        font-size: 1em;
+    }
+    
+    body.agendamentos .monthly-day-number {
+        font-size: 12px;
+    }
+}
+
+/* ========================================
+   CORES PERSONALIZADAS PARA CARDS DO DASHBOARD
+   ======================================== */
+
+/* Card 1 - Total de Clientes - Azul */
+.widget-clientes .r3_counter_box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-left: 4px solid #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.widget-clientes .r3_counter_box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.widget-clientes .r3_counter_box .fa {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.widget-clientes .r3_counter_box .stats h5,
+.widget-clientes .r3_counter_box span {
+    color: #ffffff;
+}
+
+/* Card 2 - Contas a Pagar - Vermelho */
+.widget-pagar .r3_counter_box {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    border-left: 4px solid #ff6b6b;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s ease;
+}
+
+.widget-pagar .r3_counter_box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.widget-pagar .r3_counter_box .fa {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.widget-pagar .r3_counter_box .stats h5,
+.widget-pagar .r3_counter_box span {
+    color: #ffffff;
+}
+
+/* Card 3 - Contas a Receber - Verde */
+.widget-receber .r3_counter_box {
+    background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+    border-left: 4px solid #51cf66;
+    box-shadow: 0 4px 15px rgba(81, 207, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.widget-receber .r3_counter_box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(81, 207, 102, 0.4);
+}
+
+.widget-receber .r3_counter_box .fa {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.widget-receber .r3_counter_box .stats h5,
+.widget-receber .r3_counter_box span {
+    color: #ffffff;
+}
+
+/* Card 4 - Estoque Baixo - Laranja */
+.widget-estoque .r3_counter_box {
+    background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+    border-left: 4px solid #ffa726;
+    box-shadow: 0 4px 15px rgba(255, 167, 38, 0.3);
+    transition: all 0.3s ease;
+}
+
+.widget-estoque .r3_counter_box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 167, 38, 0.4);
+}
+
+.widget-estoque .r3_counter_box .fa {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.widget-estoque .r3_counter_box .stats h5,
+.widget-estoque .r3_counter_box span {
+    color: #ffffff;
+}
+
+/* Card 5 - Saldo do Dia - Roxo */
+.widget-saldo .r3_counter_box {
+    background: linear-gradient(135deg, #9c88ff 0%, #8c7ae6 100%);
+    border-left: 4px solid #9c88ff;
+    box-shadow: 0 4px 15px rgba(156, 136, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.widget-saldo .r3_counter_box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(156, 136, 255, 0.4);
+}
+
+.widget-saldo .r3_counter_box .fa {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.widget-saldo .r3_counter_box .stats h5,
+.widget-saldo .r3_counter_box span {
+    color: #ffffff;
+}
+
+/* Cards de Estatísticas - Seção inferior */
+
+/* Card Agendamentos Dia - Azul Claro */
+.stat-agendamentos .content-top-1 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-left: 4px solid #4facfe;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.stat-agendamentos .content-top-1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+.stat-agendamentos .content-top-1 h5,
+.stat-agendamentos .content-top-1 label {
+    color: #ffffff;
+}
+
+/* Card Serviços Pagos - Rosa */
+.stat-servicos .content-top-1 {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border-left: 4px solid #ff9a9e;
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.stat-servicos .content-top-1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 154, 158, 0.4);
+}
+
+.stat-servicos .content-top-1 h5,
+.stat-servicos .content-top-1 label {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Comissões - Verde Escuro */
+.stat-comissoes .content-top-1 {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+    border-left: 4px solid #56ab
