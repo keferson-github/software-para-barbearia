@@ -138,8 +138,8 @@ button#showLeftPush {
   outline: none;
   height: 45px;
   width: 45px;
-  margin-top: 18px;
-  margin-left: 5px;
+  margin-top: 28px;
+  margin-left: 8px;
 }
 button#showLeftPush:hover {
   background: linear-gradient(
@@ -170,10 +170,10 @@ button#showLeftPush:active {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin: 0 5px !important;
+  margin: 0 12px !important;
   transition: all 0.3s ease !important;
   position: relative !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .nofitications-dropdown li.dropdown.head-dpdn > a::before {
@@ -200,7 +200,6 @@ button#showLeftPush:active {
 .nofitications-dropdown li.dropdown.head-dpdn > a:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
-  border-radius: 6px !important;
 }
 
 .nofitications-dropdown li.dropdown.head-dpdn > a i {
@@ -211,21 +210,23 @@ button#showLeftPush:active {
   position: relative !important;
 }
 
-/* Badges dos Ícones */
+/* Badges dos Ícones - Círculos de Contagem Completos */
 .nofitications-dropdown .badge {
   position: absolute !important;
-  top: -5px !important;
-  right: -5px !important;
+  top: -6px !important;
+  right: -6px !important;
   min-width: 20px !important;
   height: 20px !important;
   border-radius: 50% !important;
-  font-size: 11px !important;
+  font-size: 10px !important;
   font-weight: bold !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   border: 2px solid #ffffff !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  z-index: 20 !important;
+  line-height: 1 !important;
 }
 
 /* Popups/Dropdowns das Notificações */
@@ -689,6 +690,7 @@ ul.dropdown-menu {
   float: left;
   padding-left: 5px;
   margin-left: 32px;
+  padding-top: 8px;
 }
 .dropdown-menu {
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.175);
@@ -1167,7 +1169,7 @@ span.prfil-img img,
   padding: 1em;
   min-width: 190px;
   top: 122%;
-  left: 0%;
+  left: 4%;
   border-radius: 10px;
 }
 ul.dropdown-menu.drp-mnu li {
@@ -1276,7 +1278,7 @@ ul.dropdown-menu.drp-mnu li {
   font-weight: 400;
   letter-spacing: 0.5px;
   line-height: 1.6em;
-  margin: 0;
+  margin: 2px;
   transition: all 0.2s ease !important;
 }
 .footer p a {
@@ -9449,6 +9451,7 @@ h4.asd label {
   background: rgba(15, 23, 42, 0.8) !important;
   color: #94a3b8 !important;
   border-bottom: 1px solid rgba(148, 163, 184, 0.1) !important;
+  display: none;
 }
 
 .sidebar-left .sidebar-menu .header {
