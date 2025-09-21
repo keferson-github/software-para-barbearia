@@ -142,7 +142,7 @@ if(@$configuracoes == 'ocultar'){
 
 						<div class="col-md-2">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Mensagem Agendamento</label>
+								<label for="exampleInputEmail1">Agendamento</label>
 								<select class="form-control" name="msg_agendamento" id="msg_agendamento">
 									<option value="Sim" <?php if($msg_agendamento == 'Sim'){?> selected <?php } ?> >Sim</option>
 									<option value="Não" <?php if($msg_agendamento == 'Não'){?> selected <?php } ?> >Não</option>
@@ -418,3 +418,34 @@ if(@$configuracoes == 'ocultar'){
 			</form>	
 
 </div>
+
+<style>
+/* Estilos para todos os inputs do formulário de configurações */
+.form-control:not([type="file"]) {
+    height: 50px !important;
+    padding: 12px 15px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    border: 1px solid #ddd !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Efeito hover e focus para melhor UX */
+.form-control:not([type="file"]):hover {
+    border-color: #007bff !important;
+    box-shadow: 0 2px 4px rgba(0,123,255,0.1) !important;
+}
+
+.form-control:not([type="file"]):focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25) !important;
+    outline: none !important;
+}
+
+/* Manter inputs de arquivo com altura padrão */
+input[type="file"].form-control {
+    height: auto !important;
+    padding: 6px 12px !important;
+}
+</style>
