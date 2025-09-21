@@ -168,3 +168,326 @@
 .profile_details .profile_details_drop > a:hover {
     opacity: 0.8;
 }
+
+/* ===== ESTILOS MODERNOS PARA BOTÕES ===== */
+
+/* Reset e base para todos os botões */
+.btn {
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Efeito de ondulação nos botões */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Botão Primário - Azul moderno */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid transparent !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3) !important;
+    color: #ffffff !important;
+}
+
+/* Botão Sucesso - Verde moderno */
+.btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid transparent !important;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #0f8a7f 0%, #32d470 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.btn-success:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(17, 153, 142, 0.3) !important;
+}
+
+.btn-success:focus {
+    box-shadow: 0 0 0 3px rgba(17, 153, 142, 0.3) !important;
+    color: #ffffff !important;
+}
+
+/* Botão Perigo - Vermelho moderno */
+.btn-danger {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid transparent !important;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #ff5252 0%, #e53e3e 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.btn-danger:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3) !important;
+}
+
+.btn-danger:focus {
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3) !important;
+    color: #ffffff !important;
+}
+
+/* Botão Padrão - Cinza moderno */
+.btn-default {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: #495057 !important;
+    border: 2px solid #dee2e6 !important;
+}
+
+.btn-default:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(73, 80, 87, 0.15) !important;
+    color: #343a40 !important;
+    border-color: #adb5bd !important;
+}
+
+.btn-default:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(73, 80, 87, 0.1) !important;
+}
+
+.btn-default:focus {
+    box-shadow: 0 0 0 3px rgba(73, 80, 87, 0.15) !important;
+    color: #343a40 !important;
+}
+
+/* Botões pequenos */
+.btn-sm {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    border-radius: 6px !important;
+}
+
+/* Botões grandes */
+.btn-lg {
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+}
+
+/* Botões desabilitados */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn:disabled:hover,
+.btn.disabled:hover {
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ===== ESTILOS MODERNOS PARA MODAIS ===== */
+
+/* Container do modal */
+.modal-dialog {
+    margin: 30px auto !important;
+    max-width: 600px !important;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    border: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden !important;
+    animation: modalSlideIn 0.3s ease-out !important;
+}
+
+/* Animação de entrada do modal */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #ffffff !important;
+    padding: 20px 25px !important;
+    border-bottom: none !important;
+    position: relative !important;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.modal-title {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Botão de fechar do modal */
+.modal-header .close {
+    color: #ffffff !important;
+    opacity: 0.8 !important;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+    text-shadow: none !important;
+    position: relative !important;
+    z-index: 1 !important;
+    transition: all 0.3s ease !important;
+}
+
+.modal-header .close:hover {
+    opacity: 1 !important;
+    transform: rotate(90deg) !important;
+}
+
+/* Corpo do modal */
+.modal-body {
+    padding: 25px !important;
+    background: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Rodapé do modal */
+.modal-footer {
+    padding: 20px 25px !important;
+    background: #f8f9fa !important;
+    border-top: 1px solid #e9ecef !important;
+    border-radius: 0 0 16px 16px !important;
+}
+
+/* Backdrop do modal */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Modais responsivos */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 15px !important;
+        max-width: calc(100% - 30px) !important;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 15px 20px !important;
+    }
+    
+    .btn {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* Modais específicos com cores personalizadas */
+#modalDados .modal-header {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+}
+
+#modalBaixar .modal-header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%) !important;
+}
+
+#modalSangria .modal-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+}
+
+#modalPermissoes .modal-header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+}
+
+/* Melhorias nos formulários dentro dos modais */
+.modal-body .form-group {
+    margin-bottom: 20px !important;
+}
+
+.modal-body .form-control {
+    border-radius: 8px !important;
+    border: 2px solid #e9ecef !important;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.modal-body .form-control:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+}
+
+.modal-body label {
+    font-weight: 600 !important;
+    color: #495057 !important;
+    margin-bottom: 8px !important;
+}
