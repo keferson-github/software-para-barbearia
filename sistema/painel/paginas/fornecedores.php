@@ -175,7 +175,11 @@ if(@$fornecedores == 'ocultar'){
 
 			</div>
 
-			
+			<div class="modal-footer bg-light">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					<i class="fa fa-times mr-2"></i>Fechar
+				</button>
+			</div>
 		</div>
 	</div>
 </div>

@@ -5,6 +5,10 @@ require_once("../../../conexao.php");
 @session_start();
 $usuario_logado = @$_SESSION['id'].'';
 
+// Log de debugging - início do processo
+error_log("AGENDAMENTO DEBUG: Iniciando processo de agendamento");
+error_log("AGENDAMENTO DEBUG: POST recebido: " . print_r($_POST, true));
+
 $cliente = $_POST['cliente'];
 $data = $_POST['data'];
 $hora = @$_POST['hora'];
@@ -16,7 +20,27 @@ $data_agd = $_POST['data'];
 $hora_do_agd = @$_POST['hora'];
 $hash = '';
 
+// Validações básicas
+if(empty($cliente)) {
+    error_log("AGENDAMENTO DEBUG: Cliente não informado");
+    echo 'Cliente é obrigatório!';
+    exit();
+}
+
+if(empty($funcionario)) {
+    error_log("AGENDAMENTO DEBUG: Funcionário não informado");
+    echo 'Funcionário é obrigatório!';
+    exit();
+}
+
+if(empty($servico)) {
+    error_log("AGENDAMENTO DEBUG: Serviço não informado");
+    echo 'Serviço é obrigatório!';
+    exit();
+}
+
 if(@$hora == ""){
+	error_log("AGENDAMENTO DEBUG: Horário não informado");
 	echo 'Selecione um Horário antes de agendar!';
 	exit();
 }
@@ -24,13 +48,23 @@ if(@$hora == ""){
 
 $query = $pdo->query("SELECT * FROM usuarios where id = '$funcionario'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
-$intervalo = $res[0]['intervalo'];
-$nome_func = @$res[0]['nome'];
+if(count($res) > 0) {
+    $intervalo = $res[0]['intervalo'];
+    $nome_func = @$res[0]['nome'];
+} else {
+    echo 'Funcionário não encontrado!';
+    exit();
+}
 
 $query = $pdo->query("SELECT * FROM servicos where id = '$servico'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
-$tempo = $res[0]['tempo'];
-$nome_serv = @$res[0]['nome'];
+if(count($res) > 0) {
+    $tempo = $res[0]['tempo'];
+    $nome_serv = @$res[0]['nome'];
+} else {
+    echo 'Serviço não encontrado!';
+    exit();
+}
 
 $hora_minutos = strtotime("+$tempo minutes", strtotime($hora));			
 $hora_final_servico = date('H:i:s', $hora_minutos);
@@ -122,8 +156,13 @@ if($total_reg > 0 and $res[0]['id'] != $id){
 //pegar nome do cliente
 $query = $pdo->query("SELECT * FROM clientes where id = '$cliente'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
-$nome_cliente = $res[0]['nome'];
-$telefone = $res[0]['telefone'];
+if(count($res) > 0) {
+    $nome_cliente = $res[0]['nome'];
+    $telefone = $res[0]['telefone'];
+} else {
+    echo 'Cliente não encontrado!';
+    exit();
+}
 
 if($not_sistema == 'Sim'){
 	$mensagem_not = $nome_cliente;
@@ -151,10 +190,31 @@ $telefone = '55'.preg_replace('/[ ()-]+/' , '' , $telefone);
 $query = $pdo->prepare("INSERT INTO $tabela SET funcionario = '$funcionario', cliente = '$cliente', hora = '$hora', data = '$data_agd', usuario = '$usuario_logado', status = 'Agendado', obs = :obs, data_lanc = curDate(), servico = '$servico', hash = '$hash'");
 
 $query->bindValue(":obs", "$obs");
-$query->execute();
+
+// Log antes da execução
+error_log("AGENDAMENTO DEBUG: Executando INSERT na tabela agendamentos");
+error_log("AGENDAMENTO DEBUG: Dados - funcionario: $funcionario, cliente: $cliente, hora: $hora, data: $data_agd, servico: $servico");
+
+$resultado = $query->execute();
+
+if(!$resultado) {
+    error_log("AGENDAMENTO DEBUG: Erro ao executar INSERT: " . print_r($query->errorInfo(), true));
+    echo 'Erro ao salvar agendamento. Tente novamente.';
+    exit();
+}
+
+error_log("AGENDAMENTO DEBUG: INSERT executado com sucesso");
 
 
 $ult_id = $pdo->lastInsertId();
+
+error_log("AGENDAMENTO DEBUG: ID do agendamento criado: $ult_id");
+
+if($ult_id == 0) {
+    error_log("AGENDAMENTO DEBUG: Erro - lastInsertId retornou 0");
+    echo 'Erro ao obter ID do agendamento. Tente novamente.';
+    exit();
+}
 
 if($msg_agendamento == 'Api'){
 if(strtotime($hora_atual) < strtotime($nova_hora) or strtotime($data_atual) != strtotime($data_agd)){
@@ -195,5 +255,7 @@ while (strtotime($hora) < strtotime($hora_final_servico)){
 
 
 echo 'Salvo com Sucesso'; 
+
+error_log("AGENDAMENTO DEBUG: Processo finalizado com sucesso - ID: $ult_id");
 
 ?>

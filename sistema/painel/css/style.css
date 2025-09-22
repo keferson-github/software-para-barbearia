@@ -1265,8 +1265,7 @@ ul.dropdown-menu.drp-mnu li {
   backdrop-filter: blur(16px) !important;
   border-top: 1px solid rgba(148, 163, 184, 0.2) !important;
   box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 -2px 4px -1px rgba(0, 0, 0, 0.06),
-    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+    0 -2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
   padding: 0.8em;
   width: 100%;
   text-align: center;
@@ -3690,17 +3689,10 @@ h3.w3_inner_tittle.two {
   margin-bottom: 0;
   text-align: center;
   vertical-align: middle;
-  text-transform: uppercase;
   cursor: pointer;
-  background-image: none;
-  background-color: #222d32;
-  border: 0;
-  border-color: rgba(0, 0, 0, 0.07) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.18);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #ffffff !important;
   white-space: nowrap;
-  padding: 8px 15px;
-  border-radius: 6px;
-  letter-spacing: 0.02em;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -9474,7 +9466,8 @@ h4.asd label {
 
 .widgettable .card:hover {
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
 }
 
 .widgettable .card .card-header h3 {

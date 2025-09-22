@@ -29,7 +29,7 @@ for($i=0; $i < $total_reg; $i++){
 	
 $query2 = $pdo->query("SELECT * FROM servicos where id = '$servico'");
 $res2 = $query2->fetchAll(PDO::FETCH_ASSOC);	
-$nome_servico = $res2[0]['nome'];
+$nome_servico = (isset($res2[0]) && isset($res2[0]['nome'])) ? $res2[0]['nome'] : 'Serviço não encontrado';
 
 echo <<<HTML
 <tr class="">

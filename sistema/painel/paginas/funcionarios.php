@@ -213,112 +213,145 @@ if(@$funcionarios == 'ocultar'){
 
 <!-- Modal Dados-->
 <div class="modal fade" id="modalDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-xl" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalLabel"><span id="nome_dados"></span></h4>
-				<button id="btn-fechar-perfil" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
-					<span aria-hidden="true" >&times;</span>
+			<div class="modal-header bg-primary text-white">
+				<h4 class="modal-title" id="exampleModalLabel">
+					<i class="fa fa-eye mr-2"></i>
+					<span id="nome_dados"></span>
+				</h4>
+				<button id="btn-fechar-perfil" type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
+					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			
-			<div class="modal-body">
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-8">							
-						<span><b>Email: </b></span>
-						<span id="email_dados"></span>							
+			<div class="modal-body p-4" style="max-height: 70vh; overflow-y: auto;">
+				<!-- Informações Principais -->
+				<div class="card">
+					<div class="card-header bg-light">
+						<h6 class="mb-0"><i class="fa fa-user mr-2"></i>Informações do Funcionário</h6>
 					</div>
-					<div class="col-md-4">							
-						<span><b>Senha: </b></span>
-						<span id="senha_dados"></span>
-					</div>					
+					<div class="card-body">
+						<div class="row">
+							<!-- Coluna das Informações -->
+							<div class="col-md-7">
+								<!-- Lista de Dados em Coluna -->
+								<div class="employee-info-list">
+									<!-- Email -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-primary d-block mb-1">
+											<i class="fa fa-envelope mr-2"></i>Email:
+										</label>
+										<span id="email_dados" class="text-break text-muted"></span>
+									</div>
 
-				</div>
+									<!-- CPF -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-info d-block mb-1">
+											<i class="fa fa-id-card mr-2"></i>CPF:
+										</label>
+										<span id="cpf_dados" class="text-muted"></span>
+									</div>
 
+									<!-- Telefone -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-success d-block mb-1">
+											<i class="fa fa-phone mr-2"></i>Telefone:
+										</label>
+										<span id="telefone_dados" class="text-success"></span>
+									</div>
 
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-6">							
-						<span><b>CPF: </b></span>
-						<span id="cpf_dados"></span>							
+									<!-- Nível -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-warning d-block mb-1">
+											<i class="fa fa-star mr-2"></i>Nível:
+										</label>
+										<span id="nivel_dados" class="badge badge-warning"></span>
+									</div>
+
+									<!-- Status Ativo -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-info d-block mb-1">
+											<i class="fa fa-check-circle mr-2"></i>Status:
+										</label>
+										<span id="ativo_dados" class="badge badge-info"></span>
+									</div>
+
+									<!-- Atendimento -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-primary d-block mb-1">
+											<i class="fa fa-calendar mr-2"></i>Atendimento:
+										</label>
+										<span id="atendimento_dados" class="badge badge-primary"></span>
+									</div>
+
+									<!-- Data de Cadastro -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-secondary d-block mb-1">
+											<i class="fa fa-calendar-plus mr-2"></i>Data de Cadastro:
+										</label>
+										<span id="data_dados" class="text-muted"></span>
+									</div>
+
+									<!-- Senha -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-secondary d-block mb-1">
+											<i class="fa fa-lock mr-2"></i>Senha:
+										</label>
+										<span id="senha_dados" class="text-muted">••••••••</span>
+									</div>
+
+									<!-- Tipo Chave PIX -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-success d-block mb-1">
+											<i class="fa fa-credit-card mr-2"></i>Tipo Chave PIX:
+										</label>
+										<span id="tipo_chave_dados" class="text-muted"></span>
+									</div>
+
+									<!-- Chave PIX -->
+									<div class="info-item mb-3 pb-3 border-bottom">
+										<label class="font-weight-bold text-success d-block mb-1">
+											<i class="fa fa-key mr-2"></i>Chave PIX:
+										</label>
+										<span id="chave_pix_dados" class="text-break text-muted"></span>
+									</div>
+
+									<!-- Endereço -->
+									<div class="info-item">
+										<label class="font-weight-bold text-secondary d-block mb-2">
+											<i class="fa fa-map-marker mr-2"></i>Endereço Completo:
+										</label>
+										<div class="p-3 bg-light rounded border-left border-primary" style="border-left-width: 4px !important;">
+											<span id="endereco_dados" class="text-muted"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Coluna da Imagem Ampliada -->
+							<div class="col-md-5">
+								<div class="employee-image-section h-100 d-flex flex-column">
+									<div class="text-center mb-3">
+										<label class="font-weight-bold text-secondary">
+											<i class="fa fa-camera mr-2"></i>Foto do Funcionário
+										</label>
+									</div>
+									<div class="employee-image-container text-center flex-grow-1 d-flex align-items-center justify-content-center">
+										<img id="target_mostrar" class="rounded shadow-lg border" style="width: 300px; height: 300px; object-fit: cover; border-width: 3px !important;">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-6">							
-						<span><b>Telefone: </b></span>
-						<span id="telefone_dados"></span>
-					</div>					
-
 				</div>
-
-
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-6">							
-						<span><b>Nível: </b></span>
-						<span id="nivel_dados"></span>							
-					</div>
-					<div class="col-md-6">							
-						<span><b>Ativo: </b></span>
-						<span id="ativo_dados"></span>
-					</div>		
-								
-
-				</div>
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-						
-					<div class="col-md-6">							
-						<span><b>Cadastro: </b></span>
-						<span id="data_dados"></span>
-					</div>	
-
-						<div class="col-md-6">							
-						<span><b>Atendimento: </b></span>
-						<span id="atendimento_dados"></span>
-					</div>				
-
-				</div>
-
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-						
-					<div class="col-md-6">							
-						<span><b>Tipo Chave: </b></span>
-						<span id="tipo_chave_dados"></span>
-					</div>	
-
-						<div class="col-md-6">							
-						<span><b>Chave Pix: </b></span>
-						<span id="chave_pix_dados"></span>
-					</div>				
-
-				</div>
-
-
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					
-					<div class="col-md-12">							
-						<span><b>Endereço: </b></span>
-						<span id="endereco_dados"></span>
-					</div>					
-
-				</div>
-
-
-				<div class="row">
-					<div class="col-md-12" align="center">		
-						<img width="250px" id="target_mostrar">	
-					</div>					
-				</div>
-
-
 			</div>
 
-			
+			<div class="modal-footer bg-light">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					<i class="fa fa-times mr-2"></i>Fechar
+				</button>
+			</div>
 		</div>
 	</div>
 </div>
