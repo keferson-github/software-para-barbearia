@@ -193,7 +193,7 @@ HTML;
 
 
 }else{
-	echo '<small>Nenhum Produto ainda Lançado!</small>';
+	echo '<small style="color: #666; font-style: italic;">Nenhum Produto ainda Lançado!</small>';
 }
 
 ?>

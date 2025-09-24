@@ -39,16 +39,16 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 
 <div class="bs-example" style="padding:15px">
 
-	<div class="row" style="margin-top: -20px">
-		<div class="col-md-5" style="margin-bottom:5px;">
-			<div style="float:left; margin-right:10px"><span><small><i title="Data de Vencimento Inicial" class="fa fa-calendar-o"></i></small></span></div>
-			<div  style="float:left; margin-right:20px">
-				<input type="date" class="form-control " name="data-inicial"  id="data-inicial-caixa" value="<?php echo $data_hoje ?>" required>
+	<div class="row" style="margin-top: -15px; margin-bottom: 15px;">
+		<div class="col-md-5" style="margin-bottom: 8px;">
+			<div style="float:left; margin-right:10px; margin-top: 8px;"><span><small><i title="Data de Vencimento Inicial" class="fa fa-calendar-o"></i></small></span></div>
+			<div style="float:left; margin-right:20px;">
+				<input type="date" class="form-control" name="data-inicial" id="data-inicial-caixa" value="<?php echo $data_hoje ?>" required style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 140px;">
 			</div>
 
-			<div style="float:left; margin-right:10px"><span><small><i title="Data de Vencimento Final" class="fa fa-calendar-o"></i></small></span></div>
-			<div  style="float:left; margin-right:30px">
-				<input type="date" class="form-control " name="data-final"  id="data-final-caixa" value="<?php echo $data_hoje ?>" required>
+			<div style="float:left; margin-right:10px; margin-top: 8px;"><span><small><i title="Data de Vencimento Final" class="fa fa-calendar-o"></i></small></span></div>
+			<div style="float:left; margin-right:30px;">
+				<input type="date" class="form-control" name="data-final" id="data-final-caixa" value="<?php echo $data_hoje ?>" required style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 140px;">
 			</div>
 		</div>
 
@@ -94,303 +94,290 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 
 <!-- Modal Inserir-->
 <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="">
-	<div class="modal-dialog modal-lg" role="document" style="width:80%; " id="modal_scrol">
+	<div class="modal-dialog modal-lg" role="document" style="width:90%; max-width:1400px;" id="modal_scrol">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title"><span id="titulo_comanda">Nova Comanda</span></h4>
-				<button id="btn-fechar" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
+			<div class="modal-header" style="padding: 10px 15px;">
+				<h4 class="modal-title" style="margin: 0;"><span id="titulo_comanda">Nova Comanda</span></h4>
+				<button id="btn-fechar" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -15px">
 					<span aria-hidden="true" >&times;</span>
 				</button>
 			</div>
 			<form id="form_salvar">
-				<div class="modal-body">
+				<div class="modal-body" style="padding: 20px 15px;">
 
-					<div class="row">
-						<div class="col-md-8" style="border-right: 1px solid #6e6d6d; overflow: scroll; height:auto; max-height: 350px; scrollbar-width: thin;">
-							<div class="col-md-6">			
-							<div class="form-group"> 
-								<label>Cliente</label> 
-								<select class="form-control sel2" id="cliente" name="cliente" style="width:100%;" required> 
-									<option value="">Selecionar Cliente</option>
-									<?php 
-									$query = $pdo->query("SELECT * FROM clientes ORDER BY nome asc");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
-
-
-								</select>    
-							</div>						
-						</div>
-
-						<div class="col-md-6">						
-							<div class="form-group"> 
-								<label>Observações </label> 
-								<input maxlength="1000" type="text" class="form-control" name="obs" id="obs2"> 
-							</div>						
-						</div>
-
-						<div class="col-md-12" style="border-top: 1px solid #cecece; margin-bottom: 5px;">	
-
-							<div class="col-md-5" style="margin-left: -17px; margin-top: 10px">						
-							<div class="form-group"> 
-								<label>Serviço</label> 
-								<select class="form-control sel2" id="servico" name="servico" style="width:100%;" required> 
-
-									<?php 
-									$query = $pdo->query("SELECT * FROM servicos ORDER BY nome asc");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
-
-
-								</select>    
-							</div>						
-						</div>
-
-
-						<div class="col-md-5" style="margin-top: 10px">						
-							<div class="form-group"> 
-								<label>Profissional</label> 
-								<select class="form-control sel2" id="funcionario" name="funcionario" style="width:100%;" required onchange=""> 
-
-									<?php 
-									$query = $pdo->query("SELECT * FROM usuarios where atendimento = 'Sim' ORDER BY nome asc");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
-
-
-								</select>    
-							</div>						
-						</div>
-
-						<div class="col-md-2" style="margin-top: 30px">	
-							<a href="#" onclick="inserirServico()" class="btn btn-primary"><i class="fa fa-plus"></i></a>
-						</div>
-
-
-						<div class="col-md-12" style="border: 1px solid #5c5c5c; margin-bottom: 5px; margin-left: -17px;" id="listar_servicos">
+					<div class="row" style="margin: 0;">
+						<div class="col-md-8" style="border-right: 1px solid #6e6d6d; overflow-y: auto; height:auto; max-height: 450px; scrollbar-width: thin; padding-right: 15px;">
 							
+							<!-- Seção Cliente e Observações -->
+							<div class="row" style="margin-bottom: 12px; margin-top: 8px;">
+								<div class="col-md-6" style="padding-right: 8px;">			
+									<div class="form-group" style="margin-bottom: 12px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Cliente *</label> 
+										<select class="form-control sel2" id="cliente" name="cliente" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required> 
+											<option value="">Selecionar Cliente</option>
+											<?php 
+											$query = $pdo->query("SELECT * FROM clientes ORDER BY nome asc");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+
+								<div class="col-md-6" style="padding-left: 8px;">						
+									<div class="form-group" style="margin-bottom: 12px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Observações</label> 
+										<input maxlength="1000" type="text" class="form-control" name="obs" id="obs2" style="height: 34px; border: 1px solid #ddd; border-radius: 4px;" placeholder="Digite observações..."> 
+									</div>						
+								</div>
+							</div>
+
+							<!-- Divisor -->
+							<div style="border-top: 1px solid #e0e0e0; margin: 15px 0;"></div>
+
+							<!-- Seção Serviços -->
+							<div class="row" style="margin-bottom: 10px;">
+								<div class="col-md-5" style="padding-right: 8px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Serviço *</label> 
+										<select class="form-control sel2" id="servico" name="servico" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required> 
+											<?php 
+											$query = $pdo->query("SELECT * FROM servicos ORDER BY nome asc");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+
+								<div class="col-md-5" style="padding-left: 8px; padding-right: 8px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Profissional *</label> 
+										<select class="form-control sel2" id="funcionario" name="funcionario" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required> 
+											<?php 
+											$query = $pdo->query("SELECT * FROM usuarios where atendimento = 'Sim' ORDER BY nome asc");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+
+								<div class="col-md-2" style="padding-left: 8px; display: flex; align-items: end;">	
+									<a href="#" onclick="inserirServico()" class="btn btn-primary btn-sm" style="height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 4px;" title="Adicionar Serviço"><i class="fa fa-plus"></i></a>
+								</div>
+							</div>
+
+							<!-- Lista de Serviços -->
+							<div class="row" style="margin-bottom: 12px;">
+								<div class="col-md-12">
+									<div style="border: 1px solid #ddd; margin-bottom: 10px; min-height: 45px; padding: 8px; border-radius: 4px; background-color: #f9f9f9;" id="listar_servicos"></div>
+								</div>
+							</div>
+
+							<!-- Seção Produtos -->
+							<div class="row" style="margin-bottom: 10px;">
+								<div class="col-md-4" style="padding-right: 8px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Produtos</label> 
+										<select class="form-control sel2" id="produto" name="produto" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required onchange="listarServicos()"> 
+											<?php 
+											$query = $pdo->query("SELECT * FROM produtos where estoque > 0 ORDER BY nome asc");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+
+								<div class="col-md-2" style="padding-left: 8px; padding-right: 8px;">					
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Qtd</label> 
+										<input type="number" class="form-control" name="quantidade" id="quantidade" value="1" style="height: 34px; border: 1px solid #ddd; border-radius: 4px; text-align: center;" min="1"> 
+									</div>						
+								</div>
+
+								<div class="col-md-4" style="padding-left: 8px; padding-right: 8px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Profissional</label> 
+										<select class="form-control sel2" id="funcionario2" name="funcionario2" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required onchange="listarServicos()"> 
+											<option value="0">Nenhum</option>
+											<?php 
+											$query = $pdo->query("SELECT * FROM usuarios where nivel != 'Administrador' ORDER BY nome asc");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+
+								<div class="col-md-2" style="padding-left: 8px; display: flex; align-items: end;">	
+									<a href="#" onclick="inserirProduto()" class="btn btn-primary btn-sm" style="height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 4px;" title="Adicionar Produto"><i class="fa fa-plus"></i></a>
+								</div>
+							</div>
+
+							<!-- Lista de Produtos -->
+							<div class="row" style="margin-bottom: 12px;">
+								<div class="col-md-12">
+									<div style="border: 1px solid #ddd; margin-bottom: 10px; min-height: 45px; padding: 8px; border-radius: 4px; background-color: #f9f9f9;" id="listar_produtos"></div>
+								</div>
+							</div>
+
 						</div>
 
-
-						<div class="col-md-5" style="margin-top: 10px;margin-left: -17px;">						
-							<div class="form-group"> 
-								<label>Produtos</label> 
-								<select class="form-control sel2" id="produto" name="produto" style="width:100%;" required onchange="listarServicos()"> 
-
-									<?php 
-									$query = $pdo->query("SELECT * FROM produtos where estoque > 0 ORDER BY nome asc");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
-
-
-								</select>    
-							</div>						
-						</div>
-
-						<div class="col-md-2" id="" style="margin-top: 10px;">					
-							<div class="form-group"> 
-								<label>Quantidade </label> 
-								<input type="number" class="form-control" name="quantidade" id="quantidade" value="1"> 
-							</div>						
-						</div>
-
-
-						<div class="col-md-4" style="margin-top: 10px">						
-							<div class="form-group"> 
-								<label>Profissional</label> 
-								<select class="form-control sel2" id="funcionario2" name="funcionario2" style="width:100%;" required onchange="listarServicos()"> 
-									<option value="0">Nenhum</option>
-									<?php 
-									$query = $pdo->query("SELECT * FROM usuarios where nivel != 'Administrador' ORDER BY nome asc");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
-
-
-								</select>    
-							</div>						
-						</div>
-
-						<div class="col-md-1" style="margin-top: 30px">	
-							<a href="#" onclick="inserirProduto()" class="btn btn-primary"><i class="fa fa-plus"></i></a>
-						</div>
-
-
-
-						<div class="col-md-12" style="border: 1px solid #5c5c5c; margin-bottom: 5px; margin-left: -17px;" id="listar_produtos">
+						<!-- Painel Lateral de Pagamento -->
+						<div class="col-md-4" style="padding-left: 15px;">
 							
-						</div>
+							<!-- Valor e Data de Pagamento -->
+							<div class="row" style="margin-bottom: 10px;">
+								<div class="col-md-5" style="padding-right: 5px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Valor</label> 
+										<input type="text" class="form-control inputs_form" name="valor_serv" id="valor_serv" style="height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px; text-align: right;" placeholder="0,00"> 
+									</div>						
+								</div>
 
+								<div class="col-md-7" style="padding-left: 5px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Data PGTO</label> 
+										<input type="date" class="form-control inputs_form" name="data_pgto" id="data_pgto" value="<?php echo date('Y-m-d') ?>" style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 100%;"> 
+									</div>						
+								</div>	
+							</div>
 
-						</div>
+							<!-- Forma de Pagamento -->
+							<div class="row" style="margin-bottom: 12px;">
+								<div class="col-md-12">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Forma PGTO</label> 
+										<select class="form-control inputs_form" id="pgto" name="pgto" style="width:100%; height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px;" required> 
+											<?php 
+											$query = $pdo->query("SELECT * FROM formas_pgto");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['nome'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+							</div>
 
-						</div>
+							<!-- Divisor -->
+							<div style="border-bottom: 1px solid #e0e0e0; margin: 12px 0;"></div>
 
-						
-						<div class="col-md-4">
-							<div class="col-md-5" id="nasc">						
-							<div class="form-group"> 
-								<label><small>Valor</small> </label> 
-								<input type="text" class="form-control inputs_form" name="valor_serv" id="valor_serv"> 
-							</div>						
-						</div>
+							<!-- Valor Restante -->
+							<div class="row" style="margin-bottom: 10px;">
+								<div class="col-md-5" style="padding-right: 5px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Vl. Restante</label> 
+										<input type="text" class="form-control inputs_form" name="valor_serv_agd_restante" id="valor_serv_agd_restante" onkeyup="abaterValor()" style="height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px; text-align: right;" placeholder="0,00"> 
+									</div>						
+								</div>
 
-						<div class="col-md-7" id="nasc" >						
-							<div class="form-group"> 
-								<label><small>Data PGTO</small></label> 
-								<input type="date" class="form-control inputs_form" name="data_pgto" id="data_pgto" value="<?php echo date('Y-m-d') ?>"> 
-							</div>						
-						</div>	
+								<div class="col-md-7" style="padding-left: 5px;">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Data PGTO Restante</label> 
+										<input type="date" class="form-control inputs_form" name="data_pgto_restante" id="data_pgto_restante" value="" style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 100%;"> 
+									</div>						
+								</div>
+							</div>
 
+							<!-- Forma PGTO Restante -->
+							<div class="row" style="margin-bottom: 12px;">
+								<div class="col-md-12">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Forma PGTO Restante</label> 
+										<select class="form-control inputs_form" id="pgto_restante" name="pgto_restante" style="width:100%; height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px;"> 
+											<option value="">Selecionar Pgto</option>
+											<?php 
+											$query = $pdo->query("SELECT * FROM formas_pgto");
+											$res = $query->fetchAll(PDO::FETCH_ASSOC);
+											$total_reg = @count($res);
+											if($total_reg > 0){
+												for($i=0; $i < $total_reg; $i++){
+													foreach ($res[$i] as $key => $value){}
+														echo '<option value="'.$res[$i]['nome'].'">'.$res[$i]['nome'].'</option>';
+												}
+											}
+											?>
+										</select>    
+									</div>						
+								</div>
+							</div>
 
-						<div class="col-md-12" style="border-bottom: 1px solid #a8a7a7">						
-							<div class="form-group"> 
-								<label><small>Forma PGTO</small></label> 
-								<select class="form-control inputs_form" id="pgto" name="pgto" style="width:100%;" required> 
+							<!-- Divisor -->
+							<div style="border-bottom: 1px solid #e0e0e0; margin: 12px 0;"></div>
 
-									<?php 
-									$query = $pdo->query("SELECT * FROM formas_pgto");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['nome'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
+							<!-- Fechar Comanda -->
+							<div class="row" style="margin-bottom: 12px;">
+								<div class="col-md-12">						
+									<div class="form-group" style="margin-bottom: 10px;"> 
+										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Fechar comanda ao Salvar</label> 
+										<select class="form-control inputs_form" id="salvar_comanda" name="salvar_comanda" style="width:100%; height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px;"> 
+											<option value="">Não</option>
+											<option value="Sim">Sim</option>
+										</select>
+									</div>						
+								</div>
+							</div>
 
-
-								</select>    
-							</div>						
-						</div>
-
-
-							
-
-						
-					
-
-
-
-						<div class="col-md-5" id="" style="margin-top: 10px">						
-							<div class="form-group"> 
-								<label><small>Valor Restante</small> </label> 
-								<input type="text" class="form-control inputs_form" name="valor_serv_agd_restante" id="valor_serv_agd_restante" onkeyup="abaterValor()"> 
-							</div>						
-						</div>
-
-
-							<div class="col-md-7" id="" style="margin-top: 10px">						
-							<div class="form-group"> 
-								<label><small>Data PGTO Restante</small></label> 
-								<input type="date" class="form-control inputs_form" name="data_pgto_restante" id="data_pgto_restante" value=""> 
-							</div>						
-						</div>
-
-
-							<div class="col-md-12" style="border-bottom: 1px solid #a8a7a7" >						
-							<div class="form-group"> 
-								<label><small>Forma PGTO Restante</small></label> 
-								<select class="form-control inputs_form" id="pgto_restante" name="pgto_restante" style="width:100%;" > 
-									<option value="">Selecionar Pgto</option>
-									<?php 
-									$query = $pdo->query("SELECT * FROM formas_pgto");
-									$res = $query->fetchAll(PDO::FETCH_ASSOC);
-									$total_reg = @count($res);
-									if($total_reg > 0){
-										for($i=0; $i < $total_reg; $i++){
-											foreach ($res[$i] as $key => $value){}
-												echo '<option value="'.$res[$i]['nome'].'">'.$res[$i]['nome'].'</option>';
-										}
-									}
-									?>
-
-
-								</select>    
-							</div>						
-						</div>
-
-
-					
-
-					
-
-						<div class="col-md-12" id="" style="margin-top: 10px">						
-							<div class="form-group"> 
-								<label><small>Fechar comanda ao Salvar</small></label> 
-								<select class="form-control inputs_form" id="salvar_comanda" name="salvar_comanda" style="width:100%;" > 
-									<option value="">Não</option>
-									<option value="Sim">Sim</option>
-								</select>
-							</div>						
-						</div>
-
-						<div class="col-md-12" align="right">
-							<a href="#" id="btn_fechar_comanda" onclick="fecharComanda()" class="btn btn-success">Fechar Comanda</a>
-
-					<button type="submit" class="btn btn-primary">Salvar</button>	
-						</div>	
+							<!-- Botões de Ação -->
+							<div class="row">
+								<div class="col-md-12" style="text-align: right; padding-top: 10px;">
+									<a href="#" id="btn_fechar_comanda" onclick="fecharComanda()" class="btn btn-success btn-sm" style="margin-right: 8px; padding: 6px 12px; border-radius: 4px;">Fechar Comanda</a>
+									<button type="submit" class="btn btn-primary btn-sm" style="padding: 6px 12px; border-radius: 4px;">Salvar</button>	
+								</div>	
+							</div>
 
 						</div>
-					
 					</div>
 
-					
-
-					
-									
-
-					
-
-
-					
+					<!-- Campos Hidden -->
 					<input type="hidden" name="id" id="id">
 					<input type="hidden" name="valor_servicos" id="valor_servicos">
 					<input type="hidden" name="valor_produtos" id="valor_produtos">
 
-					<br>
-					<small><div id="mensagem" align="center"></div></small>
+					<!-- Mensagem -->
+					<div style="margin-top: 10px;">
+						<small><div id="mensagem" align="center"></div></small>
+					</div>
 				</div>
-
-				
 			</form>
-
-			
 		</div>
 	</div>
 </div>

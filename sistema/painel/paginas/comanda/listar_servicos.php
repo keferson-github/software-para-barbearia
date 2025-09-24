@@ -182,7 +182,7 @@ HTML;
 
 
 }else{
-	echo '<small>Nenhum serviço ainda Lançado!</small>';
+	echo '<small style="color: #666; font-style: italic;">Nenhum serviço ainda Lançado!</small>';
 }
 
 ?>

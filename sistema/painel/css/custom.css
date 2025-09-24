@@ -313,6 +313,8 @@
   padding: 6px 12px !important;
   font-size: 12px !important;
   border-radius: 6px !important;
+  margin-top: 10px;
+  top: -22px;
 }
 
 /* Botões grandes */
@@ -503,7 +505,7 @@
 }
 
 /* Estilos para todos os inputs do formulário de configurações */
-.form-control:not([type="file"]) {
+.form-control:not(["type="file"]) {
   height: 50px !important;
   padding: 12px 15px !important;
   border-radius: 8px !important;
@@ -514,12 +516,12 @@
 }
 
 /* Efeito hover e focus para melhor UX */
-.form-control:not([type="file"]):hover {
+.form-control:not(["type="file"]):hover {
   border-color: #007bff !important;
   box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1) !important;
 }
 
-.form-control:not([type="file"]):focus {
+.form-control:not(["type="file"]):focus {
   border-color: #007bff !important;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
   outline: none !important;
@@ -1270,3 +1272,469 @@ input[type="file"] {
   .select2-selection__arrow {
   height: 43px !important;
 }
+
+/* Estilos padronizados para inputs de data */
+input[type="date"] {
+  height: 34px !important;
+  font-size: 14px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  background-color: #fff !important;
+  color: #333 !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+input[type="date"]:focus {
+  border-color: #007bff !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+input[type="date"]:disabled {
+  background-color: #e9ecef !important;
+  opacity: 1 !important;
+}
+
+/* Estilos específicos para inputs de data em filtros */
+.form-control[name="data-inicial"],
+.form-control[name="data-final"] {
+  width: 140px !important;
+  display: inline-block !important;
+}
+
+/* Estilos para inputs de data em modais */
+.modal .form-control[type="date"] {
+  width: 100% !important;
+}
+
+/* Modais responsivos */
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 15px !important;
+    max-width: calc(100% - 30px) !important;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 15px 20px !important;
+  }
+
+  .btn {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* Modais específicos com cores personalizadas */
+#modalDados .modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #ffffff !important;
+  padding: 20px 25px !important;
+  border-bottom: none !important;
+  position: relative !important;
+}
+
+#modalBaixar .modal-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%) !important;
+}
+
+#modalSangria .modal-header {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+}
+
+#modalPermissoes .modal-header {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+}
+
+/* Melhorias nos formulários dentro dos modais */
+.modal-body .form-group {
+  margin-bottom: 20px !important;
+}
+
+.modal-body .form-control {
+  border-radius: 8px !important;
+  border: 2px solid #e9ecef !important;
+  padding: 10px 15px !important;
+  transition: all 0.3s ease !important;
+}
+
+.modal-body .form-control:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+  outline: none !important;
+}
+
+.modal-body label {
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-bottom: 0px !important;
+}
+
+/* Estilos para todos os inputs do formulário de configurações */
+.form-control:not([type="file"]) {
+  height: 50px !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  border: 1px solid #ddd !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Efeito hover e focus para melhor UX */
+.form-control:not([type="file"]):hover {
+  border-color: #007bff !important;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1) !important;
+}
+
+.form-control:not([type="file"]):focus {
+  border-color: #007bff !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+  outline: none !important;
+}
+
+/* Manter inputs de arquivo com altura padrão */
+input[type="file"].form-control {
+  height: auto !important;
+  padding: 6px 12px !important;
+}
+
+/* Exceção para o modal Nova Comanda - manter largura original */
+body.comanda #modalForm .modal-dialog {
+  max-width: 80% !important;
+  width: 80% !important;
+}
+
+/* Ajustes específicos para o modal Nova Comanda */
+body.comanda #modalForm .modal-body {
+  max-height: 600px !important;
+  overflow-y: auto !important;
+}
+
+/* Aumentar altura dos campos específicos no modal Nova Comanda */
+body.comanda #modalForm .inputs_form {
+  height: 45px !important;
+  padding: 12px 15px !important;
+}
+
+/* Modal "Inserir Registro" da página de agendamentos - largura reduzida */
+body.agendamentos #modalForm .modal-dialog {
+  max-width: 600px !important;
+  width: 600px !important;
+}
+
+/* Sobrescrever largura do Bootstrap para modais */
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 850px !important;
+    max-width: 850px !important;
+  }
+}
+
+/* Estilos personalizados para o calendário da página de agendamentos */
+body.agendamentos .agile-calendar {
+  margin-bottom: 20px;
+}
+
+/* Cabeçalho do calendário com gradiente moderno */
+body.agendamentos .monthly-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 15px;
+}
+
+body.agendamentos .monthly-header-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões de navegação do calendário */
+body.agendamentos .monthly-prev,
+body.agendamentos .monthly-next {
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+body.agendamentos .monthly-prev:hover,
+body.agendamentos .monthly-next:hover {
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+
+/* Cabeçalho dos dias da semana */
+body.agendamentos .monthly-day-title-wrap {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-bottom: none;
+  padding: 15px 0;
+}
+
+body.agendamentos .monthly-day-title-wrap div {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Dias do calendário */
+body.agendamentos .monthly-day,
+body.agendamentos .monthly-day-blank {
+  background: #ffffff;
+  border: 1px solid #e8f4fd;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body.agendamentos .monthly-day:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+body.agendamentos .monthly-day:hover .monthly-day-number {
+  color: #ffffff !important;
+}
+
+/* Números dos dias */
+body.agendamentos .monthly-day-number {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Dia atual destacado */
+body.agendamentos .monthly-today {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+body.agendamentos .monthly-today .monthly-day-number {
+  color: #ffffff !important;
+  background: transparent;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Dias em branco (mês anterior/próximo) */
+body.agendamentos .monthly-day-blank {
+  background: #f8f9fa;
+  color: #adb5bd;
+}
+
+/* Indicadores de eventos */
+body.agendamentos .monthly-event-indicator {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+body.agendamentos .monthly-event-indicator:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 8px rgba(255, 107, 107, 0.5);
+}
+
+/* Container do calendário com bordas arredondadas */
+body.agendamentos .monthly {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+/* ========================================
+   RESPONSIVIDADE PARA CARDS DO DASHBOARD
+   ======================================== */
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .widget-clientes .r3_counter_box,
+  .widget-pagar .r3_counter_box,
+  .widget-receber .r3_counter_box,
+  .widget-estoque .r3_counter_box,
+  .widget-saldo .r3_counter_box {
+    margin-bottom: 15px;
+    border-radius: 6px !important;
+  }
+
+  .stat-agendamentos .content-top-1,
+  .stat-servicos .content-top-1,
+  .stat-comissoes .content-top-1 {
+    margin-bottom: 15px;
+    border-radius: 6px !important;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+  .widget-clientes .r3_counter_box,
+  .widget-pagar .r3_counter_box,
+  .widget-receber .r3_counter_box,
+  .widget-estoque .r3_counter_box,
+  .widget-saldo .r3_counter_box {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px !important;
+  }
+
+  .stat-agendamentos .content-top-1,
+  .stat-servicos .content-top-1,
+  .stat-comissoes .content-top-1 {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px !important;
+  }
+
+  /* Reduzir efeitos de hover em dispositivos móveis */
+  .widget-clientes .r3_counter_box:hover,
+  .widget-pagar .r3_counter_box:hover,
+  .widget-receber .r3_counter_box:hover,
+  .widget-estoque .r3_counter_box:hover,
+  .widget-saldo .r3_counter_box:hover,
+  .stat-agendamentos .content-top-1:hover,
+  .stat-servicos .content-top-1:hover,
+  .stat-comissoes .content-top-1:hover {
+    transform: none;
+  }
+}
+
+/* Garantir consistência visual global */
+.r3_counter_box,
+.content-top-1 {
+  border-radius: 6px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  body.agendamentos .monthly-header {
+    padding: 15px 10px;
+  }
+
+  body.agendamentos .monthly-header-title {
+    font-size: 1em;
+  }
+
+  body.agendamentos .monthly-day-number {
+    font-size: 12px;
+  }
+}
+
+/* ========================================
+   CORES PERSONALIZADAS PARA CARDS DO DASHBOARD
+   ======================================== */
+
+/* Card 1 - Total de Clientes - Minimalista */
+.widget-clientes .r3_counter_box {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #555555;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.15s ease;
+  backdrop-filter: none;
+}
+
+.widget-clientes .r3_counter_box::before {
+  display: none;
+}
+
+.widget-clientes .r3_counter_box:hover {
+  background: #f8f9fa;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.widget-clientes .r3_counter_box .fa {
+  background: #f8f9fa;
+  color: #777777;
+  text-shadow: none;
+  border-radius: 50%;
+}
+
+.widget-clientes .r3_counter_box .stats h5,
+.widget-clientes .r3_counter_box span {
+  color: #555555 !important;
+  text-shadow: none;
+}
+
+/* Card 2 - Contas a Pagar - Minimalista */
+.widget-pagar .r3_counter_box {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #555555;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.15s ease;
+  backdrop-filter: none;
+}
+
+.widget-pagar .r3_counter_box::before {
+  display: none;
+}
+
+.widget-pagar .r3_counter_box:hover {
+  background: #f8f9fa;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.widget-pagar .r3_counter_box .fa {
+  background: #f8f9fa;
+  color: #777777;
+  text-shadow: none;
+  border-radius: 50%;
+}
+
+.widget-pagar .r3_counter_box .stats h5,
+.widget-pagar .r3_counter_box span {
+  color: #555555 !important;
+  text-shadow: none;
+}
+
+/* Card 3 - Contas a Receber - Minimalista */
+.widget-receber .r3_counter_box {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #555555;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.15s ease;
+  backdrop-filter: none;
+}
+
+.widget-receber .r3_counter_box::before {
+  display: none;
+}
+
+.widget-receber .r3_counter_box:hover {
+  background: #f8f9fa;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.widget-receber .r3_counter_box .fa {
+  background: #f8f9fa;
+  color: #777777;
+  text-shadow: none;
