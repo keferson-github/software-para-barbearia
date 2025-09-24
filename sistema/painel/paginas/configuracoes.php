@@ -403,6 +403,7 @@ if(@$configuracoes == 'ocultar'){
     padding: 20px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
+	border-radius: 20px;
 }
 
 /* Cabeçalho da página */
