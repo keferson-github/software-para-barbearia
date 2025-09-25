@@ -72,6 +72,10 @@ $dataMesInicial = $partesInicial[1];
 	<!-- font-awesome icons CSS -->
 	<link href="css/font-awesome.css" rel="stylesheet"> 
 	<!-- //font-awesome icons CSS-->
+	
+	<!-- Bootstrap Icons CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+	<!-- //Bootstrap Icons CSS-->
 
 	<!-- side nav css file -->
 	<link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>

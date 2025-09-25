@@ -8,11 +8,290 @@ $total_reg = @count($res);
 if($total_reg > 0){
 
 echo <<<HTML
-	<small>
-	<table class="table table-hover" id="tabela">
+<style>
+/* Estilização moderna da tabela de usuários */
+.usuarios-table-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 25px;
+}
+
+/* Estilização do campo de busca integrado */
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-input-wrapper {
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 45px 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 14px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #667eea;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.search-input.searching {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    background-color: #f8f9ff;
+}
+
+.search-input.searching + .search-icon {
+    color: #007bff;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 16px;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+    color: #667eea;
+}
+
+.usuarios-table {
+    margin-bottom: 0;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.usuarios-table thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 18px 15px;
+    border: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
+.usuarios-table thead th::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: -1;
+}
+
+.usuarios-table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f1f3f4;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.usuarios-table tbody tr:hover {
+    background: linear-gradient(135deg, rgba(248, 249, 255, 0.95) 0%, rgba(240, 242, 255, 0.95) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.usuarios-table tbody td {
+    padding: 18px 15px;
+    vertical-align: middle;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.usuarios-table .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin-right: 12px;
+}
+
+.usuarios-table .user-name {
+    font-weight: 600;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+}
+
+.usuarios-table .action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.usuarios-table .action-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-table .action-buttons a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.usuarios-table .action-buttons .btn-edit:hover {
+    background: rgba(0, 123, 255, 0.1);
+    border-color: #007bff;
+}
+
+.usuarios-table .action-buttons .btn-view:hover {
+    background: rgba(23, 162, 184, 0.1);
+    border-color: #17a2b8;
+}
+
+.usuarios-table .action-buttons .btn-delete:hover {
+    background: rgba(220, 53, 69, 0.1);
+    border-color: #dc3545;
+}
+
+.usuarios-table .action-buttons .btn-toggle:hover {
+    background: rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+}
+
+.usuarios-table .action-buttons .btn-permissions:hover {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+}
+
+.usuarios-table .status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.usuarios-table .status-active {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.usuarios-table .status-inactive {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+    @media (max-width: 768px) {
+        .usuarios-table-container {
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .search-container {
+            margin-bottom: 15px;
+        }
+        
+        .search-input-wrapper {
+            max-width: 100%;
+        }
+        
+        .search-input {
+            padding: 10px 40px 10px 15px;
+            font-size: 13px;
+        }
+        
+        .usuarios-table .esc {
+            display: none;
+        }
+        
+        .usuarios-table .action-buttons {
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .usuarios-table .action-buttons a {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .usuarios-table tbody td {
+            padding: 12px 10px;
+        }
+        
+        .usuarios-table thead th {
+            padding: 15px 10px;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
+<div class="usuarios-table-container">
+    <!-- Campo de busca integrado -->
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <input type="text" class="search-input" id="searchUsuarios" placeholder="Buscar usuários...">
+            <i class="bi bi-search search-icon"></i>
+        </div>
+    </div>
+    
+	<table class="table usuarios-table" id="tabela">
 	<thead> 
 	<tr> 
-	<th>Nome</th>	
+	<th>Usuário</th>	
 	<th class="esc">Email</th> 	
 	<th class="esc">Senha</th> 	
 	<th class="esc">Nível</th> 	
@@ -48,12 +327,12 @@ for($i=0; $i < $total_reg; $i++){
 
 
 	if($ativo == 'Sim'){
-			$icone = 'fa-check-square';
+			$icone = 'bi bi-check-square-fill';
 			$titulo_link = 'Desativar Item';
 			$acao = 'Não';
 			$classe_linha = '';
 		}else{
-			$icone = 'fa-square-o';
+			$icone = 'bi bi-square';
 			$titulo_link = 'Ativar Item';
 			$acao = 'Sim';
 			$classe_linha = 'text-muted';
@@ -63,40 +342,28 @@ for($i=0; $i < $total_reg; $i++){
 echo <<<HTML
 <tr class="{$classe_linha}">
 <td>
-<img src="img/perfil/{$foto}" width="27px" class="mr-2">
+<div class="user-name">
+<img src="img/perfil/{$foto}" class="user-avatar">
 {$nome}
+</div>
 </td>
 <td class="esc">{$email}</td>
 <td class="esc">{$senhaF}</td>
 <td class="esc">{$nivel}</td>
 <td class="esc">{$dataF}</td>
 <td>
-		<big><a href="#" onclick="editar('{$id}','{$nome}', '{$email}', '{$telefone}', '{$cpf}', '{$nivel}', '{$endereco}', '{$foto}', '{$atendimento}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+<div class="action-buttons">
+		<a href="#" onclick="editar('{$id}','{$nome}', '{$email}', '{$telefone}', '{$cpf}', '{$nivel}', '{$endereco}', '{$foto}', '{$atendimento}')" title="Editar Dados" class="btn-edit"><i class="bi bi-pencil-square text-primary"></i></a>
 
-		<big><a href="#" onclick="mostrar('{$nome}', '{$email}', '{$cpf}', '{$senhaF}', '{$nivel}', '{$dataF}', '{$ativo}', '{$telefone}', '{$endereco}', '{$foto}', '{$atendimento}')" title="Ver Dados"><i class="fa fa-info-circle text-secondary"></i></a></big>
+		<a href="#" onclick="mostrar('{$nome}', '{$email}', '{$cpf}', '{$senhaF}', '{$nivel}', '{$dataF}', '{$ativo}', '{$telefone}', '{$endereco}', '{$foto}', '{$atendimento}')" title="Ver Dados" class="btn-view"><i class="bi bi-info-circle-fill text-info"></i></a>
 
+		<a href="#" onclick="excluir('{$id}', '{$nome}')" title="Excluir" class="btn-delete"><i class="bi bi-trash3-fill text-danger"></i></a>
 
+		<a href="#" onclick="ativar('{$id}', '{$acao}')" title="{$titulo_link}" class="btn-toggle"><i class="{$icone} text-success"></i></a>
 
-		<li class="dropdown head-dpdn2" style="display: inline-block;">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
-
-		<ul class="dropdown-menu" style="margin-left:-230px;">
-		<li>
-		<div class="notification_desc2">
-		<p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')"><span class="text-danger">Sim</span></a></p>
-		</div>
-		</li>										
-		</ul>
-		</li>
-
-
-
-		<big><a href="#" onclick="ativar('{$id}', '{$acao}')" title="{$titulo_link}"><i class="fa {$icone} text-success"></i></a></big>
-
-		<big><a href="#" onclick="permissoes('{$id}', '{$nome}')" title="Definir Permissões"><i class="fa fa-lock " style="color:blue; margin-left:3px"></i></a></big>
-
-
-		</td>
+		<a href="#" onclick="permissoes('{$id}', '{$nome}')" title="Definir Permissões" class="btn-permissions"><i class="bi bi-shield-lock-fill text-warning"></i></a>
+</div>
+</td>
 </tr>
 HTML;
 
@@ -104,9 +371,9 @@ HTML;
 
 echo <<<HTML
 </tbody>
-<small><div align="center" id="mensagem-excluir"></div></small>
 </table>
-</small>
+</div>
+<small><div align="center" id="mensagem-excluir"></div></small>
 HTML;
 
 
@@ -118,11 +385,50 @@ HTML;
 
 <script type="text/javascript">
 	$(document).ready( function () {
-    $('#tabela').DataTable({
+    var table = $('#tabela').DataTable({
     		"ordering": false,
-			"stateSave": true
+			"stateSave": true,
+			"searching": true, // Habilita a busca do DataTables
+			"dom": 'lrtip', // Remove o campo de busca padrão mas mantém a funcionalidade
+			"language": {
+				"lengthMenu": "Mostrar _MENU_ registros por página",
+				"zeroRecords": "Nenhum usuário encontrado",
+				"info": "Mostrando página _PAGE_ de _PAGES_",
+				"infoEmpty": "Nenhum registro disponível",
+				"infoFiltered": "(filtrado de _MAX_ registros totais)",
+				"search": "Buscar:",
+				"paginate": {
+					"first": "Primeiro",
+					"last": "Último",
+					"next": "Próximo",
+					"previous": "Anterior"
+				}
+			}
     	});
-    $('#tabela_filter label input').focus();
+    
+    // Implementa busca personalizada
+    $('#searchUsuarios').on('keyup', function() {
+        var searchValue = this.value;
+        table.search(searchValue).draw();
+        
+        // Feedback visual durante a busca
+        if(searchValue.length > 0) {
+            $(this).addClass('searching');
+        } else {
+            $(this).removeClass('searching');
+        }
+    });
+    
+    // Limpa a busca quando o campo estiver vazio
+    $('#searchUsuarios').on('input', function() {
+        if(this.value === '') {
+            table.search('').draw();
+            $(this).removeClass('searching');
+        }
+    });
+    
+    // Foca no campo de busca personalizado
+    $('#searchUsuarios').focus();
 } );
 </script>
 
