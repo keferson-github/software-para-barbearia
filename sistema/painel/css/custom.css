@@ -983,14 +983,15 @@ body.agendamentos .monthly {
 
 /* Label com cor do gráfico - Verde */
 .stat-agendamentos .content-top-1 label {
-  color: #2dde98 !important;
+  color: #fff !important;
   font-weight: 700;
   font-size: 1.8rem;
   text-shadow: none;
   display: inline-block;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background-color: rgba(45, 222, 152, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2dde98 0%, #22c985 100%);
+  box-shadow: 0 4px 12px rgba(45, 222, 152, 0.35);
   margin-top: 5px;
 }
 
@@ -1024,14 +1025,15 @@ body.agendamentos .monthly {
 
 /* Label com cor do gráfico - Roxo */
 .stat-servicos .content-top-1 label {
-  color: #8e43e7 !important;
+  color: #fff !important;
   font-weight: 700;
   font-size: 1.8rem;
   text-shadow: none;
   display: inline-block;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background-color: rgba(142, 67, 231, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(118, 75, 162, 0.35);
   margin-top: 5px;
 }
 
@@ -1065,14 +1067,15 @@ body.agendamentos .monthly {
 
 /* Label com cor do gráfico - Vermelho */
 .stat-comissoes .content-top-1 label {
-  color: #e32424 !important;
+  color: #fff !important;
   font-weight: 700;
   font-size: 1.8rem;
   text-shadow: none;
   display: inline-block;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background-color: rgba(227, 36, 36, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e32424 0%, #ff5f5f 100%);
+  box-shadow: 0 4px 12px rgba(227, 36, 36, 0.35);
   margin-top: 5px;
 }
 
