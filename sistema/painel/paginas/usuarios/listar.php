@@ -285,7 +285,35 @@ echo <<<HTML
             padding: 15px 10px;
             font-size: 0.8rem;
         }
-    }
+
+        /* Paginação DataTables — estilo consistente com Funcionários */
+        .dataTables_paginate .paginate_button {
+            margin: 0 8px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .dataTables_paginate .paginate_button:hover {
+            color: #343a40;
+            text-decoration: underline;
+        }
+
+        .dataTables_paginate .paginate_button.current {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: #fff !important; /* garante precedência sobre CSS base do DataTables */
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+}
 </style>
 
 <div class="usuarios-table-container">

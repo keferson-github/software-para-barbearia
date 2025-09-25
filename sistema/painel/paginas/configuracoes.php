@@ -447,7 +447,7 @@ if(@$configuracoes == 'ocultar'){
 
 /* Cabeçalho dos cards */
 .card-header {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 20px 25px;
     border-bottom: none;
 }
