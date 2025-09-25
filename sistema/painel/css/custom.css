@@ -976,10 +976,22 @@ body.agendamentos .monthly {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
-.stat-agendamentos .content-top-1 h5,
-.stat-agendamentos .content-top-1 label {
+.stat-agendamentos .content-top-1 h5 {
   color: #555555 !important;
   text-shadow: none;
+}
+
+/* Label com cor do gráfico - Verde */
+.stat-agendamentos .content-top-1 label {
+  color: #2dde98 !important;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: none;
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: rgba(45, 222, 152, 0.1);
+  margin-top: 5px;
 }
 
 /* Card Serviços Pagos - Minimalista */
@@ -1005,10 +1017,22 @@ body.agendamentos .monthly {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
-.stat-servicos .content-top-1 h5,
-.stat-servicos .content-top-1 label {
+.stat-servicos .content-top-1 h5 {
   color: #555555 !important;
   text-shadow: none;
+}
+
+/* Label com cor do gráfico - Roxo */
+.stat-servicos .content-top-1 label {
+  color: #8e43e7 !important;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: none;
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: rgba(142, 67, 231, 0.1);
+  margin-top: 5px;
 }
 
 /* Card Comissões - Minimalista */
@@ -1034,10 +1058,22 @@ body.agendamentos .monthly {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
-.stat-comissoes .content-top-1 h5,
-.stat-comissoes .content-top-1 label {
+.stat-comissoes .content-top-1 h5 {
   color: #555555 !important;
   text-shadow: none;
+}
+
+/* Label com cor do gráfico - Vermelho */
+.stat-comissoes .content-top-1 label {
+  color: #e32424 !important;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: none;
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: rgba(227, 36, 36, 0.1);
+  margin-top: 5px;
 }
 
 /* ===== CORREÇÃO MODAL VER DADOS - PRODUTOS ===== */

@@ -51,7 +51,6 @@ if($total_reg > 0){
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/estilo-login.css">
 	<link rel="icon" type="image/png" href="img/favicon.ico">
-
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->

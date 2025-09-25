@@ -336,12 +336,12 @@ for($i=0; $i < $total_reg; $i++){
 
 
 	if($ativo == 'Sim'){
-			$icone = 'bi bi-check-square-fill';
+			$icone = 'bi bi-toggle-on';
 			$titulo_link = 'Desativar Item';
 			$acao = 'Não';
 			$classe_linha = '';
 		}else{
-			$icone = 'bi bi-square';
+			$icone = 'bi bi-toggle-off';
 			$titulo_link = 'Ativar Item';
 			$acao = 'Sim';
 			$classe_linha = 'text-muted';
@@ -398,7 +398,12 @@ HTML;
     		"ordering": false,
 			"stateSave": true,
 			"searching": true, // Habilita a busca do DataTables
-			"dom": 'lrtip', // Remove o campo de busca padrão mas mantém a funcionalidade
+			"dom": 'lrtip', // Layout padrão com length menu, info e paginação
+			"pageLength": 10, // Define quantos registros por página
+			"lengthChange": true, // Permite alterar o número de registros por página
+			"info": true, // Mostra informações de paginação
+			"paging": true, // Habilita paginação
+			"lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]], // Opções do seletor de páginas
 			"language": {
 				"lengthMenu": "Mostrar _MENU_ registros por página",
 				"zeroRecords": "Nenhum usuário encontrado",
