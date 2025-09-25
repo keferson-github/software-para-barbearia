@@ -98,21 +98,30 @@ echo <<<HTML
 }
 
 .usuarios-table thead th {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    padding: 18px 15px;
-    border: none;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
-}
+            background-color: #fff;
+            color: #000;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 18px 15px;
+            border: none;
+            border-right: none;
+            border-left: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .usuarios-table thead th:first-child {
+            border-top-left-radius: 8px;
+        }
+        
+        .usuarios-table thead th:last-child {
+            border-top-right-radius: 8px;
+        }
 
 .usuarios-table thead th::before {
     content: '';
@@ -121,7 +130,7 @@ echo <<<HTML
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+    background-color: #fff;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     z-index: -1;
