@@ -768,6 +768,160 @@ body.agendamentos .monthly {
 }
 
 /* ========================================
+   PADRONIZAÇÃO DOS CARDS DO DASHBOARD
+   ======================================== */
+
+/* Padronização geral para todos os cards do dashboard */
+.col_3 .col-md-3.widget {
+  width: 19.2% !important;
+  margin-bottom: 20px !important;
+  margin-right: 1% !important;
+  min-height: 140px !important;
+  max-height: 140px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.col_3 .col-md-3.widget:last-child {
+  margin-right: 0 !important;
+}
+
+/* Padronização do container interno dos cards */
+.col_3 .widget .r3_counter_box {
+  min-height: 120px !important;
+  max-height: 120px !important;
+  padding: 15px !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  background: #ffffff !important;
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: none !important;
+}
+
+.col_3 .widget .r3_counter_box:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Padronização da área de estatísticas */
+.col_3 .widget .r3_counter_box .stats {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.col_3 .widget .r3_counter_box .stats h5 {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #333333 !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+}
+
+/* Padronização da linha divisória */
+.col_3 .widget .r3_counter_box hr {
+  margin: 8px 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  background: #e8e8e8 !important;
+  opacity: 1 !important;
+}
+
+/* Padronização do texto descritivo */
+.col_3 .widget .r3_counter_box div[align="center"] {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.col_3 .widget .r3_counter_box div[align="center"] span {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #666666 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.3 !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 992px) {
+  .col_3 .col-md-3.widget {
+    width: 48% !important;
+    margin-right: 2% !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .col_3 .col-md-3.widget:nth-child(2n) {
+    margin-right: 0 !important;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .col_3 .col-md-3.widget {
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .col_3 .widget .r3_counter_box {
+    min-height: 100px !important;
+    max-height: 100px !important;
+    padding: 12px !important;
+  }
+  
+  .col_3 .widget .r3_counter_box .stats h5 {
+    font-size: 24px !important;
+  }
+  
+  .col_3 .widget .r3_counter_box div[align="center"] span {
+    font-size: 11px !important;
+  }
+}
+
+/* Cores específicas mantidas para diferenciação visual */
+.widget-clientes .r3_counter_box {
+  border-left: 4px solid #007bff !important;
+}
+
+.widget-pagar .r3_counter_box {
+  border-left: 4px solid #dc3545 !important;
+}
+
+.widget-receber .r3_counter_box {
+  border-left: 4px solid #28a745 !important;
+}
+
+.widget-estoque .r3_counter_box {
+  border-left: 4px solid #fd7e14 !important;
+}
+
+.widget-saldo .r3_counter_box {
+  border-left: 4px solid #6f42c1 !important;
+}
+
+/* Saldo negativo - cor especial */
+.widget-saldo.saldo-negativo .r3_counter_box {
+  border-left: 4px solid #dc3545 !important;
+  background: #fff5f5 !important;
+}
+
+.widget-saldo.saldo-negativo .r3_counter_box .stats h5 {
+  color: #dc3545 !important;
+}
+
+/* ========================================
    CORES PERSONALIZADAS PARA CARDS DO DASHBOARD
    ======================================== */
 
