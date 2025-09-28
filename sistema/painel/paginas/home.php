@@ -263,9 +263,8 @@ $dados_meses_vendas =  '';
 	<div class="col_3">
 
         <a href="clientes">
-		<div class="col-md-3 widget widget1 widget-clientes">
+		<div class="col-md-3 widget widget1 widget-clientes card-border-blue">
 			<div class="r3_counter_box">
-				<i class="pull-left fa fa-users icon-rounded"></i>
 				<div class="stats">
                         <h5><strong><big><big><?php echo $total_clientes ?></big></big></strong></h5>
 
@@ -279,9 +278,8 @@ $dados_meses_vendas =  '';
 	
 
          <a href="pagar">
-        <div class="col-md-3 widget widget1 widget-pagar">
+        <div class="col-md-3 widget widget1 widget-pagar card-border-red">
             <div class="r3_counter_box">
-                <i class="pull-left fa fa-money user1 icon-rounded"></i>
                 <div class="stats">
                         <h5><strong><big><big><?php echo $contas_pagar_hoje ?></big></big></strong></h5>
 
@@ -294,9 +292,8 @@ $dados_meses_vendas =  '';
 
 
 		   <a href="receber">
-        <div class="col-md-3 widget widget1 widget-receber">
+        <div class="col-md-3 widget widget1 widget-receber card-border-green">
             <div class="r3_counter_box">
-                <i class="pull-left fa fa-money dollar2 icon-rounded"></i>
                 <div class="stats">
                         <h5><strong><big><big><?php echo $contas_receber_hoje ?></big></big></strong></h5>
 
@@ -308,9 +305,8 @@ $dados_meses_vendas =  '';
         </a>
 
          <a href="estoque">
-		<div class="col-md-3 widget widget1 widget-estoque">
+		<div class="col-md-3 widget widget1 widget-estoque card-border-orange">
 			<div class="r3_counter_box">
-				<i class="pull-left fa fa-pie-chart dollar1 icon-rounded"></i>
 				<div class="stats">
                         <h5><strong><big><big><?php echo $estoque_baixo ?></big></big></strong></h5>
 
@@ -323,9 +319,8 @@ $dados_meses_vendas =  '';
 
 
 
-		<div class="col-md-3 widget widget-saldo">
+		<div class="col-md-3 widget widget-saldo card-border-dynamic <?php echo ($classe_saldo_dia == 'user1') ? 'saldo-negativo' : ''; ?>">
 			<div class="r3_counter_box">
-				<i class="pull-left fa fa-usd <?php echo $classe_saldo_dia ?> icon-rounded"></i>
 				<div class="stats">
                         <h5><strong><big><?php echo @$saldo_total_diaF ?></big></strong></h5>
 

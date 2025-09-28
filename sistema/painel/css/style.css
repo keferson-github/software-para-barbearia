@@ -2814,6 +2814,33 @@ h4.modal-title {
   font-weight: 600;
   font-size: 20px;
 }
+/* Bordas coloridas para os cards baseadas nas cores dos ícones removidos */
+.card-border-blue {
+  border-left: 5px solid #1e88e5 !important;
+}
+
+.card-border-red {
+  border-left: 5px solid #fc4b6c !important;
+}
+
+.card-border-green {
+  border-left: 5px solid #00ad45 !important;
+}
+
+.card-border-orange {
+  border-left: 5px solid #ffb22b !important;
+}
+
+/* Borda dinâmica para o saldo do dia baseada na classe PHP */
+.card-border-dynamic.widget-saldo {
+  border-left: 5px solid #00ad45 !important; /* Verde por padrão (dollar2) */
+}
+
+/* Quando o saldo é negativo (user1), aplicar borda vermelha */
+.card-border-dynamic.widget-saldo.saldo-negativo {
+  border-left: 5px solid #fc4b6c !important;
+}
+
 i.user1 {
   background: #fc4b6c;
 }

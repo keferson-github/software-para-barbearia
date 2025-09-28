@@ -26,6 +26,9 @@
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
 
+  <!-- Lucide Icons - Ícones SVG modernos -->
+  <link href="css/lucide-icons.css" rel="stylesheet" />
+
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
