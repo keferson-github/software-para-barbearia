@@ -505,7 +505,7 @@
 }
 
 /* Estilos para todos os inputs do formulário de configurações */
-.form-control:not(["type="file"]) {
+.form-control:not([type="file"]) {
   height: 50px !important;
   padding: 12px 15px !important;
   border-radius: 8px !important;
@@ -516,15 +516,20 @@
 }
 
 /* Efeito hover e focus para melhor UX */
-.form-control:not(["type="file"]):hover {
+.form-control:not([type="file"]):hover {
   border-color: #007bff !important;
   box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1) !important;
 }
 
-.form-control:not(["type="file"]):focus {
+.form-control:not([type="file"]):focus {
   border-color: #007bff !important;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
   outline: none !important;
+}
+
+/* Garantir largura total do Select2 dentro do modal de planos */
+#modalForm .select2-container {
+  width: 100% !important;
 }
 
 /* Manter inputs de arquivo com altura padrão */
@@ -532,6 +537,171 @@ input[type="file"].form-control {
   height: auto !important;
   padding: 6px 12px !important;
 }
+
+/* ===== ESTILOS ESPECÍFICOS PARA MODAL DE PLANOS ===== */
+/* Padronização completa dos inputs do modal "Inserir Registro" da página de planos */
+
+/* Container do modal de planos */
+#modalForm .modal-body {
+  padding: 25px !important;
+}
+
+/* Estilos padronizados para todos os inputs do modal de planos */
+#modalForm .form-control,
+#modalForm select.form-control,
+#modalForm input.form-control {
+  height: 45px !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  border: 2px solid #e9ecef !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  transition: all 0.3s ease !important;
+  background-color: #ffffff !important;
+  color: #495057 !important;
+}
+
+/* Estilos específicos para selects no modal de planos */
+#modalForm select#grupo,
+#modalForm select#cliente,
+#modalForm select#item {
+  height: 45px !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  border: 2px solid #e9ecef !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  background-color: #ffffff !important;
+  color: #495057 !important;
+  cursor: pointer !important;
+}
+
+/* Input de valor no modal de planos */
+#modalForm input#valor {
+  height: 45px !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  border: 2px solid #e9ecef !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  background-color: #ffffff !important;
+  color: #495057 !important;
+}
+
+/* Efeitos hover para todos os inputs do modal de planos */
+#modalForm .form-control:hover,
+#modalForm select.form-control:hover,
+#modalForm input.form-control:hover {
+  border-color: #667eea !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Efeitos focus para todos os inputs do modal de planos */
+#modalForm .form-control:focus,
+#modalForm select.form-control:focus,
+#modalForm input.form-control:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+  outline: none !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Labels padronizados no modal de planos */
+#modalForm .form-group label {
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-bottom: 8px !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Espaçamento entre grupos de campos */
+#modalForm .form-group {
+  margin-bottom: 20px !important;
+}
+
+/* Estilos para Select2 no modal de planos (caso seja aplicado) */
+#modalForm .select2-container--default .select2-selection--single {
+  height: 45px !important;
+  border: 2px solid #e9ecef !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+}
+
+#modalForm .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 41px !important;
+  padding-left: 15px !important;
+  color: #495057 !important;
+  font-size: 14px !important;
+}
+
+#modalForm .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 41px !important;
+  right: 10px !important;
+}
+
+/* Hover e focus para Select2 */
+#modalForm .select2-container--default .select2-selection--single:hover {
+  border-color: #667eea !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15) !important;
+}
+
+#modalForm .select2-container--default.select2-container--focus .select2-selection--single {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Container dinâmico para lista de planos */
+#modalForm #listar_planos select {
+  height: 45px !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  border: 2px solid #e9ecef !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  background-color: #ffffff !important;
+  color: #495057 !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+#modalForm #listar_planos select:hover {
+  border-color: #667eea !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+#modalForm #listar_planos select:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+  outline: none !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Responsividade para o modal de planos */
+@media (max-width: 768px) {
+  #modalForm .form-control,
+  #modalForm select.form-control,
+  #modalForm input.form-control {
+    height: 42px !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+  }
+  
+  #modalForm .form-group {
+    margin-bottom: 15px !important;
+  }
+  
+  #modalForm .form-group label {
+    font-size: 12px !important;
+    margin-bottom: 6px !important;
+  }
+}
+
+/* ===== FIM ESTILOS MODAL DE PLANOS ===== */
 
 /* Exceção para o modal Nova Comanda - manter largura original */
 body.comanda #modalForm .modal-dialog {

@@ -47,7 +47,7 @@ $pag = 'planos';
 							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Assinaturas</label>
-								<select onchange="listarPlanos()" class="form-control sel2" id="grupo" name="grupo" style="width:100%;" >							
+								<select onchange="listarPlanos()" class="form-control sel2" id="grupo" name="grupo">							
 									<?php 
 									$query = $pdo->query("SELECT * FROM grupo_assinaturas ORDER BY id asc");
 									$res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -80,11 +80,11 @@ $pag = 'planos';
 
 
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Cliente</label>
-								<select class="form-control sel2" id="cliente" name="cliente" style="width:100%;" required>	
-									<option value="">Selecionar Cliente</option>						
+								<select class="form-control sel2" id="cliente" name="cliente" required>
+									<option value="">Selecionar Cliente</option>
 									<?php 
 									$query = $pdo->query("SELECT * FROM clientes ORDER BY id desc");
 									$res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -96,20 +96,16 @@ $pag = 'planos';
 										}
 									}
 									 ?>
-									
-
 								</select>
-							</div> 	
+							</div>
 						</div>
-						<div class="col-md-4">
-
+						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Valor</label>
 								<input type="text" class="form-control" id="valor" name="valor" placeholder="Valor" >    
-							</div> 	
+							</div>
 						</div>
-
-					</div>
+</div>
 
 
 				
@@ -246,7 +242,13 @@ function listarPlanos(){
         dataType: "html",
 
         success:function(result){
-            $("#listar_planos").html(result);            
+            $("#listar_planos").html(result);
+            // Reinicializar Select2 para o select gerado dinamicamente
+            $('.sel2').select2({
+            	dropdownParent: $('#modalForm')
+            });
+            // Atualizar o valor do plano após o carregamento
+            alterarValor();            
         }
     });
 }

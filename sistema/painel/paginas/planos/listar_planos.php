@@ -2,7 +2,7 @@
 require_once("../../../conexao.php");
 
 $id = $_POST['grupo'];
-echo '<select class="form-control sel2" id="item" name="item" style="width:100%;" onchange="alterarValor()">	';
+echo '<select class="form-control sel2" id="item" name="item" onchange="alterarValor()">\t';
 $query = $pdo->query("SELECT * FROM itens_assinaturas where grupo = '$id' ORDER BY id asc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
