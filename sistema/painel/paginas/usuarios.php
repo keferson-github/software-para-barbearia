@@ -172,85 +172,34 @@ $pag = 'usuarios';
 			
 			<div class="modal-body">
 
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-8">							
-						<span><b>Email: </b></span>
-						<span id="email_dados"></span>							
-					</div>
-					<div class="col-md-4">							
-						<span><b>Senha: </b></span>
-						<span id="senha_dados"></span>
-					</div>					
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 1ª Coluna: Email, Telefone, CPF, Ativo e Endereço -->
+            <div class="col-md-4">
+                <div class="info-block"><span><b>Email: </b></span> <span id="email_dados"></span></div>
+                <div class="info-block mt-2"><span><b>Telefone: </b></span> <span id="telefone_dados"></span></div>
+                <div class="info-block mt-2"><span><b>CPF: </b></span> <span id="cpf_dados"></span></div>
+                <div class="info-block mt-2"><span><b>Ativo: </b></span> <span id="ativo_dados"></span></div>
+                <div class="info-block mt-2"><span><b>Endereço: </b></span> <span id="endereco_dados"></span></div>
+            </div>
 
-				</div>
+            <!-- 2ª Coluna: Senha, Nível, Cadastro, Atendimento -->
+            <div class="col-md-4">
+                <div class="info-block"><span><b>Senha: </b></span> <span id="senha_dados"></span></div>
+                <div class="info-block mt-2"><span><b>Nível: </b></span> <span id="nivel_dados"></span></div>
+                <div class="info-block mt-2"><span><b>Cadastro: </b></span> <span id="data_dados"></span></div>
+                <div class="info-block mt-2"><span><b>Atendimento: </b></span> <span id="atendimento_dados"></span></div>
+            </div>
 
+            <!-- 3ª Coluna: Imagem ocupando toda a coluna -->
+            <div class="col-md-4 col-image" align="center">
+                <img class="img-fluid" id="target_mostrar">
+            </div>
+        </div>
+    </div>
 
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-6">							
-						<span><b>CPF: </b></span>
-						<span id="cpf_dados"></span>							
-					</div>
-					<div class="col-md-6">							
-						<span><b>Telefone: </b></span>
-						<span id="telefone_dados"></span>
-					</div>					
+</div>
 
-				</div>
-
-
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					<div class="col-md-6">							
-						<span><b>Nível: </b></span>
-						<span id="nivel_dados"></span>							
-					</div>
-					<div class="col-md-6">							
-						<span><b>Ativo: </b></span>
-						<span id="ativo_dados"></span>
-					</div>		
-								
-
-				</div>
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-						
-					<div class="col-md-6">							
-						<span><b>Cadastro: </b></span>
-						<span id="data_dados"></span>
-					</div>	
-
-						<div class="col-md-6">							
-						<span><b>Atendimento: </b></span>
-						<span id="atendimento_dados"></span>
-					</div>				
-
-				</div>
-
-
-
-
-
-
-				<div class="row" style="border-bottom: 1px solid #cac7c7;">
-					
-					<div class="col-md-12">							
-						<span><b>Endereço: </b></span>
-						<span id="endereco_dados"></span>
-					</div>					
-
-				</div>
-
-
-				<div class="row">
-					<div class="col-md-12" align="center">		
-						<img width="250px" id="target_mostrar">	
-					</div>					
-				</div>
-
-
-			</div>
 
 			<div class="modal-footer bg-light">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">

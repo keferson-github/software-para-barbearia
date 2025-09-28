@@ -748,6 +748,114 @@ body.agendamentos .monthly-header {
   padding: 20px 15px;
 }
 
+/* ===== ESTILOS ESPECÍFICOS PARA MODAL DE USUÁRIOS (modalDados) ===== */
+#modalDados .modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #ffffff !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+#modalDados .modal-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+#modalDados .modal-body {
+  padding: 24px !important;
+}
+
+#modalDados .row {
+  margin-bottom: 10px !important;
+}
+
+#modalDados .col-md-6.mb-3 > div,
+#modalDados .col-md-12.mb-3 > div {
+  padding: 10px 12px !important;
+  border: 1px solid #e9ecef !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.25s ease !important;
+}
+
+#modalDados .col-md-6.mb-3 > div:hover,
+#modalDados .col-md-12.mb-3 > div:hover {
+  border-color: #667eea !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Labels e valores */
+#modalDados .modal-body span b {
+  text-transform: uppercase !important;
+  color: #6c757d !important;
+  letter-spacing: 0.5px !important;
+  font-size: 12px !important;
+}
+
+#modalDados .modal-body span + span {
+  color: #343a40 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+/* Imagem do usuário */
+#modalDados #target_mostrar {
+  border-radius: 10px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #e9ecef !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #modalDados .modal-body {
+    padding: 18px !important;
+  }
+  #modalDados .col-md-6.mb-3 > div,
+  #modalDados .col-md-12.mb-3 > div {
+    padding: 8px 10px !important;
+  }
+  #modalDados .modal-body span b {
+    font-size: 11px !important;
+  }
+  #modalDados .modal-body span + span {
+    font-size: 13px !important;
+  }
+}
+/* ===== FIM ESTILOS ESPECÍFICOS PARA MODAL DE USUÁRIOS (modalDados) ===== */
+
+/* ===== ESTILOS ESPECÍFICOS PARA MODAL DE USUÁRIOS (3 colunas) ===== */
+#modalDados .info-block {
+  margin-bottom: 5px;
+  padding: 10px 12px !important;
+  border: 1px solid #e9ecef !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.25s ease !important;
+}
+
+#modalDados .info-block:hover {
+  border-color: #667eea !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+#modalDados .col-image img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #e9ecef !important;
+}
+
+@media (max-width: 768px) {
+  #modalDados .col-md-4 {
+    margin-bottom: 12px !important;
+  }
+}
+/* ===== FIM ESTILOS ESPECÍFICOS PARA MODAL DE USUÁRIOS (3 colunas) ===== */
 body.agendamentos .monthly-header-title {
   font-size: 1.2em;
   font-weight: 600;
