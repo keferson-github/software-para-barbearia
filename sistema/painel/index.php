@@ -121,7 +121,7 @@ $dataMesInicial = $partesInicial[1];
 				lineCap: 'round',
 				lineWidth: 8,
 				onStep: function (from, to, percent) {
-					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+					$(this.element).find('.pie-value').text(Math.round(percent));
 				}
 			});
 
@@ -131,7 +131,7 @@ $dataMesInicial = $partesInicial[1];
 				lineCap: 'butt',
 				lineWidth: 8,
 				onStep: function (from, to, percent) {
-					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+					$(this.element).find('.pie-value').text(Math.round(percent));
 				}
 			});
 
@@ -141,7 +141,7 @@ $dataMesInicial = $partesInicial[1];
 				lineCap: 'square',
 				lineWidth: 8,
 				onStep: function (from, to, percent) {
-					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+					$(this.element).find('.pie-value').text(Math.round(percent));
 				}
 			});
 
@@ -167,98 +167,113 @@ $dataMesInicial = $partesInicial[1];
 </head> 
 <body class="cbp-spmenu-push <?php echo $pag; ?>">
 	<div class="main-content">
-		<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+		<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left modern-sidebar" id="cbp-spmenu-s1">
 			<!--left-fixed -navigation-->
-			<aside class="sidebar-left" style="overflow: scroll; height:100%; scrollbar-width: thin;">
-				<nav class="navbar navbar-inverse" >
-					<div class="navbar-header">
+			<aside class="sidebar-left modern-sidebar-container" style="overflow: scroll; height:100%; scrollbar-width: thin;">
+				<nav class="navbar navbar-inverse modern-nav" >
+					<div class="navbar-header modern-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false" id="showLeftPush2">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a class="navbar-brand" href="index.php"><span class=" "></span> Barber Shop<span class="dashboard_text"><?php echo $nome_sistema ?></span></a></h1>
+						<h1><a class="navbar-brand modern-brand" href="index.php">
+							<div class="modern-brand-container">
+								<div class="modern-brand-icon">
+									<i class="fa fa-cut"></i>
+								</div>
+								<div class="modern-brand-text">
+									<span class="brand-title">BARBER SHOP</span>
+									<span class="brand-subtitle">by Tech Solutions Pro</span>
+								</div>
+							</div>
+						</a></h1>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="sidebar-menu">
-							<li class="header">MENU DE NAVEGAÇÃO</li>
+						<ul class="sidebar-menu modern-menu">
+							<li class="header modern-menu-header">MENU DE NAVEGAÇÃO</li>
 
 
-							<li class="treeview <?php echo @$home ?>">
-								<a href="index.php">
-									<i class="fa fa-dashboard"></i> <span>Home</span>
+							<li class="treeview modern-menu-item <?php echo @$home ?>">
+								<a href="index.php" class="modern-menu-link">
+									<div class="modern-menu-icon home-icon">
+										<i class="fa fa-dashboard"></i>
+									</div>
+									<span class="modern-menu-text">Home</span>
 								</a>
 							</li>
 
-							<li class="treeview <?php echo @$comanda ?>">
-								<a href="comanda">
-									<i class="fa fa-file-o"></i> <span>Nova Comanda</span>
+							<li class="treeview modern-menu-item <?php echo @$comanda ?>">
+								<a href="comanda" class="modern-menu-link">
+									<div class="modern-menu-icon comanda-icon">
+										<i class="fa fa-file-o"></i>
+									</div>
+									<span class="modern-menu-text">Nova Comanda</span>
 								</a>
 							</li>
 
-							<li class="treeview <?php echo @$planos ?>">
-								<a href="planos">
-									<i class="fa fa-credit-card-alt"></i> <span>Planos / Assinaturas</span>
+							<li class="treeview modern-menu-item <?php echo @$planos ?>">
+								<a href="planos" class="modern-menu-link">
+									<div class="modern-menu-icon planos-icon">
+										<i class="fa fa-credit-card-alt"></i>
+									</div>
+									<span class="modern-menu-text">Planos / Assinaturas</span>
 								</a>
 							</li>
 
+							<li class="header modern-menu-header">Pessoas</li>
 
-							<li class="treeview <?php echo @$menu_pessoas ?>">
-								<a href="#">
-									<i class="fa fa-users"></i>
-									<span>Pessoas</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="treeview modern-menu-item <?php echo @$menu_pessoas ?>">
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon pessoas-icon">
+										<i class="fa fa-users"></i>
+									</div>
+									<span class="modern-menu-text">Pessoas</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
-									<li class="<?php echo @$usuarios ?>"><a href="usuarios"><i class="fa fa-angle-right"></i>Usuários</a></li>
-									<li class="<?php echo @$funcionarios ?>"><a href="funcionarios"><i class="fa fa-angle-right"></i>Funcionários</a></li>
-									<li class="<?php echo @$clientes ?>"><a href="clientes"><i class="fa fa-angle-right"></i>Clientes</a></li>
-
-									<li class="<?php echo @$clientes_retorno ?>"><a href="clientes_retorno"><i class="fa fa-angle-right"></i>Clientes Retornos</a></li>
-
-									<li class="<?php echo @$fornecedores ?>"><a href="fornecedores"><i class="fa fa-angle-right"></i>Fornecedores</a></li>
-
+								<ul class="treeview-menu modern-submenu">
+									<li class="modern-submenu-item <?php echo @$usuarios ?>"><a href="usuarios" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Usuários</a></li>
+									<li class="modern-submenu-item <?php echo @$funcionarios ?>"><a href="funcionarios" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Funcionários</a></li>
+									<li class="modern-submenu-item <?php echo @$clientes ?>"><a href="clientes" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Clientes</a></li>
+									<li class="modern-submenu-item <?php echo @$clientes_retorno ?>"><a href="clientes_retorno" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Clientes Retornos</a></li>
+									<li class="modern-submenu-item <?php echo @$fornecedores ?>"><a href="fornecedores" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Fornecedores</a></li>
 								</ul>
 							</li>
 
+							<li class="header modern-menu-header">Cadastros</li>
 
-
-							<li class="treeview <?php echo @$menu_cadastros ?>" >
-								<a href="#">
-									<i class="fa fa-plus"></i>
-									<span>Cadastros</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="treeview modern-menu-item <?php echo @$menu_cadastros ?>" >
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon cadastros-icon">
+										<i class="fa fa-plus"></i>
+									</div>
+									<span class="modern-menu-text">Cadastros</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
-									<li class="<?php echo @$servicos ?>"><a href="servicos"><i class="fa fa-angle-right"></i>Serviços</a></li>
-
-									<li class="<?php echo @$cargos ?>"><a href="cargos"><i class="fa fa-angle-right"></i>Cargos</a></li>
-
-									<li class="<?php echo @$cat_servicos ?>"><a href="cat_servicos"><i class="fa fa-angle-right"></i>Categoria Serviços</a></li>
-
-									<li class="<?php echo @$grupos ?>"><a href="grupos"><i class="fa fa-angle-right"></i>Grupo Acessos</a></li>
-
-									<li class="<?php echo @$acessos ?>"><a href="acessos"><i class="fa fa-angle-right"></i>Acessos</a></li>
-
-										<li class="<?php echo @$pgto ?>"><a href="pgto"><i class="fa fa-angle-right"></i>Formas de Pagamento</a></li>
-
-
-										<li class="<?php echo @$dias_bloqueio ?>"><a href="dias_bloqueio"><i class="fa fa-angle-right"></i>Bloqueio de Dias</a></li>
-
-										<li class="<?php echo @$assinaturas ?>"><a href="assinaturas"><i class="fa fa-angle-right"></i>Assinaturas</a></li>
-								
+								<ul class="treeview-menu modern-submenu">
+									<li class="modern-submenu-item <?php echo @$servicos ?>"><a href="servicos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Serviços</a></li>
+									<li class="modern-submenu-item <?php echo @$cargos ?>"><a href="cargos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Cargos</a></li>
+									<li class="modern-submenu-item <?php echo @$cat_servicos ?>"><a href="cat_servicos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Categoria Serviços</a></li>
+									<li class="modern-submenu-item <?php echo @$grupos ?>"><a href="grupos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Grupo Acessos</a></li>
+									<li class="modern-submenu-item <?php echo @$acessos ?>"><a href="acessos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Acessos</a></li>
+									<li class="modern-submenu-item <?php echo @$pgto ?>"><a href="pgto" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Formas de Pagamento</a></li>
+									<li class="modern-submenu-item <?php echo @$dias_bloqueio ?>"><a href="dias_bloqueio" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Bloqueio de Dias</a></li>
+									<li class="modern-submenu-item <?php echo @$assinaturas ?>"><a href="assinaturas" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Assinaturas</a></li>
 								</ul>
 							</li>
 
+							<li class="header modern-menu-header">Produtos</li>
 
-							<li class="treeview <?php echo @$menu_produtos ?>">
-								<a href="#">
-									<i class="fa fa-plus"></i>
-									<span>Produtos</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="treeview modern-menu-item <?php echo @$menu_produtos ?>">
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon produtos-icon">
+										<i class="fa fa-cube"></i>
+									</div>
+									<span class="modern-menu-text">Produtos</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu modern-submenu">
 
 									<li class="<?php echo @$produtos ?>"><a href="produtos"><i class="fa fa-angle-right"></i>Produtos</a></li>
 

@@ -82,7 +82,7 @@
     }
 }
 
-/* Animações suaves */
+/* Animações suaves - DESABILITADAS */
 @keyframes iconPulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -90,5 +90,5 @@
 }
 
 .card .lucide:hover {
-    animation: iconPulse 0.6s ease-in-out;
+    /* Removido: animation: iconPulse 0.6s ease-in-out; */
 }

@@ -92,7 +92,6 @@ body {
 .panel-heading {
   background: transparent !important;
   border: none !important;
-  border-bottom: 1px solid rgba(16, 185, 129, 0.15) !important;
   padding: 48px 32px 32px 32px !important;
   text-align: center;
   position: relative;

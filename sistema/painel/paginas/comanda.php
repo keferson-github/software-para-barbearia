@@ -33,42 +33,332 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 
 ?>
 
-<div class="">      
-	<a class="btn btn-primary" onclick="inserir()" class="btn btn-primary btn-flat btn-pri"><i class="fa fa-plus" aria-hidden="true"></i> Nova Comanda</a>
+<!-- Inclusão do CSS Grid Layout para Modal Comanda -->
+<link rel="stylesheet" href="../css/comanda-grid.css">
+
+<style>
+/* Estilos Flexbox para Responsividade da Comanda */
+.comanda-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+	margin-left: 15px;
+}
+
+.comanda-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+	margin-left: 12px;
+    max-width: 100%;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.date-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.date-input-wrapper input {
+    height: 34px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 140px;
+    min-width: 120px;
+}
+
+.quick-filters {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.filter-links a {
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.filter-links a:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+}
+
+/* Modal Responsivo */
+.modal-content-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.modal-body-flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 15px;
+}
+
+.comanda-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0;
+}
+
+.comanda-main-section {
+    flex: 2;
+    min-width: 300px;
+    border-right: 1px solid #6e6d6d;
+    padding-right: 15px;
+    overflow-y: auto;
+    max-height: 450px;
+    scrollbar-width: thin;
+}
+
+.comanda-payment-section {
+    flex: 1;
+    min-width: 250px;
+    padding-left: 15px;
+}
+
+.form-row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.form-col-flex {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-col-flex.small {
+    flex: 0 0 auto;
+    min-width: 80px;
+}
+
+.form-col-flex.medium {
+    flex: 0 0 150px;
+    min-width: 120px;
+}
+
+.btn-add-flex {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+.btn-add-flex a {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    min-width: 40px;
+}
+
+.service-product-list {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    min-height: 45px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.payment-row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.payment-col-small {
+    flex: 0 0 100px;
+    min-width: 80px;
+}
+
+.payment-col-large {
+    flex: 1;
+    min-width: 120px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .comanda-filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .date-inputs {
+        justify-content: center;
+    }
+    
+    .date-input-wrapper input {
+        width: 120px;
+        min-width: 100px;
+    }
+    
+    .quick-filters {
+        justify-content: center;
+    }
+    
+    .comanda-form-container {
+        flex-direction: column;
+    }
+    
+    .comanda-main-section {
+        border-right: none;
+        border-bottom: 1px solid #6e6d6d;
+        padding-right: 0;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .comanda-payment-section {
+        padding-left: 0;
+    }
+    
+    .form-row-flex {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .form-col-flex {
+        min-width: auto;
+    }
+    
+    .payment-row-flex {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .comanda-filters {
+        padding: 10px;
+    }
+    
+    .date-input-wrapper input {
+        width: 100px;
+        min-width: 90px;
+        font-size: 12px;
+    }
+    
+    .filter-links {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .filter-links a {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+    
+    .modal-dialog {
+        margin: 10px !important;
+        width: calc(100% - 20px) !important;
+        max-width: none !important;
+    }
+    
+    .modal-body-flex {
+        padding: 15px 10px;
+    }
+    
+    .form-row-flex {
+        gap: 6px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+</style>
+
+<div class="comanda-header">      
+	<a class="btn btn-primary" onclick="inserir()"><i class="fa fa-plus" aria-hidden="true"></i> Nova Comanda</a>
 </div>
 
 <div class="bs-example" style="padding:15px">
 
-	<div class="row" style="margin-top: -15px; margin-bottom: 15px;">
-		<div class="col-md-5" style="margin-bottom: 8px;">
-			<div style="float:left; margin-right:10px; margin-top: 8px;"><span><small><i title="Data de Vencimento Inicial" class="fa fa-calendar-o"></i></small></span></div>
-			<div style="float:left; margin-right:20px;">
-				<input type="date" class="form-control" name="data-inicial" id="data-inicial-caixa" value="<?php echo $data_hoje ?>" required style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 140px;">
-			</div>
+	<div class="comanda-filters">
+		<div class="filter-group">
+			<div class="date-inputs">
+				<div class="date-input-wrapper">
+					<span><small><i title="Data de Vencimento Inicial" class="fa fa-calendar-o"></i></small></span>
+					<input type="date" class="form-control" name="data-inicial" id="data-inicial-caixa" value="<?php echo $data_hoje ?>" required>
+				</div>
 
-			<div style="float:left; margin-right:10px; margin-top: 8px;"><span><small><i title="Data de Vencimento Final" class="fa fa-calendar-o"></i></small></span></div>
-			<div style="float:left; margin-right:30px;">
-				<input type="date" class="form-control" name="data-final" id="data-final-caixa" value="<?php echo $data_hoje ?>" required style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 140px;">
+				<div class="date-input-wrapper">
+					<span><small><i title="Data de Vencimento Final" class="fa fa-calendar-o"></i></small></span>
+					<input type="date" class="form-control" name="data-final" id="data-final-caixa" value="<?php echo $data_hoje ?>" required>
+				</div>
 			</div>
 		</div>
 
-
-		
-		<div class="col-md-2" style="margin-top:5px;" align="center">	
-			<div > 
-				<small >
+		<div class="quick-filters">
+			<div class="filter-links"> 
+				<small>
 					<a title="Conta de Ontem" class="text-muted" href="#" onclick="valorData('<?php echo $data_ontem ?>', '<?php echo $data_ontem ?>')"><span>Ontem</span></a> / 
 					<a title="Conta de Hoje" class="text-muted" href="#" onclick="valorData('<?php echo $data_hoje ?>', '<?php echo $data_hoje ?>')"><span>Hoje</span></a> / 
 					<a title="Conta do Mês" class="text-muted" href="#" onclick="valorData('<?php echo $data_inicio_mes ?>', '<?php echo $data_final_mes ?>')"><span>Mês</span></a>
 				</small>
 			</div>
-		</div>
 
-
-
-	<div class="col-md-3" style="margin-top:5px;" align="center">	
-			<div > 
-				<small >
+			<div class="filter-links"> 
+				<small>
 					<a title="Todas as Comandas" class="text-muted" href="#" onclick="buscarContas('')"><span>Todas</span></a> / 
 					<a title="Abertas" class="text-muted" href="#" onclick="buscarContas('Aberta')"><span>Abertas</span></a> / 
 					<a title="Fechadas" class="text-muted" href="#" onclick="buscarContas('Fechada')"><span>Fechadas</span></a>
@@ -77,7 +367,6 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 		</div>
 
 		<input type="hidden" id="buscar-contas" value="Aberta">
-
 	</div>
 
 	
@@ -94,8 +383,8 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 
 <!-- Modal Inserir-->
 <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="">
-	<div class="modal-dialog modal-lg" role="document" style="width:90%; max-width:1400px;" id="modal_scrol">
-		<div class="modal-content">
+	<div class="modal-dialog modal-lg" role="document" style="width:85%; max-width:1300px;" id="modal_scrol">
+		<div class="modal-content modal-content-flex">
 			<div class="modal-header" style="padding: 10px 15px;">
 				<h4 class="modal-title" style="margin: 0;"><span id="titulo_comanda">Nova Comanda</span></h4>
 				<button id="btn-fechar" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -15px">
@@ -103,14 +392,14 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 				</button>
 			</div>
 			<form id="form_salvar">
-				<div class="modal-body" style="padding: 20px 15px;">
+				<div class="modal-body modal-body-flex">
 
-					<div class="row" style="margin: 0;">
-						<div class="col-md-8" style="border-right: 1px solid #6e6d6d; overflow-y: auto; height:auto; max-height: 450px; scrollbar-width: thin; padding-right: 15px;">
+					<div class="comanda-form-container">
+						<div class="comanda-main-section">
 							
 							<!-- Seção Cliente e Observações -->
-							<div class="row" style="margin-bottom: 12px; margin-top: 8px;">
-								<div class="col-md-6" style="padding-right: 8px;">			
+							<div class="form-row-flex">
+								<div class="form-col-flex">			
 									<div class="form-group" style="margin-bottom: 12px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Cliente *</label> 
 										<select class="form-control sel2" id="cliente" name="cliente" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required> 
@@ -130,7 +419,7 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 									</div>						
 								</div>
 
-								<div class="col-md-6" style="padding-left: 8px;">						
+								<div class="form-col-flex">						
 									<div class="form-group" style="margin-bottom: 12px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Observações</label> 
 										<input maxlength="1000" type="text" class="form-control" name="obs" id="obs2" style="height: 34px; border: 1px solid #ddd; border-radius: 4px;" placeholder="Digite observações..."> 
@@ -142,8 +431,8 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 							<div style="border-top: 1px solid #e0e0e0; margin: 15px 0;"></div>
 
 							<!-- Seção Serviços -->
-							<div class="row" style="margin-bottom: 10px;">
-								<div class="col-md-5" style="padding-right: 8px;">						
+							<div class="form-row-flex">
+								<div class="form-col-flex">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Serviço *</label> 
 										<select class="form-control sel2" id="servico" name="servico" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required> 
@@ -162,7 +451,7 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 									</div>						
 								</div>
 
-								<div class="col-md-5" style="padding-left: 8px; padding-right: 8px;">						
+								<div class="form-col-flex">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Profissional *</label> 
 										<select class="form-control sel2" id="funcionario" name="funcionario" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required> 
@@ -181,21 +470,21 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 									</div>						
 								</div>
 
-								<div class="col-md-2" style="padding-left: 8px; display: flex; align-items: end;">	
-									<a href="#" onclick="inserirServico()" class="btn btn-primary btn-sm" style="height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 4px;" title="Adicionar Serviço"><i class="fa fa-plus"></i></a>
+								<div class="btn-add-flex">	
+									<a href="#" onclick="inserirServico()" class="btn btn-primary btn-sm" title="Adicionar Serviço"><i class="fa fa-plus"></i></a>
 								</div>
 							</div>
 
 							<!-- Lista de Serviços -->
-							<div class="row" style="margin-bottom: 12px;">
-								<div class="col-md-12">
-									<div style="border: 1px solid #ddd; margin-bottom: 10px; min-height: 45px; padding: 8px; border-radius: 4px; background-color: #f9f9f9;" id="listar_servicos"></div>
+							<div class="form-row-flex">
+								<div class="form-col-flex" style="min-width: 100%;">
+									<div class="service-product-list" id="listar_servicos"></div>
 								</div>
 							</div>
 
 							<!-- Seção Produtos -->
-							<div class="row" style="margin-bottom: 10px;">
-								<div class="col-md-4" style="padding-right: 8px;">						
+							<div class="form-row-flex">
+								<div class="form-col-flex">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Produtos</label> 
 										<select class="form-control sel2" id="produto" name="produto" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required onchange="listarServicos()"> 
@@ -214,14 +503,14 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 									</div>						
 								</div>
 
-								<div class="col-md-2" style="padding-left: 8px; padding-right: 8px;">					
+								<div class="form-col-flex small">					
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Qtd</label> 
 										<input type="number" class="form-control" name="quantidade" id="quantidade" value="1" style="height: 34px; border: 1px solid #ddd; border-radius: 4px; text-align: center;" min="1"> 
 									</div>						
 								</div>
 
-								<div class="col-md-4" style="padding-left: 8px; padding-right: 8px;">						
+								<div class="form-col-flex">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Profissional</label> 
 										<select class="form-control sel2" id="funcionario2" name="funcionario2" style="width:100%; height: 34px; border: 1px solid #ddd; border-radius: 4px;" required onchange="listarServicos()"> 
@@ -241,33 +530,33 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 									</div>						
 								</div>
 
-								<div class="col-md-2" style="padding-left: 8px; display: flex; align-items: end;">	
-									<a href="#" onclick="inserirProduto()" class="btn btn-primary btn-sm" style="height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 4px;" title="Adicionar Produto"><i class="fa fa-plus"></i></a>
+								<div class="btn-add-flex">	
+									<a href="#" onclick="inserirProduto()" class="btn btn-primary btn-sm" title="Adicionar Produto"><i class="fa fa-plus"></i></a>
 								</div>
 							</div>
 
 							<!-- Lista de Produtos -->
-							<div class="row" style="margin-bottom: 12px;">
-								<div class="col-md-12">
-									<div style="border: 1px solid #ddd; margin-bottom: 10px; min-height: 45px; padding: 8px; border-radius: 4px; background-color: #f9f9f9;" id="listar_produtos"></div>
+							<div class="form-row-flex">
+								<div class="form-col-flex" style="min-width: 100%;">
+									<div class="service-product-list" id="listar_produtos"></div>
 								</div>
 							</div>
 
 						</div>
 
 						<!-- Painel Lateral de Pagamento -->
-						<div class="col-md-4" style="padding-left: 15px;">
+						<div class="comanda-payment-section">
 							
 							<!-- Valor e Data de Pagamento -->
-							<div class="row" style="margin-bottom: 10px;">
-								<div class="col-md-5" style="padding-right: 5px;">						
+							<div class="payment-row-flex">
+								<div class="payment-col-small">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Valor</label> 
 										<input type="text" class="form-control inputs_form" name="valor_serv" id="valor_serv" style="height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px; text-align: right;" placeholder="0,00"> 
 									</div>						
 								</div>
 
-								<div class="col-md-7" style="padding-left: 5px;">						
+								<div class="payment-col-large">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Data PGTO</label> 
 										<input type="date" class="form-control inputs_form" name="data_pgto" id="data_pgto" value="<?php echo date('Y-m-d') ?>" style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 100%;"> 
@@ -276,8 +565,8 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 							</div>
 
 							<!-- Forma de Pagamento -->
-							<div class="row" style="margin-bottom: 12px;">
-								<div class="col-md-12">						
+							<div class="payment-row-flex">
+								<div class="payment-col-large" style="flex: 1; min-width: 100%;">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Forma PGTO</label> 
 										<select class="form-control inputs_form" id="pgto" name="pgto" style="width:100%; height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px;" required> 
@@ -301,15 +590,15 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 							<div style="border-bottom: 1px solid #e0e0e0; margin: 12px 0;"></div>
 
 							<!-- Valor Restante -->
-							<div class="row" style="margin-bottom: 10px;">
-								<div class="col-md-5" style="padding-right: 5px;">						
+							<div class="payment-row-flex">
+								<div class="payment-col-small">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Vl. Restante</label> 
 										<input type="text" class="form-control inputs_form" name="valor_serv_agd_restante" id="valor_serv_agd_restante" onkeyup="abaterValor()" style="height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px; text-align: right;" placeholder="0,00"> 
 									</div>						
 								</div>
 
-								<div class="col-md-7" style="padding-left: 5px;">						
+								<div class="payment-col-large">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 14px; font-weight: 500; color: #333;">Data PGTO Restante</label> 
 										<input type="date" class="form-control inputs_form" name="data_pgto_restante" id="data_pgto_restante" value="" style="height: 34px; font-size: 14px; border: 1px solid #ddd; border-radius: 4px; width: 100%;"> 
@@ -318,8 +607,8 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 							</div>
 
 							<!-- Forma PGTO Restante -->
-							<div class="row" style="margin-bottom: 12px;">
-								<div class="col-md-12">						
+							<div class="payment-row-flex">
+								<div class="payment-col-large" style="flex: 1; min-width: 100%;">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Forma PGTO Restante</label> 
 										<select class="form-control inputs_form" id="pgto_restante" name="pgto_restante" style="width:100%; height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px;"> 
@@ -344,8 +633,8 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 							<div style="border-bottom: 1px solid #e0e0e0; margin: 12px 0;"></div>
 
 							<!-- Fechar Comanda -->
-							<div class="row" style="margin-bottom: 12px;">
-								<div class="col-md-12">						
+							<div class="payment-row-flex">
+								<div class="payment-col-large" style="flex: 1; min-width: 100%;">						
 									<div class="form-group" style="margin-bottom: 10px;"> 
 										<label style="margin-bottom: 5px; font-size: 13px; font-weight: 500; color: #333;">Fechar comanda ao Salvar</label> 
 										<select class="form-control inputs_form" id="salvar_comanda" name="salvar_comanda" style="width:100%; height: 32px; font-size: 13px; border: 1px solid #ddd; border-radius: 4px;"> 
@@ -357,11 +646,9 @@ $data_final_mes = $ano_atual."-".$mes_atual."-".$dia_final_mes;
 							</div>
 
 							<!-- Botões de Ação -->
-							<div class="row">
-								<div class="col-md-12" style="text-align: right; padding-top: 10px;">
-									<a href="#" id="btn_fechar_comanda" onclick="fecharComanda()" class="btn btn-success btn-sm" style="margin-right: 8px; padding: 6px 12px; border-radius: 4px;">Fechar Comanda</a>
-									<button type="submit" class="btn btn-primary btn-sm" style="padding: 6px 12px; border-radius: 4px;">Salvar</button>	
-								</div>	
+							<div class="action-buttons">
+								<a href="#" id="btn_fechar_comanda" onclick="fecharComanda()" class="btn btn-success btn-sm">Fechar Comanda</a>
+								<button type="submit" class="btn btn-primary btn-sm">Salvar</button>	
 							</div>
 
 						</div>

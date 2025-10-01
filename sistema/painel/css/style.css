@@ -402,6 +402,7 @@ button#showLeftPush:active {
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
+  min-height: 645px;
 }
 .cbp-spmenu-push.cbp-spmenu-push-toright div#page-wrapper {
   margin: 0;
@@ -1277,8 +1278,8 @@ ul.dropdown-menu.drp-mnu li {
   font-size: 0.8em;
   font-weight: 400;
   letter-spacing: 0.5px;
-  line-height: 1.6em;
-  margin: 2px;
+  line-height: 1.6em !important;
+  margin: 2px !important;
   transition: all 0.2s ease !important;
 }
 .footer p a {
@@ -1358,11 +1359,11 @@ ul.dropdown-menu.drp-mnu li {
   color: #fff;
 }
 /*--charts--*/
-.charts,
-.row {
-  display: flex;
-  gap: 4px;
-  margin: 0 -6px 1em 0;
+.charts, .row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
 }
 .charts-grids {
   background-color: #fff;
@@ -2658,7 +2659,9 @@ p.creating {
   padding: 2em 1em;
 }
 .modal .row {
-  margin: -16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 h4.modal-title {
   margin: 0;
@@ -3709,17 +3712,21 @@ h3.w3_inner_tittle.two {
   position: relative;
 }
 .btn {
-  display: inline-block;
-  margin-bottom: 0;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-  color: #ffffff !important;
-  white-space: nowrap;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #ffffff !important;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-width: 20%;
+    margin-bottom: 0 !important;
 }
 .btn-block {
   display: block;
@@ -9253,7 +9260,7 @@ h4.asd label {
 /*--//responsive-design---*/
 
 .stat2 {
-  margin-left: -19px;
+  margin-left: -14px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -9453,8 +9460,11 @@ h4.asd label {
 }
 
 .sidebar-left .sidebar-menu .treeview-menu > li > a {
-  background: transparent !important;
-  color: #cbd5e1 !important;
+    background: transparent !important;
+    color: #cbd5e1 !important;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .sidebar-left .sidebar-menu .treeview-menu > li > a:hover,

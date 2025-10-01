@@ -260,162 +260,214 @@ $dados_meses_vendas =  '';
 </div>
 <?php } ?>
 
-	<div class="col_3">
-
-        <a href="clientes">
-		<div class="col-md-3 widget widget1 widget-clientes card-border-blue">
-			<div class="r3_counter_box">
-				<div class="stats">
-                        <h5><strong><big><big><?php echo $total_clientes ?></big></big></strong></h5>
-
+	<div class="dashboard-grid">
+        <!-- Card 1: Total de Clientes -->
+        <div class="grid-item">
+            <a href="clientes" class="modern-card-link">
+                <div class="modern-stat-card modern-card-blue clientes-card">
+                    <div class="modern-card-content">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-users stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="modern-card-info">
+                            <div class="modern-card-number"><?php echo $total_clientes ?></div>
+                            <div class="modern-card-label">Total de Clientes</div>
+                        </div>
                     </div>
-                    <hr style="margin-top:10px">
-                    <div align="center"><span>Total de Clientes</span></div>
-			</div>
-		</div>
-        </a>
-
-	
-
-         <a href="pagar">
-        <div class="col-md-3 widget widget1 widget-pagar card-border-red">
-            <div class="r3_counter_box">
-                <div class="stats">
-                        <h5><strong><big><big><?php echo $contas_pagar_hoje ?></big></big></strong></h5>
-
-                    </div>
-                    <hr style="margin-top:10px">
-                    <div align="center"><span>Contas à Pagar Hoje</span></div>
-            </div>
-        </div>
-        </a>
-
-
-		   <a href="receber">
-        <div class="col-md-3 widget widget1 widget-receber card-border-green">
-            <div class="r3_counter_box">
-                <div class="stats">
-                        <h5><strong><big><big><?php echo $contas_receber_hoje ?></big></big></strong></h5>
-
-                    </div>
-                    <hr style="margin-top:10px">
-                    <div align="center"><span>Contas à Receber Hoje</span></div>
-            </div>
-        </div>
-        </a>
-
-         <a href="estoque">
-		<div class="col-md-3 widget widget1 widget-estoque card-border-orange">
-			<div class="r3_counter_box">
-				<div class="stats">
-                        <h5><strong><big><big><?php echo $estoque_baixo ?></big></big></strong></h5>
-
-                    </div>
-                    <hr style="margin-top:10px">
-                    <div align="center"><span>Produtos Estoque Baixo</span></div>
-			</div>
-		</div>
-    </a>
-
-
-
-		<div class="col-md-3 widget widget-saldo card-border-dynamic <?php echo ($classe_saldo_dia == 'user1') ? 'saldo-negativo' : ''; ?>">
-			<div class="r3_counter_box">
-				<div class="stats">
-                        <h5><strong><big><?php echo @$saldo_total_diaF ?></big></strong></h5>
-
-                    </div>
-                    <hr style="margin-top:10px">
-                    <div align="center"><span>R$ Saldo do Dia</span></div>
-			</div>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-
-
-
-	<div class="row" style="margin-top: 20px">
-
-
-
-        <div class="col-md-4 stat stat2 stat-agendamentos">
-
-            <div class="content-top-1">
-                <div class="col-md-7 top-content">
-                    <h5>Agendamentos Dia</h5>
-                    <label><?php echo $total_agendamentos_hoje  ?>+</label>
                 </div>
-                <div class="col-md-5 top-content1">    
-                    <!-- Gráfico moderno -->
-                    <div class="modern-chart-container">
-                        <canvas id="modern-pie-1" class="modern-chart" data-percent="<?php echo $porcentagemAgendamentos ?>"></canvas>
+            </a>
+        </div>
+
+        <!-- Card 2: Contas à Pagar Hoje -->
+        <div class="grid-item">
+            <a href="pagar" class="modern-card-link">
+                <div class="modern-stat-card modern-card-red pagar-card">
+                    <div class="modern-card-content">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-credit-card stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="modern-card-info">
+                            <div class="modern-card-number"><?php echo $contas_pagar_hoje ?></div>
+                            <div class="modern-card-label">Contas à Pagar Hoje</div>
+                        </div>
                     </div>
-                    <!-- Gráfico antigo (oculto como fallback) -->
-                    <div id="demo-pie-1" class="pie-title-center" data-percent="<?php echo $porcentagemAgendamentos ?>" style="display: none;"> <span class="pie-value"></span> </div>
                 </div>
-                <div class="clearfix"> </div>
+            </a>
+        </div>
+
+        <!-- Card 3: Contas à Receber Hoje -->
+        <div class="grid-item">
+            <a href="receber" class="modern-card-link">
+                <div class="modern-stat-card modern-card-green receber-card">
+                    <div class="modern-card-content">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-money stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="modern-card-info">
+                            <div class="modern-card-number"><?php echo $contas_receber_hoje ?></div>
+                            <div class="modern-card-label">Contas à Receber Hoje</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card 4: Produtos Estoque Baixo -->
+        <div class="grid-item">
+            <a href="estoque" class="modern-card-link">
+                <div class="modern-stat-card modern-card-orange estoque-card">
+                    <div class="modern-card-content">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-cubes stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="modern-card-info">
+                            <div class="modern-card-number"><?php echo $estoque_baixo ?></div>
+                            <div class="modern-card-label">Produtos Estoque Baixo</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card 5: R$ Saldo do Dia -->
+        <div class="grid-item">
+            <div class="modern-stat-card modern-card-purple saldo-card">
+                <div class="modern-card-content">
+                    <div class="stats-icon-container">
+                        <i class="fa fa-dollar stats-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="modern-card-info">
+                        <div class="modern-card-number"><?php echo @$saldo_total_diaF ?></div>
+                        <div class="modern-card-label">R$ Saldo do Dia</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-4 stat stat-servicos">
-            <div class="content-top-1">
-                <div class="col-md-7 top-content">
-                    <h5>Serviços Pagos Hoje</h5>
-                    <label><?php echo $total_servicos_hoje ?>+</label>
-                </div>
-                <div class="col-md-5 top-content1">    
-                    <!-- Gráfico moderno -->
-                    <div class="modern-chart-container">
-                        <canvas id="modern-pie-2" class="modern-chart" data-percent="<?php echo $porcentagemServicos ?>"></canvas>
+        <!-- Container Flex para os 3 Cards de Estatísticas -->
+        <div class="flex-stats-container">
+            <!-- Cards de Estatísticas Modernos com Gráficos -->
+            <div class="flex-stats-item">
+                <div class="modern-stats-card agendamentos-card" role="article" aria-labelledby="stats-title-agendamentos">
+                    <div class="stats-card-header">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-calendar-check-o stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="stats-badge">
+                            <span class="badge-text">Hoje</span>
+                        </div>
                     </div>
-                    <!-- Gráfico antigo (oculto como fallback) -->
-                    <div id="demo-pie-2" class="pie-title-center" data-percent="<?php echo $porcentagemServicos ?>" style="display: none;"> <span class="pie-value"></span> </div>
+                    <div class="stats-content">
+                        <div class="stats-main">
+                            <h3 class="stats-title" id="stats-title-agendamentos">Agendamentos</h3>
+                            <div class="stats-number-container">
+                                <span class="stats-number" data-count="<?php echo $total_agendamentos_hoje ?>"><?php echo $total_agendamentos_hoje ?></span>
+                                <span class="stats-plus" aria-hidden="true">+</span>
+                            </div>
+                            <div class="stats-progress" role="progressbar" aria-valuenow="<?php echo $porcentagemAgendamentos ?>" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de agendamentos concluídos">
+                                <div class="progress-bar" data-percent="<?php echo $porcentagemAgendamentos ?>"></div>
+                            </div>
+                            <p class="stats-subtitle">Agendamentos confirmados <span class="visually-hidden">(<?php echo $porcentagemAgendamentos ?>% concluído)</span></p>
+                        </div>
+                        <div class="stats-chart">
+                            <div class="chart-container">
+                                <canvas id="modern-pie-1" class="modern-chart" data-percent="<?php echo $porcentagemAgendamentos ?>" role="img" aria-label="Gráfico: <?php echo $porcentagemAgendamentos ?>% de agendamentos concluídos"></canvas>
+                            </div>
+                            <div id="demo-pie-1" class="pie-title-center" data-percent="<?php echo $porcentagemAgendamentos ?>" style="display: none;"> <span class="pie-value"></span> </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="clearfix"> </div>
+            </div>
+
+            <div class="flex-stats-item">
+                <div class="modern-stats-card servicos-card" role="article" aria-labelledby="stats-title-servicos">
+                    <div class="stats-card-header">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-check-circle stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="stats-badge">
+                            <span class="badge-text">Hoje</span>
+                        </div>
+                    </div>
+                    <div class="stats-content">
+                        <div class="stats-main">
+                            <h3 class="stats-title" id="stats-title-servicos">Serviços Pagos</h3>
+                            <div class="stats-number-container">
+                                <span class="stats-number" data-count="<?php echo $total_servicos_hoje ?>"><?php echo $total_servicos_hoje ?></span>
+                                <span class="stats-plus" aria-hidden="true">+</span>
+                            </div>
+                            <div class="stats-progress" role="progressbar" aria-valuenow="<?php echo $porcentagemServicos ?>" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de serviços pagos">
+                                <div class="progress-bar" data-percent="<?php echo $porcentagemServicos ?>"></div>
+                            </div>
+                            <p class="stats-subtitle">Serviços finalizados <span class="visually-hidden">(<?php echo $porcentagemServicos ?>% pagos)</span></p>
+                        </div>
+                        <div class="stats-chart">
+                            <div class="chart-container">
+                                <canvas id="modern-pie-2" class="modern-chart" data-percent="<?php echo $porcentagemServicos ?>" role="img" aria-label="Gráfico: <?php echo $porcentagemServicos ?>% de serviços pagos"></canvas>
+                            </div>
+                            <div id="demo-pie-2" class="pie-title-center" data-percent="<?php echo $porcentagemServicos ?>" style="display: none;"> <span class="pie-value"></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-stats-item">
+                <div class="modern-stats-card comissoes-card" role="article" aria-labelledby="stats-title-comissoes">
+                    <div class="stats-card-header">
+                        <div class="stats-icon-container">
+                            <i class="fa fa-money stats-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="stats-badge">
+                            <span class="badge-text">Mês</span>
+                        </div>
+                    </div>
+                    <div class="stats-content">
+                        <div class="stats-main">
+                            <h3 class="stats-title" id="stats-title-comissoes">Comissões</h3>
+                            <div class="stats-number-container">
+                                <span class="stats-number" data-count="<?php echo $total_comissoes_mes ?>"><?php echo $total_comissoes_mes ?></span>
+                                <span class="stats-plus" aria-hidden="true">+</span>
+                            </div>
+                            <div class="stats-progress" role="progressbar" aria-valuenow="<?php echo $porcentagemComissoes ?>" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de comissões pagas">
+                                <div class="progress-bar" data-percent="<?php echo $porcentagemComissoes ?>"></div>
+                            </div>
+                            <p class="stats-subtitle">Comissões pagas <span class="visually-hidden">(<?php echo $porcentagemComissoes ?>% pagas)</span></p>
+                        </div>
+                        <div class="stats-chart">
+                            <div class="chart-container">
+                                <canvas id="modern-pie-3" class="modern-chart" data-percent="<?php echo $porcentagemComissoes ?>" role="img" aria-label="Gráfico: <?php echo $porcentagemComissoes ?>% de comissões pagas"></canvas>
+                            </div>
+                            <div id="demo-pie-3" class="pie-title-center" data-percent="<?php echo $porcentagemComissoes ?>" style="display: none;"> <span class="pie-value"></span> </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-4 stat stat-comissoes">
-            <div class="content-top-1">
-                <div class="col-md-7 top-content">
-                    <h5>Comissões Pagas Mês</h5>
-                    <label><?php echo $total_comissoes_mes ?>+</label>
-                </div>
-                <div class="col-md-5 top-content1">    
-                    <!-- Gráfico moderno -->
-                    <div class="modern-chart-container">
-                        <canvas id="modern-pie-3" class="modern-chart" data-percent="<?php echo $porcentagemComissoes ?>"></canvas>
+        <!-- Gráfico Demonstrativo Financeiro -->
+        <div class="grid-item grid-chart">
+            <div class="modern-stats-card financial-chart-card" role="article" aria-labelledby="financial-chart-title">
+                <div class="stats-card-header">
+                    <div class="stats-icon-container financial-icon">
+                        <i class="fa fa-line-chart stats-icon" aria-hidden="true"></i>
                     </div>
-                    <!-- Gráfico antigo (oculto como fallback) -->
-                    <div id="demo-pie-3" class="pie-title-center" data-percent="<?php echo $porcentagemComissoes ?>" style="display: none;"> <span class="pie-value"></span> </div>
+                    <div class="stats-badge financial-badge">
+                        <span class="badge-text">Anual</span>
+                    </div>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="stats-content financial-content">
+                    <div class="stats-main financial-main">
+                        <h3 class="stats-title" id="financial-chart-title">Demonstrativo Financeiro</h3>
+                        <p class="stats-subtitle">Comparativo mensal de receitas e despesas</p>
+                    </div>
+                </div>
+                <div class="financial-chart-container">
+                    <canvas id="Linegraph" width="800" height="350" style="width: 100%; height: 350px;">
+                    </canvas>
+                </div>
             </div>
         </div>
-
     </div>
-
-        <div class="row-one widgettable">
-
-		<div class="col-md-12 content-top-2 card">
-
-			<div class="agileinfo-cdr">
-					<div class="card-header">
-                        <h3>Demonstrativo Financeiro</h3>
-                    </div>
-					
-						<canvas id="Linegraph" width="800" height="350" style="width: 98%; height: 350px;">
-						</canvas>
-						
-				</div>
-
-		</div>
-
-
-
-
-		<div class="clearfix"> </div>
-	</div>
 
 
 	

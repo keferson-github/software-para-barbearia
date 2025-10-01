@@ -88,7 +88,7 @@ function addCenterText(chart, percentage, color, label) {
     // Texto da porcentagem
     ctx.font = 'bold 18px "Segoe UI", Arial, sans-serif';
     ctx.fillStyle = color;
-    ctx.fillText(percentage + '%', centerX, centerY - 5);
+    ctx.fillText(percentage, centerX, centerY - 5);
     
     // Texto do label (opcional)
     if (label) {
@@ -317,7 +317,7 @@ function createModernBarChart(elementId, percentage, color, label) {
                 // Texto da porcentagem
                 ctx.font = 'bold 16px "Segoe UI"';
                 ctx.fillStyle = '#fff';
-                ctx.fillText(percentage + '%', centerX, centerY);
+                ctx.fillText(percentage, centerX, centerY);
                 
                 ctx.restore();
             }
