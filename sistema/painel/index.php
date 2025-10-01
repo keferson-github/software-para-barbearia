@@ -290,40 +290,48 @@ $dataMesInicial = $partesInicial[1];
 
 
 
-							<li class="treeview <?php echo @$menu_financeiro ?>" >
-								<a href="#">
-									<i class="fa fa-usd"></i>
-									<span>Financeiro</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="header modern-menu-header">Financeiro</li>
+
+							<li class="treeview modern-menu-item <?php echo @$menu_financeiro ?>">
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon financeiro-icon">
+										<i class="fa fa-money"></i>
+									</div>
+									<span class="modern-menu-text">Financeiro</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu modern-submenu">
 
-									<li class="<?php echo @$vendas ?>"><a href="vendas"><i class="fa fa-angle-right"></i>Vendas</a></li>
+									<li class="modern-submenu-item <?php echo @$vendas ?>"><a href="vendas" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Vendas</a></li>
 
-									<li class="<?php echo @$compras ?>"><a href="compras"><i class="fa fa-angle-right"></i>Compras</a></li>
+									<li class="modern-submenu-item <?php echo @$compras ?>"><a href="compras" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Compras</a></li>
 									
-									<li class="<?php echo @$pagar ?>"><a href="pagar"><i class="fa fa-angle-right"></i>Contas à Pagar</a></li>
+									<li class="modern-submenu-item <?php echo @$pagar ?>"><a href="pagar" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Contas à Pagar</a></li>
 
-									<li class="<?php echo @$receber ?>"><a href="receber"><i class="fa fa-angle-right"></i>Contas à Receber</a></li>	
+									<li class="modern-submenu-item <?php echo @$receber ?>"><a href="receber" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Contas à Receber</a></li>	
 
-									<li class="<?php echo @$comissoes ?>"><a href="comissoes"><i class="fa fa-angle-right"></i>Comissões</a></li>									
+									<li class="modern-submenu-item <?php echo @$comissoes ?>"><a href="comissoes" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Comissões</a></li>									
 								
 								</ul>
 							</li>
 
 
 
-							<li class="treeview <?php echo @$menu_agendamentos ?>">
-								<a href="#">
-									<i class="fa fa-calendar-o"></i>
-									<span>Agendamento / Serviço</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="header modern-menu-header">Agendamento / Serviço</li>
+
+							<li class="treeview modern-menu-item <?php echo @$menu_agendamentos ?>">
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon agendamento-icon">
+										<i class="fa fa-calendar"></i>
+									</div>
+									<span class="modern-menu-text">Agendamento / Serviço</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu modern-submenu">
 
-									<li class="<?php echo @$agendamentos ?>"><a href="agendamentos"><i class="fa fa-angle-right"></i>Agendamentos</a></li>
+									<li class="modern-submenu-item <?php echo @$agendamentos ?>"><a href="agendamentos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Agendamentos</a></li>
 
-									<li class="<?php echo @$servicos_agenda ?>"><a href="servicos_agenda"><i class="fa fa-angle-right"></i>Serviços</a></li>
+									<li class="modern-submenu-item <?php echo @$servicos_agenda ?>"><a href="servicos_agenda" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Serviços</a></li>
 									
 																	
 								
@@ -332,32 +340,33 @@ $dataMesInicial = $partesInicial[1];
 
 
 
-							<li class="treeview <?php echo @$menu_relatorio ?>" >
-								<a href="#">
-									<i class="fa fa-file-pdf-o"></i>
-									<span>Relatórios</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="header modern-menu-header">Relatórios</li>
+
+							<li class="treeview modern-menu-item <?php echo @$menu_relatorio ?>">
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon relatorios-icon">
+										<i class="fa fa-file-text"></i>
+									</div>
+									<span class="modern-menu-text">Relatórios</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu modern-submenu">
 
-									<li class="<?php echo @$rel_produtos ?>"><a href="rel/rel_produtos_class.php" target="_blank"><i class="fa fa-angle-right"></i>Relatório de Produtos</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_produtos ?>"><a href="rel/rel_produtos_class.php" target="_blank" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Relatório de Produtos</a></li>
 
-									<li class="<?php echo @$rel_entradas ?>"><a href="#" data-toggle="modal" data-target="#RelEntradas"><i class="fa fa-angle-right"></i>Entradas / Ganhos</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_entradas ?>"><a href="#" data-toggle="modal" data-target="#RelEntradas" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Entradas / Ganhos</a></li>
 
-									<li class="<?php echo @$rel_saidas ?>"><a href="#" data-toggle="modal" data-target="#RelSaidas"><i class="fa fa-angle-right"></i>Saídas / Despesas</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_saidas ?>"><a href="#" data-toggle="modal" data-target="#RelSaidas" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Saídas / Despesas</a></li>
 
-									<li class="<?php echo @$rel_comissoes ?>"><a href="#" data-toggle="modal" data-target="#RelComissoes"><i class="fa fa-angle-right"></i>Relatório de Comissões</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_comissoes ?>"><a href="#" data-toggle="modal" data-target="#RelComissoes" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Relatório de Comissões</a></li>
 
-									<li class="<?php echo @$rel_contas ?>"><a href="#" data-toggle="modal" data-target="#RelCon"><i class="fa fa-angle-right"></i>Relatório de Contas</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_contas ?>"><a href="#" data-toggle="modal" data-target="#RelCon" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Relatório de Contas</a></li>
 
+									<li class="modern-submenu-item <?php echo @$rel_servicos ?>"><a href="#" data-toggle="modal" data-target="#RelServicos" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Relatório de Serviços</a></li>
 
-									<li class="<?php echo @$rel_servicos ?>"><a href="#" data-toggle="modal" data-target="#RelServicos"><i class="fa fa-angle-right"></i>Relatório de Serviços</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_aniv ?>"><a href="#" data-toggle="modal" data-target="#RelAniv" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Relatório de Aniversáriantes</a></li>
 
-
-									<li class="<?php echo @$rel_aniv ?>"><a href="#" data-toggle="modal" data-target="#RelAniv"><i class="fa fa-angle-right"></i>Relatório de Aniversáriantes</a></li>
-
-
-									<li class="<?php echo @$rel_lucro ?>"><a href="#" data-toggle="modal" data-target="#RelLucro"><i class="fa fa-angle-right"></i>Demonstrativo de Lucro</a></li>
+									<li class="modern-submenu-item <?php echo @$rel_lucro ?>"><a href="#" data-toggle="modal" data-target="#RelLucro" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Demonstrativo de Lucro</a></li>
 
 
 								
@@ -384,31 +393,44 @@ $dataMesInicial = $partesInicial[1];
 								</ul>
 							</li>
 
-                            <li class="treeview <?= @$marketings ?>">
-                                <a href="marketingp">
-                                    <i class="fa fa-paper-plane"></i><span>Campanha Marketing</span>
+                            <li class="header modern-menu-header">Campanha Marketing</li>
+
+                            <li class="treeview modern-menu-item <?= @$marketings ?>">
+                                <a href="marketingp" class="modern-menu-link">
+                                    <div class="modern-menu-icon marketing-icon">
+                                         <i class="fa fa-send"></i>
+                                     </div>
+                                    <span class="modern-menu-text">Campanha Marketing</span>
                                 </a>
                              </li>
                             
-								<li class="treeview <?php echo @$calendario ?>">
-								<a href="calendario">
-									<i class="fa fa-calendar-o"></i> <span>Calendário</span>
+							<li class="header modern-menu-header">Calendário</li>
+                            
+							<li class="treeview modern-menu-item <?php echo @$calendario ?>">
+								<a href="calendario" class="modern-menu-link">
+									<div class="modern-menu-icon calendario-icon">
+										<i class="fa fa-calendar-check-o"></i>
+									</div>
+									<span class="modern-menu-text">Calendário</span>
 								</a>
 							</li>
 
 
-							<li class="treeview <?php echo @$menu_site ?>" >
-								<a href="#">
-									<i class="fa fa-globe"></i>
-									<span>Dados do Site</span>
-									<i class="fa fa-angle-left pull-right"></i>
+							<li class="header modern-menu-header">Dados do Site</li>
+
+							<li class="treeview modern-menu-item <?php echo @$menu_site ?>">
+								<a href="#" class="modern-menu-link">
+									<div class="modern-menu-icon site-icon">
+										<i class="fa fa-cog"></i>
+									</div>
+									<span class="modern-menu-text">Dados do Site</span>
+									<i class="fa fa-angle-left pull-right modern-arrow"></i>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu modern-submenu">
 
-									<li class="<?php echo @$textos_index ?>"><a href="textos_index"><i class="fa fa-angle-right"></i>Textos Index</a></li>
+									<li class="modern-submenu-item <?php echo @$textos_index ?>"><a href="textos_index" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Textos Index</a></li>
 
-
-									<li class="<?php echo @$comentarios ?>"><a href="comentarios"><i class="fa fa-angle-right"></i>Comentários</a></li>
+									<li class="modern-submenu-item <?php echo @$comentarios ?>"><a href="comentarios" class="modern-submenu-link"><i class="fa fa-angle-right"></i>Comentários</a></li>
 
 														
 								
@@ -417,9 +439,14 @@ $dataMesInicial = $partesInicial[1];
 
 
 
-							<li class="treeview <?php echo @$caixas ?>" >
-								<a href="caixas">
-									<i class="fa fa-server"></i> <span>Caixas</span>
+							<li class="header modern-menu-header">Caixas</li>
+
+							<li class="treeview modern-menu-item <?php echo @$caixas ?>">
+								<a href="caixas" class="modern-menu-link">
+									<div class="modern-menu-icon caixas-icon">
+										<i class="fa fa-credit-card"></i>
+									</div>
+									<span class="modern-menu-text">Caixas</span>
 								</a>
 							</li>	
 
